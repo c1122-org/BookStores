@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
+    <meta nameBook="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
@@ -26,7 +26,7 @@
             background-color: #f2eae3
         }
 
-        .name {
+        .nameBook {
             font-size: 16px;
             color: #e83d16 !important;
             font-weight: 500
@@ -96,7 +96,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand name" href="#">BookStores</a>
+                <a class="navbar-brand nameBook" href="#">BookStores</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
