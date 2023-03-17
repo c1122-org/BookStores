@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: USER
   Date: 17/03/2023
-  Time: 10:19 SA
+  Time: 11:31 SA
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -123,23 +123,38 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="login_box_img">
-          <img class="img-fluid" src="img/login.jpg" alt="">
+          <img class="img-fluid" src="img/login.jpg" alt="" style="height: 820px">
           <div class="hover">
-            <h4>Mới vào trang website của chúng tôi?</h4>
+            <h4>Bạn đã vào trang website của chúng tôi?</h4>
             <p>Có những tiến bộ đang được thực hiện trong khoa học và công nghệ hàng ngày, và một ví dụ điển hình về điều này là</p>
-            <a class="primary-btn" href="registration.jsp">Tạo một tài khoản?</a>
+            <a class="primary-btn" href="login.jsp">Đăng nhập vào tài khoản?</a>
           </div>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="login_form_inner">
-          <h3>Đăng nhập</h3>
+          <h3>Đăng ký</h3>
           <form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+              <input type="text" class="form-control" id="cus_name" name="name" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <input type="text" class="form-control" id="cus_email" name="name" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="cus_date_of_birth" name="name" placeholder="Ngày sinh" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="cus_gendle" name="name" placeholder="Giới tính" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="user" name="name" placeholder="Tên đăng nhập" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="pass" name="name" placeholder="Mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="pass1" name="name" placeholder="Nhập lại mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
             </div>
             <div class="col-md-12 form-group">
               <div class="creat_account">
@@ -148,7 +163,7 @@
               </div>
             </div>
             <div class="col-md-12 form-group">
-              <button type="submit" value="submit" class="primary-btn">Đăng nhập</button>
+              <button type="submit" value="submit" class="primary-btn">Đăng ký</button>
               <a href="#">Quên mật khẩu?</a>
             </div>
           </form>
