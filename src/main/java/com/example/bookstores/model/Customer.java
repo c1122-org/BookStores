@@ -1,4 +1,4 @@
-package com.example.bookstores.Model;
+package com.example.bookstores.model;
 
 import java.util.Date;
 
