@@ -6,8 +6,9 @@ import com.example.bookstores.repository.ICustomerRepository;
 
 import java.util.List;
 
-public class CustomerService implements ICustomerService{
-    ICustomerRepository customerRepository=new CustomerRepository();
+public class CustomerService implements ICustomerService {
+    ICustomerRepository customerRepository = new CustomerRepository();
+
     @Override
     public List<Customer> displayAll() {
         return customerRepository.displayAll();
@@ -21,6 +22,16 @@ public class CustomerService implements ICustomerService{
     @Override
     public void updateByID(Customer customer) {
         customerRepository.updateByID(customer);
+    }
+
+    @Override
+    public void create(String name, String date, String email, int gender, String nameAccount) {
+        customerRepository.create(name, date, email, gender, nameAccount);
+    }
+
+    @Override
+    public List<Customer> sortByName() {
+        return customerRepository.sortByName();
     }
 
 }

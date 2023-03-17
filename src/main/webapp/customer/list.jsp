@@ -13,6 +13,8 @@
 </head>
 <body>
 <h1>Customer List</h1>
+<a href="/customers?action=sort">Sort</a>
+<a href="/customers?action=create">Create new customer</a>
 <table class="table">
     <thread>
         <tr>
