@@ -9,4 +9,7 @@ public interface ICustomerService {
     Customer findByID(int id);
 
     void updateByID(Customer customer);
+
+    void create(String name,String date,String email,int gender,String nameAccount);
+    List<Customer> sortByName();
 }

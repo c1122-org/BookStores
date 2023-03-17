@@ -3,7 +3,7 @@ package com.example.bookstores.model;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class Customer {
+public class Customer implements Comparable<Customer>{
     private int id;
     private String name;
     private String dateOfBirth;
@@ -69,5 +69,10 @@ public class Customer {
 
     public void setNameAccount(String nameAccount) {
         this.nameAccount = nameAccount;
+    }
+
+    @Override
+    public int compareTo(Customer o) {
+        return this.name.compareTo(o.name);
     }
 }
