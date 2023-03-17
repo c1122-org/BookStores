@@ -1,4 +1,4 @@
-package com.example.bookstores.Controller;
+package com.example.bookstores.controller;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
