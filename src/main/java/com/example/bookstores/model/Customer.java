@@ -1,23 +1,34 @@
 package com.example.bookstores.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Customer {
-    String name;
-    Date dateOfBirth;
-    String email;
-    int gender;
-    String nameAccount;
+    private int id;
+    private String name;
+    private String dateOfBirth;
+    private String email;
+    private int gender;
+    private String nameAccount;
 
     public Customer() {
     }
 
-    public Customer(String name, Date dateOfBirth, String email, int gender, String nameAccount) {
+    public Customer(int id,String name, String dateOfBirth, String email, int gender, String nameAccount) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.gender = gender;
         this.nameAccount = nameAccount;
+        this.id=id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -28,11 +39,11 @@ public class Customer {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
