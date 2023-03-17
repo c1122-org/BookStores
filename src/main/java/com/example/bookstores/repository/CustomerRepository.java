@@ -3,10 +3,7 @@ package com.example.bookstores.repository;
 import com.example.bookstores.model.Customer;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository{
