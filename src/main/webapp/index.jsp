@@ -10,6 +10,6 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
-<c:redirect url="user/home.jsp"></c:redirect>
+<c:redirect url="user/index.jsp"></c:redirect>
 </body>
 </html>

@@ -309,3 +309,12 @@ Thế giới tự nhiên xung quanh ta có vô vàn điều kì thú, tựa như
 ('Trời Đất Gà Vịt Ơi, Mặt Trời Đã Bị Đánh Cắp (Tái Bản)',51.040,' Christian Jolibois, Christian Heinrich','Nhã Nam','Nhà Xuất Bản Hà Nội','Ong Ong Ong','Ở chuồng gà, mọi chuyện không được suôn sẻ lắm: Pitikok không thể đánh thức mặt trời! Như mọi buổi sáng khác, bố của Carmen và Carmélito đã cất tiếng gáy: "Ò ó o o!" Nhưng không ăn thua. Vầng dương đã biến mất. Carmen, Carmélito và Bélinon quyết định tìm lại mặt trời! Nhân danh gà mái!','https://salt.tikicdn.com/cache/750x750/ts/product/85/7a/89/8dc7d8849d48b116cba93c4815e7aa2f.jpg.webp',8),
 ('Đường Về Nhà',71.500,'Go Hey Jin','Nhã Nam','Nhã Nam','Uyên Uyên','Cuốn sách này khởi nguồn từ trải nghiệm thời thơ ấu của tác giả. Anh vẽ về thế giới tưởng tượng mở ra trong đầu của đứa trẻ lần đầu đi một mình ra ngõ, trông thấy những cánh cổng, những ô cửa sổ cũ kỹ đầy màu sắc.
 Dành cho bạn nhỏ 3-6 tuổi','https://salt.tikicdn.com/cache/750x750/ts/product/fe/e5/19/c2ea78a1204a1e2730fdf82c138eb4d0.jpg.webp',8);
+
+DELIMITER //
+create trigger delete_customer
+after delete on customer for each row
+begin
+delete from `account`
+where acc_name = old.acc_name;
+end ;//
+DELIMITER ;
