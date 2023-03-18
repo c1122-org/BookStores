@@ -117,7 +117,7 @@
             <td>${book.publisher}</td>
             <td>${book.translator}</td>
             <td>${book.describes}</td>
-            <td>${book.image}</td>
+            <td><img src="${book.image}" alt="" width="100px;"></td>
             <td>${book.category.nameCategory}</td>
 <%-- button delete --%>
             <td>

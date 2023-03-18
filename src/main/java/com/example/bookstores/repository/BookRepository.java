@@ -51,6 +51,7 @@ public class BookRepository implements IBookRepository {
                 resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
                     int id = resultSet.getInt("book_id");
+                    //id chưa sử dụng, lúc nãy chỗ id này chưa sáng
                     String nameBook = resultSet.getString("book_name");
                     Double price = resultSet.getDouble("book_price");
                     String author = resultSet.getString("book_author");
@@ -62,8 +63,7 @@ public class BookRepository implements IBookRepository {
                     int idCategory = resultSet.getInt("category_id");
                     String nameCategory = resultSet.getString("category_name");
                     Category category = new Category(idCategory, nameCategory);
-
-                    bookList2.add(new Book(nameBook, price, author, publishingCompany, publisher, translator, describes, image, category));
+                    bookList2.add(new Book(id,nameBook, price, author, publishingCompany, publisher, translator, describes, image, category));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -151,7 +151,7 @@ public class BookRepository implements IBookRepository {
                 preparedStatement.setString(7, book.getDescribes());
                 preparedStatement.setString(8, book.getImage());
                 preparedStatement.setInt(9, book.getCategory().getIdCategory());
-                preparedStatement.setInt(10,book.getId());
+                preparedStatement.setInt(10,id);
 
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
