@@ -70,11 +70,11 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="index.html">Trang chủ</a></li>
-                        <li class="nav-item submenu dropdown">
+                        <li class="nav-item submenu dropdown" >
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
                                aria-expanded="false">Sản phẫm</a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="min-width: 220px">
                                 <li class="nav-item"><a class="nav-link" href="category.html">Danh mục sách</a></li>
                                 <li class="nav-item"><a class="nav-link" href="single-product.html">Thông tin chi tiết
                                     sản phẫm</a></li>
@@ -317,7 +317,7 @@
                 <!-- single product -->
                 <div class="col-lg-3 col-md-6">
                     <div class="single-product">
-                        <img class="img-fluid" src="img/product/1.jpg" alt="" style="height: 280px">
+                        <img class="img-fluid" src="img/3.jpg" alt="" style="height: 280px">
                         <div class="product-details">
                             <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
                             <div class="price">
@@ -349,7 +349,7 @@
                 <!-- single product -->
                 <div class="col-lg-3 col-md-6">
                     <div class="single-product">
-                        <img class="img-fluid" src="img/product/1.jpg" alt="" style="height: 280px">
+                        <img class="img-fluid" src="img/3.jpg" alt="" style="height: 280px">
                         <div class="product-details">
                             <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
                             <div class="price">
@@ -381,7 +381,7 @@
                 <!-- single product -->
                 <div class="col-lg-3 col-md-6">
                     <div class="single-product">
-                        <img class="img-fluid" src="img/product/1.jpg" alt="" style="height: 280px">
+                        <img class="img-fluid" src="img/3.jpg" alt="" style="height: 280px">
                         <div class="product-details">
                             <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
                             <div class="price">
@@ -413,7 +413,7 @@
                 <!-- single product -->
                 <div class="col-lg-3 col-md-6">
                     <div class="single-product">
-                        <img class="img-fluid" src="img/product/1.jpg" alt="" style="height: 280px">
+                        <img class="img-fluid" src="img/3.jpg" alt="" style="height: 280px">
                         <div class="product-details">
                             <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
                             <div class="price">
@@ -445,7 +445,7 @@
                 <!-- single product -->
                 <div class="col-lg-3 col-md-6">
                     <div class="single-product">
-                        <img class="img-fluid" src="img/product/1.jpg" alt="" style="height: 280px">
+                        <img class="img-fluid" src="img/3.jpg" alt="" style="height: 280px">
                         <div class="product-details">
                             <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
                             <div class="price">
@@ -477,7 +477,7 @@
                 <!-- single product -->
                 <div class="col-lg-3 col-md-6">
                     <div class="single-product">
-                        <img class="img-fluid" src="img/product/1.jpg" alt="" style="height: 280px">
+                        <img class="img-fluid" src="img/3.jpg" alt="" style="height: 280px">
                         <div class="product-details">
                             <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
                             <div class="price">
@@ -509,7 +509,7 @@
                 <!-- single product -->
                 <div class="col-lg-3 col-md-6">
                     <div class="single-product">
-                        <img class="img-fluid" src="img/product/1.jpg" alt="" style="height: 280px">
+                        <img class="img-fluid" src="img/3.jpg" alt="" style="height: 280px">
                         <div class="product-details">
                             <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
                             <div class="price">
@@ -541,7 +541,7 @@
                 <!-- single product -->
                 <div class="col-lg-3 col-md-6">
                     <div class="single-product">
-                        <img class="img-fluid" src="img/product/1.jpg" alt="" style="height: 280px">
+                        <img class="img-fluid" src="img/3.jpg" alt="" style="height: 280px">
                         <div class="product-details">
                             <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
                             <div class="price">
