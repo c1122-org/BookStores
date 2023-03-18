@@ -11,11 +11,11 @@ public interface IBookRepository {
 
     void save(Book book) throws SQLException;
 
-//    Book findById(int id) throws SQLException;
-//
-//    void updateBook(int id, Book book) throws SQLException;
-//
-//    boolean deleteBook(int id);
+    Book findById(int id) throws SQLException;
+
+    void updateBook(int id, Book book) throws SQLException;
+
+    boolean deleteBook(int id);
 
     List<Category> categoryList() throws SQLException;
 }
