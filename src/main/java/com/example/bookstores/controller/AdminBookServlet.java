@@ -45,9 +45,6 @@ public class AdminBookServlet extends HttpServlet {
                     throw new RuntimeException(e);
                 }
                 break;
-            case "search":
-                performSearch(request, response);
-                break;
             default:
                 showBooksList(request, response);
                 break;
@@ -102,6 +99,22 @@ public class AdminBookServlet extends HttpServlet {
      * @throws IOException
      */
     private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("deleteId"));
+        String mess = "Xóa không thành công";
+        boolean check = iBookService.deleteBook(id);
+        if (!check) {
+            mess = "Xóa thành công";
+        }
+        request.setAttribute("mess", mess);
+        List<Book> booksList = null;
+        try {
+            booksList = iBookService.findAll(null);
+        } catch (java.sql.SQLException throwables) {
+            throw new RuntimeException(throwables);
+        }
+        request.setAttribute("bookList",booksList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/list.jsp");
+        dispatcher.forward(request,response);
     }
 
     /**
@@ -114,6 +127,20 @@ public class AdminBookServlet extends HttpServlet {
      * @throws IOException
      */
     private void performEdit(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String nameBook = request.getParameter("nameBook");
+        Double price = Double.parseDouble(request.getParameter("price"));
+        String author= request.getParameter("author");
+        String publishingCompany=request.getParameter("publishingCompany");
+        String publisher= request.getParameter("publisher");
+        String translator=request.getParameter("translator");
+        String describes=request.getParameter("describes");
+        String image=request.getParameter("image");
+        int categoryID = Integer.parseInt(request.getParameter("categoryID"));
+        Category category = new Category(categoryID);
+        Book book= new Book(nameBook,price,author,publishingCompany,publisher,translator,describes,image,category);
+        iBookService.updateBook(id,book);
+        response.sendRedirect("/adminBook");
 
     }
 
@@ -162,10 +189,7 @@ public class AdminBookServlet extends HttpServlet {
         }
         request.getRequestDispatcher("/admin/list.jsp").forward(request, response);
     }
-
-    private void performSearch(HttpServletRequest request, HttpServletResponse response) {
-    }
-
+    
     /**
      * Function: show edit books
      * Create: QuynhNH
@@ -177,7 +201,11 @@ public class AdminBookServlet extends HttpServlet {
      * @throws IOException
      */
     private void showEdit(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-
+        int id = Integer.parseInt(request.getParameter("id"));
+        Book book = iBookService.findById(id);
+        request.setAttribute("book", book);
+        request.setAttribute("categoryList",iBookService.categoryList());
+        request.getRequestDispatcher("/admin/edit.jsp").forward(request, response);
     }
 
     /**
