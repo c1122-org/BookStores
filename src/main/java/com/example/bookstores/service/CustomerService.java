@@ -34,4 +34,9 @@ public class CustomerService implements ICustomerService {
         return customerRepository.sortByName();
     }
 
+    @Override
+    public void deleteByID(int id) {
+        customerRepository.deleteByID(id);
+    }
+
 }

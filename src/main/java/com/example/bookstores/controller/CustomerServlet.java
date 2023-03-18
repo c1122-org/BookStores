@@ -35,6 +35,8 @@ public class CustomerServlet extends HttpServlet {
             case "create":
                 showCreateForm(request,response);
                 break;
+            case "delete":
+                deleteByID(request,response);
             default:
                 displayAll(request, response);
         }
@@ -99,5 +101,10 @@ public class CustomerServlet extends HttpServlet {
         System.out.println(list.get(0).getName());
         request.setAttribute("listCustomer",list);
         request.getRequestDispatcher("customer/list.jsp").forward(request,response);
+    }
+    private void deleteByID(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        int id= Integer.parseInt(request.getParameter("id"));
+        customerService.deleteByID(id);
+        response.sendRedirect("customers");
     }
 }

@@ -107,7 +107,24 @@ public class CustomerRepository implements ICustomerRepository {
     }
 
     public void deleteByID(int id) {
-
+       Connection connection=DBConnection.getConnection();
+       PreparedStatement statement=null;
+       if (connection!=null){
+           try{
+               statement= connection.prepareStatement("delete from customer where cus_id=?");
+               statement.setInt(1,id);
+               statement.executeUpdate();
+           } catch (SQLException e) {
+               throw new RuntimeException(e);
+           }finally {
+               try {
+                   statement.close();
+               } catch (SQLException e) {
+                   throw new RuntimeException(e);
+               }
+               DBConnection.close();
+           }
+       }
     }
 
     public List<Customer> sortByName() {
