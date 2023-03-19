@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: USER
   Date: 17/03/2023
-  Time: 10:19 SA
+  Time: 11:31 SA
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -108,8 +108,8 @@
       <div class="col-first">
         <h1>Login/Register</h1>
         <nav class="d-flex align-items-center">
-          <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-          <a href="category.html">Login/Register</a>
+          <a href="/user/index.jsp">Home<span class="lnr lnr-arrow-right"></span></a>
+          <a href="/user/login.jsp">Login/Register</a>
         </nav>
       </div>
     </div>
@@ -123,23 +123,42 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="login_box_img">
-          <img class="img-fluid" src="img/login.jpg" alt="">
+          <img class="img-fluid" src="img/login.jpg" alt="" style="height: 820px">
           <div class="hover">
-            <h4>Mới vào trang website của chúng tôi?</h4>
+            <h4>Bạn đã vào trang website của chúng tôi?</h4>
             <p>Có những tiến bộ đang được thực hiện trong khoa học và công nghệ hàng ngày, và một ví dụ điển hình về điều này là</p>
-            <a class="primary-btn" href="registration.jsp">Tạo một tài khoản?</a>
+            <a class="primary-btn" href="login.jsp">Đăng nhập vào tài khoản?</a>
           </div>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="login_form_inner">
-          <h3>Đăng nhập</h3>
-          <form class="row login_form" action="/login" method="post" id="contactForm" novalidate="novalidate">
+          <h3>Đăng ký</h3>
+          <form class="row login_form" action="/register"  id="contactForm" novalidate="novalidate">
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="name" name="nameAccount" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+              <input type="text" class="form-control" id="cus_name" name="name" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ và tên'">
             </div>
             <div class="col-md-12 form-group">
-              <input type="password" class="form-control" id="pass" name="passAccount" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <input type="text" class="form-control" id="cus_email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="date" class="form-control" id="cus_date_of_birth" name="date" placeholder="Ngày sinh" onfocus="this.placeholder = ''" onblur="this.placeholder = 'DateOfBirth'">
+            </div>
+            <div class="col-md-12 form-group">
+              <select name="gender" id="gender">
+                <option value="0">Nam</option>
+                <option value="1">Nữ</option>
+                <option value="2">Giới tính khác</option>
+              </select>
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="nameAccount" name="nameAccount" placeholder="Tên đăng nhập" onfocus="this.placeholder = ''" onblur="this.placeholder = 'UserName'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="password" class="form-control" id="passAccount" name="passAccount" placeholder="Mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="password" class="form-control" id="pass1" name="repass" placeholder="Nhập lại mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
             </div>
             <div class="col-md-12 form-group">
               <div class="creat_account">
@@ -148,7 +167,7 @@
               </div>
             </div>
             <div class="col-md-12 form-group">
-              <button type="submit" value="submit" class="primary-btn">Đăng nhập</button>
+              <button type="submit" value="submit" class="primary-btn">Đăng ký</button>
               <a href="#">Quên mật khẩu?</a>
             </div>
           </form>
