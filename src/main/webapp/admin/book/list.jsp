@@ -41,7 +41,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     <%--phân trang--%>
-    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
@@ -612,20 +612,35 @@
         </div>
     </div>
 </footer>
-<script>
-    $(document).ready(function () {
-        $('#tableAdminFood').dataTable({
-            "dom": 'lrtip',
-            "lengthChange": false,
-            "pageLength": 5
-        });
-    });
+
 </script>
 <%--Phân trang--%>
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableAdminFood').DataTable({
+            "language": {
+                "sProcessing":   "Đang xử lý...",
+                "sLengthMenu":   "Xem _MENU_ mục",
+                "sZeroRecords":  "Không tìm thấy dòng nào phù hợp",
+                "sInfo":         "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty":    "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                "sInfoPostFix":  "",
+                "sSearch":       "Tìm:",
+                "sUrl":          "",
+                "oPaginate": {
+                    "sFirst":    "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext":     "Tiếp",
+                    "sLast":     "Cuối"
+                }
+            },
+            "searching": false,
+            "pagingType": "full_numbers",
+            'pageLength' : 5
+        });
+    });
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
