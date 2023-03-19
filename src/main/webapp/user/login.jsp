@@ -43,7 +43,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav ml-auto">
-            <li class="nav-item active"><a class="nav-link" href="index.html">Trang chủ</a></li>
+            <li class="nav-item active"><a class="nav-link" href="/user/index.jsp">Trang chủ</a></li>
             <li class="nav-item submenu dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                  aria-haspopup="true"
@@ -72,7 +72,7 @@
                  aria-haspopup="true"
                  aria-expanded="false">Pages</a>
               <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" href="/index?action=login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/login.jsp">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="tracking.html">Theo dõi</a></li>
                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
               </ul>
@@ -134,12 +134,16 @@
       <div class="col-lg-6">
         <div class="login_form_inner">
           <h3>Đăng nhập</h3>
-          <form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+          <form class="row login_form" action="/login" method="post" id="contactForm" novalidate="novalidate">
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+              <input type="text" class="form-control" id="name" name="nameAccount" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
             </div>
             <div class="col-md-12 form-group">
+<<<<<<< HEAD
               <input type="text" class="form-control" id="pass" name="pass" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+=======
+              <input type="password" class="form-control" id="pass" name="passAccount" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+>>>>>>> 01bed7a5f34dde644ecc9874d2bf6225fe86cf99
             </div>
             <div class="col-md-12 form-group">
               <div class="creat_account">
@@ -236,7 +240,7 @@
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         Copyright &copy;<script>document.write(new Date().getFullYear());</script>
         Trung tâm CodeGym | C1122G1 <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a
-              href="https://colorlib.com" target="_blank">Team2</a>
+              href="https://colorlib.com" target="_blank">Team3</a>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       </p>
     </div>

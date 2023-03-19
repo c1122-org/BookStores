@@ -6,7 +6,11 @@ import java.sql.SQLException;
 
 public class DBConnection {
     private static final String USER_NAME = "root";
+<<<<<<< HEAD
     private static final String PASSWORD = "n.v.minh99";
+=======
+    private static final String PASSWORD = "Quocanh2021";
+>>>>>>> 01bed7a5f34dde644ecc9874d2bf6225fe86cf99
     private static final String HOST = "localhost";
     private static final String DATABASE = "book_store";
     private static final String PORT = "3306";

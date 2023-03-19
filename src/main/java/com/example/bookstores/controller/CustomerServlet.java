@@ -4,13 +4,12 @@ import com.example.bookstores.model.Customer;
 import com.example.bookstores.service.CustomerService;
 import com.example.bookstores.service.ICustomerService;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "CustomerServlet", value = "/customers")
@@ -32,8 +31,13 @@ public class CustomerServlet extends HttpServlet {
             case "sort":
                 sortByName(request,response);
                 break;
+<<<<<<< HEAD
             case "delete":
                 deleteByID(request,response);
+=======
+            case "create":
+                showCreateForm(request,response);
+>>>>>>> 01bed7a5f34dde644ecc9874d2bf6225fe86cf99
                 break;
             default:
                 displayAll(request, response);
@@ -96,10 +100,5 @@ public class CustomerServlet extends HttpServlet {
         System.out.println(list.get(0).getName());
         request.setAttribute("listCustomer",list);
         request.getRequestDispatcher("customer/list.jsp").forward(request,response);
-    }
-    private void deleteByID(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        int id= Integer.parseInt(request.getParameter("id"));
-        customerService.deleteByID(id);
-        response.sendRedirect("customers");
     }
 }
