@@ -429,7 +429,8 @@
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                     <%--button thêm mới--%>
-                    <form class="example d-flex align-items-center" action="/adminBook?action=create">
+                    <form class="example d-flex align-items-center" action="/adminBook">
+                        <input type="hidden" name="action" value="create">
                         <button type="submit" style="width: 100px">Thêm sách</button>
                     </form>
                 </div>
