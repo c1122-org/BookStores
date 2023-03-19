@@ -35,9 +35,13 @@
     <link rel="stylesheet" href="../../bootstrap520/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../datatables/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../../themify-icons/themify-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <%--phân trang--%>
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
@@ -82,13 +86,14 @@
         .topnav a {
             float: left;
             display: block;
-            color: #8d8b8b;
-            font-weight: 800;
+            color: #ffffff;
+            font-weight: 200;
             font-size: 14px;
             text-transform: uppercase;
-            padding: 14px 16px;
+            padding: 4px 10px;
             text-decoration: none;
-            border-bottom: 3px solid transparent
+            border-bottom: 3px solid transparent;
+
         }
 
         .topnav a:hover {
@@ -425,7 +430,8 @@
                     <%--button search--%>
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
                     <form class="example d-flex align-items-center">
-                        <input type="text" placeholder="Tìm kiếm theo tên" name="name" value="${nameSearch}" style="width: 40%;">
+                        <input type="text" placeholder="Tìm kiếm theo tên" name="name" value="${nameSearch}"
+                               style="width: 40%;">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                     <%--button thêm mới--%>
@@ -434,9 +440,9 @@
                         <button type="submit" style="width: 100px">Thêm sách</button>
                     </form>
                 </div>
-<%--Hiển thị list--%>
+                <%--Hiển thị list--%>
                 <div class="table-responsive px-2">
-                    <table class="table">
+                    <table id="tableAdminFood" class="table">
                         <thead class="table-dark">
                         <tr class="text-center">
                             <th>Mã sách</th>
@@ -467,12 +473,14 @@
                                 <td>${book.category.nameCategory}</td>
                                     <%-- button delete --%>
                                 <td>
-                                    <button type="button" onclick="deleteInfo('${book.id}','${book.nameBook}')"  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" onclick="deleteInfo('${book.id}','${book.nameBook}')"
+                                            style="margin-bottom: 5px; line-height: 1.3px" class="btn btn-danger"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                         <%-- edit --%>
                                     <a href="/adminBook?action=edit&id=${book.id}" class="btn btn-primary"><i
-                                            class="fas fa-edit"></i></a>
+                                            class="fas fa-edit" style="line-height: 1.3px"></i></a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -482,21 +490,26 @@
 
                 </div>
                 <%-- modal xóa --%>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Delete Book</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                             </div>
                             <form action="/adminBook?action=delete" method="post">
                                 <div class="modal-body">
-                                    <label for="deleteId"></label><input type="text" hidden id="deleteId" name="deleteId" value="${book.id}">
-                                    Do you want to delete <span id="deleteName" style="color: brown; font-weight: bold">${book.nameBook}</span>
+                                    <label for="deleteId"></label><input type="text" hidden id="deleteId"
+                                                                         name="deleteId" value="${book.id}">
+                                    Do you want to delete <span id="deleteName"
+                                                                style="color: brown; font-weight: bold">${book.nameBook}</span>
                                     ?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
+                                    </button>
                                     <button type="submit" class="btn btn-primary">Confirm</button>
                                 </div>
                             </form>
@@ -599,11 +612,26 @@
         </div>
     </div>
 </footer>
+<script>
+    $(document).ready(function () {
+        $('#tableAdminFood').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+</script>
+<%--Phân trang--%>
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/bootstrap.min.js"></script>
 <script src="/user/js/jquery.ajaxchimp.min.js"></script>
