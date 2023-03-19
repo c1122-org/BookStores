@@ -40,6 +40,7 @@ public class CustomerServlet extends HttpServlet {
 
     }
 
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -52,12 +53,20 @@ public class CustomerServlet extends HttpServlet {
             case "update":
                 updateCustomer(request,response);
                 break;
+            case "search":
+                searchByName(request,response);
+                break;
             case "create":
                 createCustomer(request,response);
                 break;
             default:
                 displayAll(request, response);
         }
+    }
+    public void searchByName(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        String name=request.getParameter("search");
+        request.setAttribute("listCustomer",customerService.searchByName(name));
+        request.getRequestDispatcher("admin/customer/list.jsp").forward(request,response);
     }
 
     private void displayAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -424,25 +424,25 @@
                             <tr>
                                 <th style="padding-bottom: 10px">Ngày sinh:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="2" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="" id="3" value="" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Email:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="3" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="" id="4" value="" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Giới tính:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="4" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="" id="5" value="" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Tên đăng nhập:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="5" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="" id="6" value="" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
