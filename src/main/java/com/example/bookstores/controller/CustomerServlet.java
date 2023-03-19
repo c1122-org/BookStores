@@ -31,8 +31,13 @@ public class CustomerServlet extends HttpServlet {
             case "sort":
                 sortByName(request,response);
                 break;
+<<<<<<< HEAD
+            case "delete":
+                deleteByID(request,response);
+=======
             case "create":
                 showCreateForm(request,response);
+>>>>>>> 01bed7a5f34dde644ecc9874d2bf6225fe86cf99
                 break;
             default:
                 displayAll(request, response);
@@ -59,20 +64,17 @@ public class CustomerServlet extends HttpServlet {
                 displayAll(request, response);
         }
     }
-    private void showCreateForm(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        response.sendRedirect("/customer/create_test.jsp");
-    }
 
     private void displayAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("listCustomer", customerService.displayAll());
-        request.getRequestDispatcher("customer/list.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/customer/list.jsp").forward(request, response);
     }
 
     private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = customerService.findByID(id);
         request.setAttribute("customer", customer);
-        request.getRequestDispatcher("/customer/update.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/customer/update.jsp").forward(request, response);
     }
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {

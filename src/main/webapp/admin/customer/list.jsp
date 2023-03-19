@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -404,17 +405,17 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3">
-                <div class="d-flex px-1"><a href="" class="active">Sách</a> <a href="">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
                         href="#contact">Loại sách</a>
                 </div>
 
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
-                    <form class="example d-flex align-items-center">
+                    <form class="example d-flex align-items-center" action="/customers?action=search" method="post">
                         <input type="text" placeholder="Tìm kiếm theo tên và id" name="search" style="width: 40%;">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                    <form class="example d-flex align-items-center">
+                    <form class="example d-flex align-items-center" action="/customers?action=create">
                         <button type="submit" style="width: 100px">Thêm khách hàng</button>
                     </form>
                 </div>
@@ -426,12 +427,32 @@
                             <th>Tên</th>
                             <th>Ngày sinh</th>
                             <th>Email</th>
-                            <th>Gender</th>
                             <th>Giới tính</th>
                             <th>Tên đăng nhập</th>
+                            <th>Delete</th>
+                            <th>Update</th>
                         </tr>
                         </thead>
                         <tbody class="text-center">
+                        <c:forEach items="${listCustomer}" var="customer">
+                            <tr>
+
+                                <th>${customer.id}</th>
+                                <th>${customer.name}</th>
+                                <th>${customer.dateOfBirth}</th>
+                                <th>${customer.email}</th>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${customer.gender==0}">Nam</c:when>
+                                        <c:when test="${customer.gender==1}">Nu</c:when>
+                                        <c:when test="${customer.gender==2}">50/50</c:when>
+                                    </c:choose>
+                                </td>
+                                <th>${customer.nameAccount}</th>
+                                <th><a href="/customers?action=delete&id=${customer.id}">Delete</a></th>
+                                <th><a href="/customers?action=update&id=${customer.id}">Update</a></th>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -528,7 +549,8 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/bootstrap.min.js"></script>
 <script src="/user/js/jquery.ajaxchimp.min.js"></script>
