@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="/user/css/main.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -35,23 +36,28 @@
             list-style: none;
             font-family: 'Montserrat', sans-serif
         }
+
         body {
             padding: 10px
         }
+
         .topnav {
             background-color: #ffff;
             overflow: hidden
         }
+
         .far.fa-user-circle {
             font-size: 29px;
             color: #726f6f;
             padding-top: 10px
         }
+
         .input-10 {
             width: 40px;
             color: #4c4c96;
             font-weight: 600
         }
+
         .fas.fa-search {
             display: flex;
             flex-direction: column;
@@ -60,6 +66,7 @@
             background-color: lightsalmon;
             height: 100%
         }
+
         .topnav a {
             float: left;
             display: block;
@@ -71,14 +78,17 @@
             text-decoration: none;
             border-bottom: 3px solid transparent
         }
+
         .topnav a:hover {
             color: #f7910c;
             border-bottom: 3px solid red
         }
+
         .topnav .active {
             color: black;
             border-bottom: 3px solid red
         }
+
         form.example input[type=text] {
             padding: 10px;
             font-size: 17px;
@@ -88,9 +98,11 @@
             height: 36px;
             background: #fff
         }
+
         form.example input[type=text]:focus {
             outline: none
         }
+
         form.example button {
             float: left;
             width: 10%;
@@ -105,70 +117,87 @@
             border-left: none;
             cursor: pointer
         }
+
         .navbar-toggler:focus {
             box-shadow: none;
             outline: none;
             border: none
         }
+
         ::placeholder {
             font-size: 10px
         }
+
         form.example button:hover {
             background: #0b7dda
         }
+
         form.example::after {
             content: "";
             clear: both;
             display: table
         }
+
         .container .table-responsive {
             margin: 20px auto;
             overflow-x: auto
         }
+
         .container .table-responsive::-webkit-scrollbar {
             height: 5px
         }
+
         .container .table-responsive::-webkit-scrollbar-thumb {
             border-radius: 5px;
             background-image: linear-gradient(to right, #5D7ECD, #0C91E6)
         }
+
         .table thead tr th {
             font-size: 11px;
             color: white;
             padding: 10px 10px
         }
+
         .table tbody tr td {
             font-size: 13.5px;
             padding: 10px 10px
         }
+
         #navbar {
             width: 20%;
             background-color: black !important;
             height: 50px;
             border: none
         }
+
         .bg-blight {
             color: #7f7fee;
             font-weight: 600
         }
+
         .bg-bdark {
             color: #4c4c96;
             font-weight: 600
         }
+
         #navbar a {
             color: white
         }
+
         .fas.fa-bars {
             color: white
         }
+
         #navbar2 {
             width: 80%
         }
+
         #navbar-items {
             width: 20%;
             height: 500px;
             background-color: white;
         }
+
         ul#navbar-items li {
             color: black;
             padding: 15px 25px;
@@ -178,142 +207,177 @@
             display: flex;
             align-items: center
         }
+
         ul li .fas {
             font-size: 16px
         }
+
         ul#navbar-items li:hover {
             background-color: #fd7e14;
             color: white
         }
+
         ul li:hover .fas {
             color: #f7910c
         }
+
         #topnavbar {
             width: 80%
         }
+
         .fs13 {
             font-size: 13px
         }
+
         .fs14 {
             font-size: 18px;
             color: white
         }
+
         .fas.fa-times {
             color: red
         }
+
         .fas.fa-check {
             color: greenyellow
         }
+
         .example {
             width: 50%
         }
+
         @media (max-width: 780px) {
             #navbar {
                 width: 20%
             }
+
             #topnavbar {
                 width: 80%
             }
+
             .text-decoration-none.fs14 {
                 font-size: 10px
             }
+
             .text-decoration-none .fs13 {
                 font-size: 9px
             }
         }
+
         @media (max-width: 430px) {
             #navbar-items, #topnavbar {
                 width: 100%;
                 height: 100%
             }
+
             #navbar-items {
                 padding: 20px;
                 margin-bottom: 30px
             }
+
             .topnav a {
                 font-size: 12px;
                 padding: 12px
             }
+
             #navbar {
                 width: 100%;
                 background-color: blue
             }
+
             .example {
                 width: 100%
             }
+
             .text-decoration-none.fs14 {
                 font-size: 14px
             }
+
             .text-decoration-none .fs13 {
                 font-size: 13px
             }
         }
+
         @media (max-width: 376px) {
             #navbar-items {
                 padding: 20px;
                 margin-bottom: 30px
             }
+
             .topnav a {
                 font-size: 12px;
                 padding: 7px
             }
         }
+
         @media (max-width: 320px) {
             .topnav a {
                 font-size: 10px;
                 padding: 4px
             }
         }
+
         footer {
             background: #101010;
             padding: 86px 0;
         }
+
         .single-content {
             text-align: center;
             padding: 115px 0;
         }
+
         .single-box p {
             color: #fff;
             line-height: 1.9;
         }
+
         .single-box h3 {
             font-size: 16px;
             font-weight: 700;
             color: #fff;
         }
+
         .single-box .card-area i {
             color: #ffffff;
             font-size: 20px;
             margin-right: 10px;
         }
+
         .single-box ul {
             list-style: none;
             padding: 0;
         }
+
         .single-box ul li a {
             text-decoration: none;
             color: #fff;
             line-height: 2.5;
             font-weight: 100;
         }
+
         .single-box h2 {
             color: #fff;
             font-size: 20px;
             font-weight: 700;
         }
+
         #basic-addon2 {
             background: #fe1e4f;
             color: #fff;
         }
+
         .socials i {
             font-size: 18px;
             margin-right: 15px;
         }
+
         @media (max-width: 767px) {
             .single-box {
                 margin-bottom: 50px;
             }
         }
+
         @media (min-width: 768px) and (max-width: 991px) {
             .single-box {
                 margin-bottom: 50px;
@@ -342,60 +406,75 @@
             <div class="topnav mb-3" style="height: 500px">
                 <div class="d-flex px-1"><a href="#home" class="active">Sách</a> <a href="#news">Khách Hàng</a> <a
                         href="#contact">Loại sách</a>
-            </div>
+                </div>
 
-            <div style="margin-left: 10px">
                 <div style="margin-left: 10px">
-                    <form method="post">
-                        <table>
-                            <tr>
-                                <th style="padding-bottom: 10px">Mã khách hàng:</th>
-                                <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="1" value="" size="45" style="margin-left: 20px"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="padding-bottom: 10px">Tên khách hàng:</th>
-                                <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="2" value="" size="45" style="margin-left: 20px"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="padding-bottom: 10px">Ngày sinh:</th>
-                                <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="2" value="" size="45" style="margin-left: 20px"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="padding-bottom: 10px">Email:</th>
-                                <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="3" value="" size="45" style="margin-left: 20px"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="padding-bottom: 10px">Giới tính:</th>
-                                <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="4" value="" size="45" style="margin-left: 20px"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="padding-bottom: 10px">Tên đăng nhập:</th>
-                                <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="5" value="" size="45" style="margin-left: 20px"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" align="center">
-                                    <input type="submit" value="Save"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
+                    <div style="margin-left: 10px">
+                        <form action="/customers?action=update" method="post">
+                            <table>
+                                <tr>
+                                    <%--                                <th style="padding-bottom: 10px">Mã khách hàng:</th>--%>
+                                    <td style="padding-bottom: 10px">
+                                        <input type="hidden" name="id" id="1" value="${customer.id}" size="45"
+                                               style="margin-left: 20px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-bottom: 10px">Tên khách hàng:</th>
+                                    <td style="padding-bottom: 10px">
+                                        <input type="text" name="name" id="0" value="${customer.name}" size="45"
+                                               style="margin-left: 20px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-bottom: 10px">Ngày sinh:</th>
+                                    <td style="padding-bottom: 10px">
+                                        <input type="date" name="date" id="2" value="${customer.dateOfBirth}" size="45"
+                                               style="margin-left: 20px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-bottom: 10px">Email:</th>
+                                    <td style="padding-bottom: 10px">
+                                        <input type="text" name="email" id="3" value="${customer.email}" size="45"
+                                               style="margin-left: 20px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-bottom: 10px">Giới tính:</th>
+                                    <td style="padding-bottom: 10px">
+                                        <select name="gender" id="4">
+                                            <c:choose>
+                                                <c:when test="${customer.gender==0}"><option value="0">Nam</option></c:when>
+                                                <c:when test="${customer.gender==1}"><option value="1">Nu</option>></c:when>
+                                                <c:when test="${customer.gender==2}"><option value="2">50/50</option>></c:when>
+                                            </c:choose>
+<%--                                            <option value="0">Nam</option>--%>
+<%--                                            <option value="1">Nu</option>--%>
+<%--                                            <option value="2">50/50</option>--%>
+                                        </select>
+                                        <%--                                    <input type="text" name="gender" id="4" value="${customer.gender}" size="45" style="margin-left: 20px"/>--%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <%--                                <th style="padding-bottom: 10px">Tên đăng nhập:</th>--%>
+                                    <td style="padding-bottom: 10px">
+                                        <input type="hidden" name="nameAccount" id="5" value="" size="45"
+                                               style="margin-left: 20px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <input type="submit" value="Save"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <footer class="footer-area section_gap">
     <div class="container">
@@ -486,7 +565,8 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/bootstrap.min.js"></script>
 <script src="/user/js/jquery.ajaxchimp.min.js"></script>
