@@ -22,6 +22,22 @@ import java.util.List;
 @WebServlet(name = "AdminBookServlet", value = "/adminBook")
 public class AdminBookServlet extends HttpServlet {
     private IBookService iBookService=new BookService();
+
+    /**
+     * Function: doGet
+     * Create: QuynhNH
+     * Date create: 17/03/2023
+     * @param request   an {@link HttpServletRequest} object that
+     *                  contains the request the client has made
+     *                  of the servlet
+     *
+     * @param response  an {@link HttpServletResponse} object that
+     *                  contains the response the servlet sends
+     *                  to the client
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -50,6 +66,22 @@ public class AdminBookServlet extends HttpServlet {
                 break;
         }
     }
+
+    /**
+     * Function: doPost
+     * Create: QuynhNH
+     * Date create: 17/03/2023
+     * @param request   an {@link HttpServletRequest} object that
+     *                  contains the request the client has made
+     *                  of the servlet
+     *
+     * @param response  an {@link HttpServletResponse} object that
+     *                  contains the response the servlet sends
+     *                  to the client
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -84,13 +116,11 @@ public class AdminBookServlet extends HttpServlet {
             default:
                 showBooksList(request, response);
                 break;
-
         }
-
     }
 
     /**
-     * Function: Delete books
+     * Function: Delete books doPost
      * Create: QuynhNH
      * Date create: 17/03/2023
      * @param request
@@ -118,7 +148,7 @@ public class AdminBookServlet extends HttpServlet {
     }
 
     /**
-     * Function: Perform edit books
+     * Function: Perform edit books doPost
      * Create: QuynhNH
      * Date create: 17/03/2023
      * @param request
@@ -145,7 +175,7 @@ public class AdminBookServlet extends HttpServlet {
     }
 
     /**
-     * Function: Perform create books
+     * Function: Perform create books doPost
      * Create: QuynhNH
      * Date create: 17/03/2023
      * @param request
