@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -413,7 +414,6 @@
                         <form action="/customers?action=update" method="post">
                             <table>
                                 <tr>
-                                    <%--                                <th style="padding-bottom: 10px">Mã khách hàng:</th>--%>
                                     <td style="padding-bottom: 10px">
                                         <input type="hidden" name="id" id="1" value="${customer.id}" size="45"
                                                style="margin-left: 20px"/>
@@ -444,20 +444,29 @@
                                     <th style="padding-bottom: 10px">Giới tính:</th>
                                     <td style="padding-bottom: 10px">
                                         <select name="gender" id="4">
-                                            <c:choose>
-                                                <c:when test="${customer.gender==0}"><option value="0">Nam</option></c:when>
-                                                <c:when test="${customer.gender==1}"><option value="1">Nu</option>></c:when>
-                                                <c:when test="${customer.gender==2}"><option value="2">50/50</option>></c:when>
-                                            </c:choose>
-<%--                                            <option value="0">Nam</option>--%>
-<%--                                            <option value="1">Nu</option>--%>
-<%--                                            <option value="2">50/50</option>--%>
+                                        <c:choose>
+                                            <c:when test="${customer.gender==0}">
+                                                    <option value="0">Nam</option>
+                                                    <option value="1">Nu</option>
+                                                    <option value="2">50/50</option>
+                                            </c:when>
+
+                                            <c:when test="${customer.gender==1}">
+                                                    <option value="1">Nu</option>
+                                                    <option value="0">Nam</option>
+                                                    <option value="2">50/50</option>
+                                            </c:when>
+
+                                            <c:when test="${customer.gender==2}">
+                                                    <option value="2">50/50</option>
+                                                    <option value="0">Nam</option>
+                                                    <option value="1">Nu</option>
+                                                </c:when>
+                                        </c:choose>
                                         </select>
-                                        <%--                                    <input type="text" name="gender" id="4" value="${customer.gender}" size="45" style="margin-left: 20px"/>--%>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <%--                                <th style="padding-bottom: 10px">Tên đăng nhập:</th>--%>
                                     <td style="padding-bottom: 10px">
                                         <input type="hidden" name="nameAccount" id="5" value="" size="45"
                                                style="margin-left: 20px"/>
@@ -512,10 +521,6 @@
                                     <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
                                            type="text">
                                 </div>
-
-                                <!-- <div class="col-lg-4 col-md-4">
-                                            <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                                        </div>  -->
                             </div>
                             <div class="info"></div>
                         </form>

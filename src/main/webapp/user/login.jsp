@@ -139,11 +139,7 @@
               <input type="text" class="form-control" id="name" name="nameAccount" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
             </div>
             <div class="col-md-12 form-group">
-<<<<<<< HEAD
-              <input type="text" class="form-control" id="pass" name="pass" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-=======
               <input type="password" class="form-control" id="pass" name="passAccount" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
->>>>>>> 01bed7a5f34dde644ecc9874d2bf6225fe86cf99
             </div>
             <div class="col-md-12 form-group">
               <div class="creat_account">
