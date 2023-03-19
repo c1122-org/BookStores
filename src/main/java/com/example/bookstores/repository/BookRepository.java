@@ -51,7 +51,6 @@ public class BookRepository implements IBookRepository {
                 resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
                     int id = resultSet.getInt("book_id");
-                    //id chưa sử dụng, lúc nãy chỗ id này chưa sáng
                     String nameBook = resultSet.getString("book_name");
                     Double price = resultSet.getDouble("book_price");
                     String author = resultSet.getString("book_author");

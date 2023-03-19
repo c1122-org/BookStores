@@ -1,9 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
-  Created by IntelliJ IDEA.
-  User: USER
-  Date: 18/03/2023
-  Time: 11:36 SA
-  To change this template use File | Settings | File Templates.
+ Created by IntelliJ IDEA.
+ User: USER
+ Date: 18/03/2023
+ Time: 11:36 SA
+ To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
@@ -25,6 +26,18 @@
     <link rel="stylesheet" href="/user/css/nouislider.min.css">
     <link rel="stylesheet" href="/user/css/bootstrap.css">
     <link rel="stylesheet" href="/user/css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../../bootstrap520/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../datatables/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../../themify-icons/themify-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
@@ -409,15 +422,18 @@
                 </div>
 
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
+                    <%--button search--%>
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
                     <form class="example d-flex align-items-center">
-                        <input type="text" placeholder="Tìm kiếm theo tên và id" name="search" style="width: 40%;">
+                        <input type="text" placeholder="Tìm kiếm theo tên" name="name" value="${nameSearch}" style="width: 40%;">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                    <form class="example d-flex align-items-center">
+                    <%--button thêm mới--%>
+                    <form class="example d-flex align-items-center" action="/adminBook?action=create">
                         <button type="submit" style="width: 100px">Thêm sách</button>
                     </form>
                 </div>
+<%--Hiển thị list--%>
                 <div class="table-responsive px-2">
                     <table class="table">
                         <thead class="table-dark">
@@ -426,18 +442,73 @@
                             <th>Tên sách</th>
                             <th>Gía sách</th>
                             <th>Tác giả</th>
-                            <th>Công ty xuất bản</th>
+                            <th>Nhà phát hành</th>
                             <th>Nhà xuất bản</th>
                             <th>Người phiên dịch</th>
                             <th>Mô tả</th>
                             <th>Ảnh</th>
                             <th>Loại sách</th>
+                            <th>Chức năng</th>
                         </tr>
                         </thead>
                         <tbody class="text-center">
+                        <c:forEach var="book" items="${bookList}">
+                            <tr>
+                                <td>${book.id}</td>
+                                <td>${book.nameBook}</td>
+                                <td>${book.price}</td>
+                                <td>${book.author}</td>
+                                <td>${book.publishingCompany}</td>
+                                <td>${book.publisher}</td>
+                                <td>${book.translator}</td>
+                                <td>${book.describes}</td>
+                                <td><img src="${book.image}" alt="" width="100px;"></td>
+                                <td>${book.category.nameCategory}</td>
+                                    <%-- button delete --%>
+                                <td>
+                                    <button type="button" onclick="deleteInfo('${book.id}','${book.nameBook}')"  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                        <%-- edit --%>
+                                    <a href="/adminBook?action=edit&id=${book.id}" class="btn btn-primary"><i
+                                            class="fas fa-edit"></i></a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+
                         </tbody>
                     </table>
+
                 </div>
+                <%-- modal xóa --%>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Book</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form action="/adminBook?action=delete" method="post">
+                                <div class="modal-body">
+                                    <label for="deleteId"></label><input type="text" hidden id="deleteId" name="deleteId" value="${book.id}">
+                                    Do you want to delete <span id="deleteName" style="color: brown; font-weight: bold">${book.nameBook}</span>
+                                    ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Confirm</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function deleteInfo(id, name) {
+                        document.getElementById("deleteId").value = id;
+                        document.getElementById("deleteName").innerText = name;
+                    }
+                </script>
+
             </div>
         </div>
     </div>

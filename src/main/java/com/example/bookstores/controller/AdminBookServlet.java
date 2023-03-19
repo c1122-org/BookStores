@@ -113,7 +113,7 @@ public class AdminBookServlet extends HttpServlet {
             throw new RuntimeException(throwables);
         }
         request.setAttribute("bookList",booksList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/book/list.jsp");
         dispatcher.forward(request,response);
     }
 
@@ -187,7 +187,7 @@ public class AdminBookServlet extends HttpServlet {
         } catch (java.sql.SQLException throwables) {
             throw new RuntimeException(throwables);
         }
-        request.getRequestDispatcher("/admin/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/book/list.jsp").forward(request, response);
     }
 
     /**
@@ -205,7 +205,7 @@ public class AdminBookServlet extends HttpServlet {
         Book book = iBookService.findById(id);
         request.setAttribute("book", book);
         request.setAttribute("categoryList",iBookService.categoryList());
-        request.getRequestDispatcher("/admin/edit.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/book/update.jsp").forward(request, response);
     }
 
     /**
@@ -220,6 +220,6 @@ public class AdminBookServlet extends HttpServlet {
      */
     private void showCreate(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         request.setAttribute("categoryList",iBookService.categoryList());
-        request.getRequestDispatcher("/admin/create.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/book/create.jsp").forward(request, response);
     }
 }

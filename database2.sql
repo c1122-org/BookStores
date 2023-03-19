@@ -318,3 +318,11 @@ delete from `account`
 where acc_name = old.acc_name;
 end ;//
 DELIMITER ;
+DELIMITER //
+create procedure update_customer_by_id(in get_id int, set_name varchar(255),set_email varchar(255), set_date varchar(255),set_gender int)
+begin
+update customer
+set cus_name=set_name,cus_email=set_email,cus_date_of_birth=set_date,cus_gender=set_gender
+where cus_id=get_id;
+end //
+DELIMITER ;

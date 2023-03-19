@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: USER
@@ -407,60 +408,71 @@
                         href="#contact">Loại sách</a>
                 </div>
                 <div style="margin-left: 10px">
-                    <form method="post">
+                    <form action="" method="post">
                         <table>
+                            <tr>
+                                <th style="padding-bottom: 10px">Mã sách:</th>
+                                <td style="padding-bottom: 10px">
+                                    <input type="text" name="idBook" id="id" placeholder="Nhập vào mã sách" size="45" style="margin-left: 20px"/>
+                                </td>
+                            </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Tên sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="1" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="nameBook" id="nameBook"  placeholder="Nhập vào tên sách" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Gía sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="2" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="price" id="price" placeholder="Nhập vào giá sách" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Tác giả:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="2" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="author" id="author" placeholder="Nhập vào tên tác giả" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
-                                <th style="padding-bottom: 10px">Công ty xuất bản:</th>
+                                <th style="padding-bottom: 10px">Nhà phát hành:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="3" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="publishingCompany" id="publishingCompany" placeholder="Nhập vào nhà phát hành" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Nhà xuất bản:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="4" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="publisher" id="publisher" placeholder="Nhập vào nhà xuất bản" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Người phiên dịch:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="5" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="translator" id="translator" placeholder="Nhập vào người phiên dịch" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Mô tả:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="6" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="describes" id="describes" placeholder="Nhập vào mô tả" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Ảnh:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="7" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="image" id="image" placeholder="Nhập vào ảnh" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Loại sách:</th>
-                                <td style="padding-bottom: 10px">
-                                    <input type="text" name="" id="8" value="" size="45" style="margin-left: 20px"/>
+                                <td id="categoryID" style="padding-bottom: 10px">
+                                    <select class="form-select" name="categoryID">
+                                        <c:forEach var="category" items="${categoryList}">
+                                            <option  value="${category.idCategory}">${category.nameCategory}</option>
+                                        </c:forEach>
+                                    </select>
+
                                 </td>
                             </tr>
 

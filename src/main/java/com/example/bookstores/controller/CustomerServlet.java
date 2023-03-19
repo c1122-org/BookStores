@@ -31,14 +31,12 @@ public class CustomerServlet extends HttpServlet {
             case "sort":
                 sortByName(request,response);
                 break;
-<<<<<<< HEAD
-            case "delete":
-                deleteByID(request,response);
-=======
-            case "create":
-                showCreateForm(request,response);
->>>>>>> 01bed7a5f34dde644ecc9874d2bf6225fe86cf99
-                break;
+//            case "delete":
+//                deleteByID(request,response);
+//                break;
+//            case "create":
+//                showCreateForm(request,response);
+//                break;
             default:
                 displayAll(request, response);
         }
