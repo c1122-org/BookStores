@@ -1,4 +1,5 @@
 package com.example.bookstores.model;
+
 public class Customer implements Comparable<Customer>{
     private int id;
     private String name;
@@ -72,4 +73,3 @@ public class Customer implements Comparable<Customer>{
         return this.name.compareTo(o.name);
     }
 }
-

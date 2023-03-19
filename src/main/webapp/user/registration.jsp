@@ -43,7 +43,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav ml-auto">
-            <li class="nav-item active"><a class="nav-link" href="index.html">Trang chủ</a></li>
+            <li class="nav-item active"><a class="nav-link" href="/user/index.jsp">Trang chủ</a></li>
             <li class="nav-item submenu dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                  aria-haspopup="true"
@@ -72,7 +72,7 @@
                  aria-haspopup="true"
                  aria-expanded="false">Pages</a>
               <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/login.jsp">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="tracking.html">Theo dõi</a></li>
                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
               </ul>
@@ -108,8 +108,8 @@
       <div class="col-first">
         <h1>Login/Register</h1>
         <nav class="d-flex align-items-center">
-          <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-          <a href="category.html">Login/Register</a>
+          <a href="/user/index.jsp">Home<span class="lnr lnr-arrow-right"></span></a>
+          <a href="/user/login.jsp">Login/Register</a>
         </nav>
       </div>
     </div>
@@ -134,27 +134,31 @@
       <div class="col-lg-6">
         <div class="login_form_inner">
           <h3>Đăng ký</h3>
-          <form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+          <form class="row login_form" action="/register"  id="contactForm" novalidate="novalidate">
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="cus_name" name="name" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+              <input type="text" class="form-control" id="cus_name" name="name" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ và tên'">
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="cus_email" name="name" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+              <input type="text" class="form-control" id="cus_email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="cus_date_of_birth" name="name" placeholder="Ngày sinh" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <input type="date" class="form-control" id="cus_date_of_birth" name="date" placeholder="Ngày sinh" onfocus="this.placeholder = ''" onblur="this.placeholder = 'DateOfBirth'">
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="cus_gendle" name="name" placeholder="Giới tính" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <select name="gender" id="gender">
+                <option value="0">Nam</option>
+                <option value="1">Nữ</option>
+                <option value="2">Giới tính khác</option>
+              </select>
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="user" name="name" placeholder="Tên đăng nhập" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <input type="text" class="form-control" id="nameAccount" name="nameAccount" placeholder="Tên đăng nhập" onfocus="this.placeholder = ''" onblur="this.placeholder = 'UserName'">
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="pass" name="name" placeholder="Mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <input type="password" class="form-control" id="passAccount" name="passAccount" placeholder="Mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="pass1" name="name" placeholder="Nhập lại mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <input type="password" class="form-control" id="pass1" name="repass" placeholder="Nhập lại mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
             </div>
             <div class="col-md-12 form-group">
               <div class="creat_account">
@@ -251,7 +255,7 @@
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         Copyright &copy;<script>document.write(new Date().getFullYear());</script>
         Trung tâm CodeGym | C1122G1 <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a
-              href="https://colorlib.com" target="_blank">Team2</a>
+              href="https://colorlib.com" target="_blank">Team3</a>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       </p>
     </div>
