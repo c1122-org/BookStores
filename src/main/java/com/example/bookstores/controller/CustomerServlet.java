@@ -101,7 +101,6 @@ public class CustomerServlet extends HttpServlet {
     }
     private void sortByName(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         List<Customer> list=customerService.sortByName();
-        System.out.println(list.get(0).getName());
         request.setAttribute("listCustomer",list);
         request.getRequestDispatcher("customer/list.jsp").forward(request,response);
     }
