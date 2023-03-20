@@ -140,14 +140,17 @@
                     <form class="row login_form" action="/register" id="contactForm" novalidate="novalidate">
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="cus_name" name="name" placeholder="Họ và tên">
+                            <p id="error"></p>
                             <span class="form-message"></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="cus_email" name="email" placeholder="Email">
+                            <p id="error1"></p>
                             <span class="form-message"></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="date" class="form-control" id="cus_date_of_birth" name="date">
+                            <p id="error2"></p>
                             <span class="form-message"></span>
                         </div>
                         <div class="col-md-12 form-group">
@@ -160,16 +163,19 @@
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="nameAccount" name="nameAccount"
                                    placeholder="Tên đăng nhập">
+                            <p id="error3"></p>
                             <span class="form-message"></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="password" class="form-control" id="passAccount" name="passAccount"
                                    placeholder="Mật khẩu">
+                            <p id="error4"></p>
                             <span class="form-message"></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="password" class="form-control" id="pass1" name="repass"
                                    placeholder="Nhập lại mật khẩu">
+                            <p id="error5"></p>
                             <span class="form-message"></span>
                         </div>
                         <div class="col-md-12 form-group">
@@ -275,17 +281,42 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/validator.js"></script>
 <script>
-    Validator({
-        form: '#contactForm',
-        rules: [
-            Validator.isRequired('#cus_name'),
-            Validator.isEmail('#cus_email'),
-            Validator.isRequired('#cus_date_of_birth'),
-            Validator.isRequired('#nameAccount'),
-            Validator.isRequired('#passAccount'),
-            Validator.isRequired('#pass1'),
-        ]
-    })
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(event){
+        const input = document.getElementById("cus_name").value;
+        const input1 = document.getElementById("cus_email").value;
+        const input2 = document.getElementById("cus_date_of_birth").value;
+        const input3 = document.getElementById("nameAccount").value;
+        const input4 = document.getElementById("passAccount").value;
+        const input5 = document.getElementById("pass1").value;
+        const pattern = /^\s*$/;
+
+        if(pattern.test(input)){
+            event.preventDefault();
+            document.getElementById("error").innerHTML = "Vui lòng nhập họ và tên";
+        }
+        if(pattern.test(input1)){
+            event.preventDefault();
+            document.getElementById("error1").innerHTML = "Vui lòng nhập email";
+        }
+        if(pattern.test(input2)){
+            event.preventDefault();
+            document.getElementById("error2").innerHTML = "Vui lòng nhập ngày sinh";
+        }
+        if(pattern.test(input3)){
+            event.preventDefault();
+            document.getElementById("error3").innerHTML = "Vui lòng nhập tên tài khoản";
+        }
+        if(pattern.test(input4)){
+            event.preventDefault();
+            document.getElementById("error4").innerHTML = "Vui lòng nhập mật khẩu";
+        }
+        if(pattern.test(input5)){
+            event.preventDefault();
+            document.getElementById("error5").innerHTML = "Vui lòng nhập đúng mật khẩu";
+        }
+    });
 </script>
 <!--gmaps Js-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
