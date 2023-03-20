@@ -427,6 +427,11 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th></th>
+                                    <td id="error" style="padding-left: 20px;color: red; padding-bottom: 10px">
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th style="padding-bottom: 10px">Ngày sinh:</th>
                                     <td style="padding-bottom: 10px">
                                         <input type="date" name="date" id="2" value="${customer.dateOfBirth}" size="45"
@@ -436,13 +441,18 @@
                                 <tr>
                                     <th style="padding-bottom: 10px">Email:</th>
                                     <td style="padding-bottom: 10px">
-                                        <input type="text" name="email" id="3" value="${customer.email}" size="45"
+                                        <input type="text" name="email" id="inputEmail" value="${customer.email}" size="45"
                                                style="margin-left: 20px"/>
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th></th>
+                                    <td id="error1" style="padding-left: 20px;color: red; padding-bottom: 10px">
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th style="padding-bottom: 10px">Giới tính:</th>
-                                    <td style="padding-bottom: 10px">
+                                    <td style="padding-bottom: 10px; padding-left: 20px">
                                         <select name="gender" id="4">
                                         <c:choose>
                                             <c:when test="${customer.gender==0}">
@@ -596,7 +606,17 @@
 
         if(pattern.test(input)){
             event.preventDefault();
-            alert("Vui lòng nhập thông tin vào trường input");
+            document.getElementById('error').innerHTML = "*Vui lòng không để trống tên khách hàng";
+        }else{
+            document.getElementById('error').innerHTML = "";
+
+        }
+        const input1 = document.getElementById("inputEmail").value;
+        if(pattern.test(input1)){
+            event.preventDefault();
+            document.getElementById('error1').innerHTML = "*Vui lòng không để trống email";
+        }else{
+            document.getElementById('error1').innerHTML = "";
         }
     });
 </script>

@@ -76,8 +76,10 @@ public class CustomerServlet extends HttpServlet {
 
     private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
+        List<Customer> customerList=customerService.displayAll();
         Customer customer = customerService.findByID(id);
         request.setAttribute("customer", customer);
+        request.setAttribute("customerList",customerList);
         request.getRequestDispatcher("admin/customer/update.jsp").forward(request, response);
     }
 
