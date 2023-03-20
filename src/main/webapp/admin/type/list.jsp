@@ -324,10 +324,6 @@
             padding: 86px 0;
         }
 
-        .single-content {
-            text-align: center;
-            padding: 115px 0;
-        }
 
         .single-box p {
             color: #fff;
@@ -364,26 +360,46 @@
             font-weight: 700;
         }
 
-        #basic-addon2 {
-            background: #fe1e4f;
-            color: #fff;
-        }
-
         .socials i {
             font-size: 18px;
             margin-right: 15px;
         }
 
-        @media (max-width: 767px) {
-            .single-box {
-                margin-bottom: 50px;
-            }
+        table.table th i {
+            font-size: 13px;
+            margin: 0 5px;
+            cursor: pointer;
         }
 
-        @media (min-width: 768px) and (max-width: 991px) {
-            .single-box {
-                margin-bottom: 50px;
-            }
+        table.table th:last-child {
+            width: 100px;
+        }
+
+        table.table td a {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+            min-width: 24px;
+            text-decoration: none;
+        }
+
+        table.table td a.edit {
+            color: #FFC107;
+        }
+
+        table.table td a.delete {
+            color: #E34724;
+        }
+
+        table.table td i {
+            font-size: 19px;
+        }
+
+        table.table td a.add i {
+            font-size: 24px;
+            margin-right: -1px;
+            position: relative;
+            top: 3px;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -408,18 +424,15 @@
         <div id="topnavbar">
             <div class="topnav mb-3">
                 <div class="d-flex px-1"><a href="" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
-                        href="#contact">Loại sách</a>
+                        href="/type">Loại sách</a>
                 </div>
-
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
                     <form class="example d-flex align-items-center" action="/customers?action=search" method="post">
                         <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                    <form class="example d-flex align-items-center" action="/customers?action=create">
-                        <button type="submit" style="width: 150px">Thêm loại sách</button>
-                    </form>
+                        <button type="button" onclick="location.href = 'type?action=create'" style="width: 150px;border: 0;height: 35px;background: black;color: white">Thêm loại sách</button>
                 </div>
                 <div class="table-responsive px-2">
                     <table class="table" id="tableBook">
@@ -436,8 +449,13 @@
                                 <td>${type.categoryId}</td>
                                 <td>${type.categoryName}</td>
                                 <td>
-                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                    <a class="edit" title="Edit" data-toggle="tooltip"
+                                       style="width: 30px;text-decoration: none"
+                                       href="/type?action=update&categoryId=${type.categoryId}"><i class="fa fa-edit">&#xE254;</i></a>
+                                    <a class="delete" title="Delete" data-toggle="tooltip"
+                                       style="width: 30px;text-decoration: none"
+                                       href="/type?action=delete&id=${type.categoryId}"><i
+                                            class="fa fa-trash">&#xE872;</i></a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -557,28 +575,28 @@
         crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#tableBook').DataTable({
             "language": {
-                "sProcessing":   "Đang xử lý...",
-                "sLengthMenu":   "Xem _MENU_ mục",
-                "sZeroRecords":  "Không tìm thấy dòng nào phù hợp",
-                "sInfo":         "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
-                "sInfoEmpty":    "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sProcessing": "Đang xử lý...",
+                "sLengthMenu": "Xem _MENU_ mục",
+                "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
                 "sInfoFiltered": "(được lọc từ _MAX_ mục)",
-                "sInfoPostFix":  "",
-                "sSearch":       "Tìm:",
-                "sUrl":          "",
+                "sInfoPostFix": "",
+                "sSearch": "Tìm:",
+                "sUrl": "",
                 "oPaginate": {
-                    "sFirst":    "Đầu",
+                    "sFirst": "Đầu",
                     "sPrevious": "Trước",
-                    "sNext":     "Tiếp",
-                    "sLast":     "Cuối"
+                    "sNext": "Tiếp",
+                    "sLast": "Cuối"
                 }
             },
             "searching": false,
             "pagingType": "full_numbers",
-            'pageLength' : 3
+            'pageLength': 3
         });
     });
 </script>

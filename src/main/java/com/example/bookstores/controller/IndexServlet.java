@@ -15,10 +15,7 @@ public class IndexServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String action = request.getParameter("action");
-        if(action != null){
-
-        }
+        response.sendRedirect("user/index.jsp");
     }
 
     public void destroy() {
