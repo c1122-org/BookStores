@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="/user/index.jsp"><img src="img/logo.jpg" alt=""
+                <a class="navbar-brand logo_h" href="${pageContext.request.contextPath}/user/index.jsp"><img src="img/logo.jpg" alt=""
                                                                            style="height: 90px;width: 200px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
@@ -45,7 +45,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="/user/index.jsp">Trang chủ</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/user/index.jsp">Trang chủ</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
@@ -74,7 +74,7 @@
                                aria-haspopup="true"
                                aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="/user/login.jsp">Login</a></li>
+                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user/login.jsp">Login</a></li>
                                 <li class="nav-item"><a class="nav-link" href="tracking.html">Theo dõi</a></li>
                                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                             </ul>
@@ -110,8 +110,8 @@
             <div class="col-first">
                 <h1>Login/Register</h1>
                 <nav class="d-flex align-items-center">
-                    <a href="/user/index.jsp">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="/user/login.jsp">Login/Register</a>
+                    <a href="${pageContext.request.contextPath}/user/index.jsp">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="${pageContext.request.contextPath}/user/login.jsp">Login/Register</a>
                 </nav>
             </div>
         </div>
