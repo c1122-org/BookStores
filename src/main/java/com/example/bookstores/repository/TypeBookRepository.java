@@ -2,10 +2,7 @@ package com.example.bookstores.repository;
 
 import com.example.bookstores.model.TypeBook;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,5 +37,54 @@ public class TypeBookRepository implements ITypeBookRepository{
             }
         }
         return typeBooks;
+    }
+
+    @Override
+    public void create(TypeBook typeBook) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        try{
+            statement = connection.prepareStatement("INSERT INTO category(category_id, category_name) VALUES (?, ?)");
+            statement.setString(1,typeBook.getCategoryId());
+            statement.setString(2,typeBook.getCategoryName());
+            statement.executeUpdate();
+            DBConnection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void update(TypeBook typeBook) {
+        Connection connection = DBConnection.getConnection();
+        CallableStatement statement = null;
+        if (connection != null) {
+            try {
+                statement = connection.prepareCall("call update_category(?,?)");
+                statement.setString(1, typeBook.getCategoryId());
+                statement.setString(2, typeBook.getCategoryName());
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                DBConnection.close();
+            }
+        }
+    }
+
+    @Override
+    public TypeBook findByID(String id) {
+        List<TypeBook> list = findAll();
+        for (TypeBook book: list) {
+            if (book.getCategoryId().equals(id)){
+                return book;
+            }
+        }
+        return null;
     }
 }

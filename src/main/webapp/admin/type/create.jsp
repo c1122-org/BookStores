@@ -407,12 +407,12 @@
                         href="#contact">Loại sách</a>
                 </div>
                 <div style="margin-left: 10px">
-                    <form method="post">
+                    <form method="post" action="/type?action=create">
                         <table>
                             <tr>
                                 <th style="padding-bottom: 10px">Mã loại sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="categoryId" id="1" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="categoryId" id="1" value="" size="45" style="margin-left: 20px" pattern="BT-[0-9]+$" title="BT-??"/>
                                 </td>
                             </tr>
                             <tr>
@@ -509,11 +509,9 @@
         </div>
         <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
             <p class="footer-text m-0">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                 Trung tâm CodeGym | C1122G1 <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a
                     href="https://colorlib.com" target="_blank">Team2</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>
     </div>
