@@ -31,7 +31,11 @@ public class LoginServlet extends HttpServlet {
         }else {
             HttpSession session = request.getSession();
             session.setAttribute("account",account);
-            response.sendRedirect("/user/index.jsp");
+            if (account.getRoleAccount() == 1){
+                response.sendRedirect("/customers");
+            }else {
+                response.sendRedirect("/user/index2.jsp");
+            }
         }
     }
 }

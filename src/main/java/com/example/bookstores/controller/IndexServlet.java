@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "helloServlet", value = "/index")
+@WebServlet(name = "helloServlet", urlPatterns = {"/index", ""})
 public class IndexServlet extends HttpServlet {
     private String message;
 
@@ -15,10 +15,7 @@ public class IndexServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String action = request.getParameter("action");
-        if(action != null){
-
-        }
+        response.sendRedirect("user/index.jsp");
     }
 
     public void destroy() {

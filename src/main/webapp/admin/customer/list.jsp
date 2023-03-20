@@ -431,7 +431,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items"
                     aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"><span
                     class="fas fa-bars"></span></button>
-            <a class="text-decoration-none fs14 ps-2" href="#">Quản lý BookStore<span class="fs13 pe-2"></span></a>
+            <a class="text-decoration-none fs14 ps-2" href="/user/index.jsp">Quản lý BookStore<span class="fs13 pe-2"></span></a>
         </div>
         <div id="navbar2" class="d-flex justify-content-end pe-4"><span class="far fa-user-circle "></span></div>
     </div>

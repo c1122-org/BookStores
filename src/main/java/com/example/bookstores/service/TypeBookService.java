@@ -13,4 +13,19 @@ public class TypeBookService implements ITypeBookService{
     public List<TypeBook> findAll() {
         return iTypeBookRepository.findAll();
     }
+
+    @Override
+    public void create(TypeBook typeBook) {
+        iTypeBookRepository.create(typeBook);
+    }
+
+    @Override
+    public TypeBook findByID(String id) {
+        return iTypeBookRepository.findByID(id);
+    }
+
+    @Override
+    public void update(TypeBook typeBook) {
+        iTypeBookRepository.update(typeBook);
+    }
 }
