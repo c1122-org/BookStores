@@ -499,7 +499,7 @@
 
                                     <%--modal delete--%>
 
-                                <div class="modal" id="myModal1">
+                                <div class="modal" id="myModal">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
