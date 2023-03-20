@@ -405,10 +405,9 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3" style="height: 500px">
-                <div class="d-flex px-1"><a href="#home" class="active">Sách</a> <a href="#news">Khách Hàng</a> <a
-                        href="#contact">Loại sách</a>
+                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
+                        href="/type">Loại sách</a>
                 </div>
-
                 <div style="margin-left: 10px">
                     <div style="margin-left: 10px">
                         <form action="/type?action=update" method="post">
