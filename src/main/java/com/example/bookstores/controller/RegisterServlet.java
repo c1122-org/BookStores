@@ -32,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
             Account account1 = new Account(nameAccount,passAccount,0);
             accountService.register(account1);
             customerService.create(name,email,date,gender,nameAccount);
-            response.sendRedirect("/user/index.jsp");
+            response.sendRedirect("/user/login.jsp");
         }
     }
 

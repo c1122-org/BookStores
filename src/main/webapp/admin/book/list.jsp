@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -382,8 +383,18 @@
                 margin-bottom: 50px;
             }
         }
+
+        .img-book{
+            width: 16em;
+            height: auto;
+        }
+        .detail-book{
+            display: grid;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
 </head>
 <body>
 <div class="px-0 bg-light container-fluid">
@@ -409,35 +420,160 @@
                         href="/type">Loại sách</a>
                 </div>
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
+                    <%--button search--%>
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
                     <form class="example d-flex align-items-center">
-                        <input type="text" placeholder="Tìm kiếm theo tên và id" name="search" style="width: 40%;">
+                        <input type="text" placeholder="Tìm kiếm theo tên" name="name" value="${nameSearch}"
+                               style="width: 40%;">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                    <form class="example d-flex align-items-center">
+                    <%--button thêm mới--%>
+                    <form class="example d-flex align-items-center" action="/adminBook">
+                        <input type="hidden" name="action" value="create">
                         <button type="submit" style="width: 100px">Thêm sách</button>
                     </form>
                 </div>
+                <%--Hiển thị list--%>
                 <div class="table-responsive px-2">
-                    <table class="table">
+                    <table id="tableBook" class="table table-responsive">
                         <thead class="table-dark">
                         <tr class="text-center">
                             <th>Mã sách</th>
-                            <th>Tên sách</th>
-                            <th>Gía sách</th>
+                            <th style="width: 260px">Tên sách</th>
+                            <th>Gía sách (VND)</th>
                             <th>Tác giả</th>
-                            <th>Công ty xuất bản</th>
-                            <th>Nhà xuất bản</th>
-                            <th>Người phiên dịch</th>
-                            <th>Mô tả</th>
-                            <th>Ảnh</th>
+
                             <th>Loại sách</th>
+                            <th style="width: 116px">Chức năng</th>
                         </tr>
                         </thead>
                         <tbody class="text-center">
+                        <c:forEach var="book" items="${bookList}">
+                            <tr>
+                                <td>${book.id}</td>
+                                <td>${book.nameBook}</td>
+                                <td>${book.price}</td>
+                                <td>${book.author}</td>
+                                <td>${book.category.nameCategory}</td>
+                                <td>
+                                        <%-- button chi tiết sách--%>
+                                    <button type="button" onclick="detail('${book.publishingCompany}','${book.publisher}','${book.translator}','${book.describes}','${book.image}')" class="btn btn-primary"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                                            data-bs-whatever="@mdo"
+                                            style="margin-bottom: 5px">
+                                        <i class="fa-thin fa-list"></i>
+                                    </button>
+                                        <%--button delete--%>
+<%--                                            <a class="delete" title="Delete" data-toggle="tooltip" style="width: 30px;text-decoration: none"><i class="fa fa-trash">&#xE872;</i></a>--%>
+
+
+                                    <button type="button" onclick="deleteInfo('${book.id}','${book.nameBook}')"
+                                            style="margin-bottom: 5px; line-height: 1.3px" class="btn btn-danger"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                        <%-- edit --%>
+                                        <%--                                    <a href="/adminBook?action=edit&id=${book.id}" class="btn btn-primary"><i--%>
+                                        <%--                                            class="fas fa-edit" style="line-height: 1.3px"></i></a>--%>
+                                    <a class="edit" title="Edit" data-toggle="tooltip"
+                                       style="width: 30px;text-decoration: none"
+                                       href="/adminBook?action=edit&id=${book.id}"><i
+                                            class="fa fa-edit">&#xE254;</i></a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+
                         </tbody>
                     </table>
+
                 </div>
+
+                <%--modal chi tiết sách--%>
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" style="width: 100%"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel1">Chi tiết sách</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" id="idDetail" name="idDetail">
+                                <table>
+                                    <tr class="detail-book">
+                                        <th>Nhà phát hành</th>
+                                        <td><p id="publishingCompanyDetail"></p></td>
+                                    </tr>
+                                    <tr class="detail-book">
+                                        <th>Nhà xuất bản</th>
+                                        <td><p id="publisherDetail"></p></td>
+                                    </tr>
+                                    <tr class="detail-book">
+                                        <th>Người phiên dịch</th>
+                                        <td><p id="translatorDetail"></p></td>
+                                    </tr>
+                                    <tr class="detail-book">
+                                        <th>Mô tả</th>
+                                        <td><p id="describesDetail"></p></td>
+
+                                    </tr>
+
+                                    <tr class="detail-book">
+                                        <th>Ảnh</th>
+                                        <td><p id="imageDetail" style="margin: 2em 7em;"></p></td>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%-- modal xóa --%>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Xóa sách</h5>
+<%--                                                                <h3 style="margin-top: 20px">${mess}</h3>--%>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <form action="/adminBook?action=delete" method="post">
+                                <div class="modal-body">
+                                    <label for="deleteId"></label><input type="text" hidden id="deleteId"
+                                                                         name="deleteId" value="${book.id}">
+                                    Bạn có muốn xóa sách <span id="deleteName"
+                                                               style="color: brown; font-weight: bold">${book.nameBook}</span>
+                                    ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">Đồng ý</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function deleteInfo(id, name) {
+                        document.getElementById("deleteId").value = id;
+                        document.getElementById("deleteName").innerText = name;
+                    }
+
+                    function detail(publishingCompany,publisher,translator,describes,image) {
+                        document.getElementById("publishingCompanyDetail").innerText = publishingCompany;
+                        document.getElementById("publisherDetail").innerText = publisher;
+                        document.getElementById("translatorDetail").innerText = translator;
+                        document.getElementById("describesDetail").innerText = describes;
+                        document.getElementById("imageDetail").innerHTML = "<img class='img-book' src=" + image + ">";
+                    }
+                </script>
             </div>
         </div>
     </div>
@@ -445,7 +581,7 @@
 <footer class="footer-area section_gap">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3  col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <h6>Về chúng tôi</h6>
                     <p>
@@ -455,7 +591,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-lg-4  col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <h6>Bản tin</h6>
                     <p>Luôn cập nhật thông tin mới nhất của chúng tôi</p>
@@ -480,15 +616,15 @@
                                 </div>
 
                                 <!-- <div class="col-lg-4 col-md-4">
-                                            <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                                        </div>  -->
+                                <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                                </div> -->
                             </div>
                             <div class="info"></div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3  col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget mail-chimp">
                     <h6 class="mb-20">Instragram</h6>
                     <ul class="instafeed d-flex flex-wrap">
@@ -532,7 +668,8 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/bootstrap.min.js"></script>
 <script src="/user/js/jquery.ajaxchimp.min.js"></script>
@@ -548,5 +685,32 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tableBook').DataTable({
+            "language": {
+                "sProcessing": "Đang xử lý...",
+                "sLengthMenu": "Xem _MENU_ mục",
+                "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sSearch": "Tìm:",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext": "Tiếp",
+                    "sLast": "Cuối"
+                }
+            },
+            "searching": false,
+            "pagingType": "full_numbers",
+            'pageLength': 3
+        });
+    });
+</script>
 </body>
 </html>
