@@ -180,7 +180,7 @@ public class CustomerRepository implements ICustomerRepository {
      * public void deleteByID(int id)
      * delete object by id passed in
      * @param id is the id of the object to be deleted
-     *           
+     *
      * @author MinhNV
      * @since 2023/03/18
      */

@@ -63,36 +63,105 @@ public class CustomerServlet extends HttpServlet {
                 displayAll(request, response);
         }
     }
+
+    /**
+     * public void searchByName(HttpServletRequest request,HttpServletResponse response)
+     * get name from user request and return 1 list
+     *
+     * @author MinhNV
+     * @since 2023/03/18
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void searchByName(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String name=request.getParameter("search");
         request.setAttribute("listCustomer",customerService.searchByName(name));
         request.getRequestDispatcher("admin/customer/list.jsp").forward(request,response);
     }
 
+    /**
+     *  private void displayAll(HttpServletRequest request, HttpServletResponse response)
+     *  Returns the user a list of customer information
+     *
+     * @author MinhNV
+     * @since 2023/03/18
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void displayAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("listCustomer", customerService.displayAll());
         request.getRequestDispatcher("admin/customer/list.jsp").forward(request, response);
     }
 
+    /**
+     * private void showFormUpdate(HttpServletRequest request, HttpServletResponse response)
+     * push customer information to edit form
+     *
+     * @author MinhNV
+     * @since 2023/03/18
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         List<Customer> customerList=customerService.displayAll();
         Customer customer = customerService.findByID(id);
         request.setAttribute("customer", customer);
-        request.setAttribute("customerList",customerList);
         request.getRequestDispatcher("admin/customer/update.jsp").forward(request, response);
     }
 
-    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    /**
+     * private void updateCustomer(HttpServletRequest request, HttpServletResponse response)
+     * Update customer information to db
+     *
+     * @author MinhNV
+     * @since 2023/03/18
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
+    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String date = request.getParameter("date");
         String email = request.getParameter("email");
         int gender = Integer.parseInt(request.getParameter("gender"));
         String nameAccount=request.getParameter("nameAccount");
-        customerService.updateByID(new Customer(id,name,date,email,gender,nameAccount));
-        response.sendRedirect("/customers");
+        boolean flag=false;
+        for (Customer customer:customerService.displayAll()){
+            if (customer.getEmail().equals(email)&&customer.getId()!=id){
+                flag=true;
+                break;
+            }
+        }
+        if (flag){
+            request.setAttribute("customer",new Customer(id,name,date,email,gender,nameAccount));
+            String mess="Duplicate e-mail";
+            request.setAttribute("mess",mess);
+            request.getRequestDispatcher("admin/customer/update.jsp").forward(request, response);
+        }else {
+            customerService.updateByID(new Customer(id,name,date,email,gender,nameAccount));
+            response.sendRedirect("/customers");
+        }
+
     }
+
+    /**
+     * private void createCustomer(HttpServletRequest request, HttpServletResponse response)
+     * get information from client and add to db
+     *
+     * @author MinhNV
+     * @since 2023/03/18
+     * @param request
+     * @param response
+     */
     private void createCustomer(HttpServletRequest request, HttpServletResponse response){
         String name=request.getParameter("name");
         String date=request.getParameter("date");
@@ -101,11 +170,34 @@ public class CustomerServlet extends HttpServlet {
         String nameAccount=request.getParameter("nameAccount");
         customerService.create(name,date,email,gender,nameAccount);
     }
+
+    /**
+     * private void sortByName(HttpServletRequest request,HttpServletResponse response)
+     * sort customer list
+     *
+     * @author MinhNV
+     * @since 2023/03/18
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void sortByName(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         List<Customer> list=customerService.sortByName();
         request.setAttribute("listCustomer",list);
         request.getRequestDispatcher("customer/list.jsp").forward(request,response);
     }
+
+    /**
+     * private void deleteByID(HttpServletRequest request,HttpServletResponse response)
+     * delete customer by id
+     *
+     * @author MinhNV
+     * @since 2023/03/18
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     private void deleteByID(HttpServletRequest request,HttpServletResponse response) throws IOException {
         int id= Integer.parseInt(request.getParameter("id"));
         customerService.deleteByID(id);

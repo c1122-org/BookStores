@@ -447,7 +447,7 @@
                                 </tr>
                                 <tr>
                                     <th></th>
-                                    <td id="error1" style="padding-left: 20px;color: red; padding-bottom: 10px">
+                                    <td id="error1" style="padding-left: 20px;color: red; padding-bottom: 10px">${mess}
                                     </td>
                                 </tr>
                                 <tr>
