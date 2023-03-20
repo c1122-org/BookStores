@@ -413,7 +413,7 @@
                             <tr>
                                 <th style="padding-bottom: 10px">Mã sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="idBook" id="id" placeholder="Nhập vào mã sách" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="idBook" id="id" placeholder="Nhập vào mã sách" size="45" style="margin-left: 20px" required minlength="1" />
                                 </td>
                             </tr>
                             <tr>

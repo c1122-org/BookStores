@@ -366,7 +366,7 @@
                             <tr>
                                 <th style="padding-bottom: 10px">Tác giả:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" " name="author" id="author" value="${book.author}" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="author" id="author" value="${book.author}" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>

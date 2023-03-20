@@ -61,6 +61,12 @@ public class AdminBookServlet extends HttpServlet {
                     throw new RuntimeException(e);
                 }
                 break;
+            case "detail":
+                try {
+                    showDetail(request,response);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             default:
                 showBooksList(request, response);
                 break;
@@ -213,6 +219,7 @@ public class AdminBookServlet extends HttpServlet {
         String name = request.getParameter("name");
         try {
             request.setAttribute("nameSearch",name);
+            List<Book> books =  iBookService.findAll(name);
             request.setAttribute("bookList", iBookService.findAll(name));
         } catch (java.sql.SQLException throwables) {
             throw new RuntimeException(throwables);
@@ -220,6 +227,11 @@ public class AdminBookServlet extends HttpServlet {
         request.getRequestDispatcher("/admin/book/list.jsp").forward(request, response);
     }
 
+    private void showDetail(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("idDetail"));
+        request.setAttribute("books",iBookService.findById(id));
+        request.getRequestDispatcher("/admin/book/list.jsp").forward(request, response);
+    }
     /**
      * Function: show edit books
      * Create: QuynhNH
