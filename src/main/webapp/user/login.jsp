@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -49,7 +50,7 @@
                  aria-haspopup="true"
                  aria-expanded="false">Sản phẫm</a>
               <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" href="category.html">Danh mục sách</a></li>
+                <li class="nav-item"><a class="nav-link" href="/type">Danh mục sách</a></li>
                 <li class="nav-item"><a class="nav-link" href="single-product.html">Thông tin chi tiết
                   sản phẫm</a></li>
                 <li class="nav-item"><a class="nav-link" href="checkout.html">Thanh toán sản phẫm</a>
@@ -108,8 +109,8 @@
       <div class="col-first">
         <h1>Login/Register</h1>
         <nav class="d-flex align-items-center">
-          <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-          <a href="category.html">Login/Register</a>
+          <a href="/user/index.jsp">Home<span class="lnr lnr-arrow-right"></span></a>
+          <a href="/user/login.jsp">Login/Register</a>
         </nav>
       </div>
     </div>
@@ -149,6 +150,7 @@
             </div>
             <div class="col-md-12 form-group">
               <button type="submit" value="submit" class="primary-btn">Đăng nhập</button>
+              <c:if test="account == null"><c:out value="${request.message}">"Sai thông tin tài khoản"</c:out></c:if>
               <a href="#">Quên mật khẩu?</a>
             </div>
           </form>
@@ -175,13 +177,10 @@
           <h6>Bản tin</h6>
           <p>Luôn cập nhật thông tin mới nhất của chúng tôi</p>
           <div class="" id="mc_embed_signup">
-
             <form target="_blank" novalidate="true"
                   action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
                   method="get" class="form-inline">
-
               <div class="d-flex flex-row">
-
                 <input class="form-control" name="EMAIL" placeholder="Enter Email"
                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
                        required="" type="email">
@@ -193,10 +192,6 @@
                   <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
                          type="text">
                 </div>
-
-                <!-- <div class="col-lg-4 col-md-4">
-                            <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                        </div>  -->
               </div>
               <div class="info"></div>
             </form>
@@ -233,11 +228,9 @@
     </div>
     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
       <p class="footer-text m-0">
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         Copyright &copy;<script>document.write(new Date().getFullYear());</script>
         Trung tâm CodeGym | C1122G1 <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a
               href="https://colorlib.com" target="_blank">Team3</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       </p>
     </div>
   </div>
@@ -259,5 +252,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+</script>
 </body>
 </html>
