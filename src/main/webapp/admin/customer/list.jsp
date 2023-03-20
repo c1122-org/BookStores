@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/user/css/nouislider.min.css">
     <link rel="stylesheet" href="/user/css/bootstrap.css">
     <link rel="stylesheet" href="/user/css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
@@ -383,6 +384,43 @@
                 margin-bottom: 50px;
             }
         }
+
+        table.table th i {
+            font-size: 13px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        table.table th:last-child {
+            width: 100px;
+        }
+
+        table.table td a {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+            min-width: 24px;
+            text-decoration: none;
+        }
+
+        table.table td a.edit {
+            color: #FFC107;
+        }
+
+        table.table td a.delete {
+            color: #E34724;
+        }
+
+        table.table td i {
+            font-size: 19px;
+        }
+
+        table.table td a.add i {
+            font-size: 24px;
+            margin-right: -1px;
+            position: relative;
+            top: 3px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
@@ -406,7 +444,7 @@
         <div id="topnavbar">
             <div class="topnav mb-3">
                 <div class="d-flex px-1"><a href="" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
-                        href="#contact">Loại sách</a>
+                        href="/type">Loại sách</a>
                 </div>
 
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
@@ -415,12 +453,9 @@
                         <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                    <form class="example d-flex align-items-center" action="/customers?action=create">
-                        <button type="submit" style="width: 100px">Thêm khách hàng</button>
-                    </form>
                 </div>
                 <div class="table-responsive px-2">
-                    <table class="table">
+                    <table class="table" id="tableBook">
                         <thead class="table-dark">
                         <tr class="text-center">
                             <th>Mã khách hàng</th>
@@ -429,18 +464,16 @@
                             <th>Email</th>
                             <th>Giới tính</th>
                             <th>Tên đăng nhập</th>
-                            <th>Delete</th>
-                            <th>Update</th>
+                            <th>Tác vụ</th>
                         </tr>
                         </thead>
                         <tbody class="text-center">
                         <c:forEach items="${listCustomer}" var="customer">
                             <tr>
-
-                                <th>${customer.id}</th>
-                                <th>${customer.name}</th>
-                                <th>${customer.dateOfBirth}</th>
-                                <th>${customer.email}</th>
+                                <td>${customer.id}</td>
+                                <td>${customer.name}</td>
+                                <td>${customer.dateOfBirth}</td>
+                                <td>${customer.email}</td>
                                 <td>
                                     <c:choose>
                                         <c:when test="${customer.gender==0}">Nam</c:when>
@@ -448,9 +481,45 @@
                                         <c:when test="${customer.gender==2}">50/50</c:when>
                                     </c:choose>
                                 </td>
-                                <th>${customer.nameAccount}</th>
-                                <th><a href="/customers?action=delete&id=${customer.id}">Delete</a></th>
-                                <th><a href="/customers?action=update&id=${customer.id}">Update</a></th>
+                                <td>${customer.nameAccount}</td>
+                                <td>
+                                    <button style="background: white; border: 0"
+                                            class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip"
+                                            data-placement="top" title="Edit" onclick="location.href='/customers?action=update&id=${customer.id}'"><i
+                                            style="color: black"
+                                            class="fa fa-edit"></i></button>
+
+
+                                    <button style="background: white; border: 0" class="btn btn-danger btn-sm rounded-0"
+                                            type="button"
+                                            data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                            style="color: black"
+                                            class="fa fa-trash" data-toggle="modal" data-target="#myModal"></i></button>
+                                </td>
+
+                                    <%--modal delete--%>
+
+                                <div class="modal" id="myModal1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Delete</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Delete Confirmation ${customer.name}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                <button class="btn btn-danger"
+                                                        onclick="location.href= '/customers?action=delete&id=${customer.id}'">
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -496,10 +565,6 @@
                                     <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
                                            type="text">
                                 </div>
-
-                                <!-- <div class="col-lg-4 col-md-4">
-                                            <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                                        </div>  -->
                             </div>
                             <div class="info"></div>
                         </form>
@@ -566,5 +631,32 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tableBook').DataTable({
+            "language": {
+                "sProcessing": "Đang xử lý...",
+                "sLengthMenu": "Xem _MENU_ mục",
+                "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sSearch": "Tìm:",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext": "Tiếp",
+                    "sLast": "Cuối"
+                }
+            },
+            "searching": false,
+            "pagingType": "full_numbers",
+            'pageLength': 3
+        });
+    });
+</script>
 </body>
 </html>

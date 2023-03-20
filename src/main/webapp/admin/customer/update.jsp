@@ -405,13 +405,13 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3" style="height: 500px">
-                <div class="d-flex px-1"><a href="#home" class="active">Sách</a> <a href="#news">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="/" class="active">Sách</a> <a href="#news">Khách Hàng</a> <a
                         href="#contact">Loại sách</a>
                 </div>
 
                 <div style="margin-left: 10px">
                     <div style="margin-left: 10px">
-                        <form action="/customers?action=update" method="post">
+                        <form action="/customers?action=update" method="post" id="myForm">
                             <table>
                                 <tr>
                                     <td style="padding-bottom: 10px">
@@ -422,7 +422,7 @@
                                 <tr>
                                     <th style="padding-bottom: 10px">Tên khách hàng:</th>
                                     <td style="padding-bottom: 10px">
-                                        <input type="text" name="name" id="0" value="${customer.name}" size="45"
+                                        <input type="text" name="name" id="myInput" value="${customer.name}" size="45"
                                                style="margin-left: 20px"/>
                                     </td>
                                 </tr>
@@ -587,5 +587,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+<script>
+    const form = document.getElementById("myForm");
+
+    form.addEventListener("submit", function(event){
+        const input = document.getElementById("myInput").value;
+        const pattern = /^\s*$/;
+
+        if(pattern.test(input)){
+            event.preventDefault();
+            alert("Vui lòng nhập thông tin vào trường input");
+        }
+    });
+</script>
 </body>
 </html>

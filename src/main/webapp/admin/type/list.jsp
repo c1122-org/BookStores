@@ -407,8 +407,8 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3">
-                <div class="d-flex px-1"><a href="" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
-                        href="#contact">Loại sách</a>
+                <div class="d-flex px-1"><a href="" class="active" >Sách</a> <a href="/customers">Khách Hàng</a> <a
+                        href="/type">Loại sách</a>
                 </div>
 
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
