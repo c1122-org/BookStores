@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: USER
-  Date: 18/03/2023
-  Time: 11:55 SA
+  Date: 19/03/2023
+  Time: 5:08 CH
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,10 +14,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>ListCustomer</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="/user/css/linearicons.css">
     <link rel="stylesheet" href="/user/css/owl.carousel.css">
@@ -27,6 +26,8 @@
     <link rel="stylesheet" href="/user/css/nouislider.min.css">
     <link rel="stylesheet" href="/user/css/bootstrap.css">
     <link rel="stylesheet" href="/user/css/main.css">
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
@@ -323,10 +324,6 @@
             padding: 86px 0;
         }
 
-        .single-content {
-            text-align: center;
-            padding: 115px 0;
-        }
 
         .single-box p {
             color: #fff;
@@ -363,28 +360,49 @@
             font-weight: 700;
         }
 
-        #basic-addon2 {
-            background: #fe1e4f;
-            color: #fff;
-        }
-
         .socials i {
             font-size: 18px;
             margin-right: 15px;
         }
 
-        @media (max-width: 767px) {
-            .single-box {
-                margin-bottom: 50px;
-            }
+        table.table th i {
+            font-size: 13px;
+            margin: 0 5px;
+            cursor: pointer;
         }
 
-        @media (min-width: 768px) and (max-width: 991px) {
-            .single-box {
-                margin-bottom: 50px;
-            }
+        table.table th:last-child {
+            width: 100px;
+        }
+
+        table.table td a {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+            min-width: 24px;
+            text-decoration: none;
+        }
+
+        table.table td a.edit {
+            color: #FFC107;
+        }
+
+        table.table td a.delete {
+            color: #E34724;
+        }
+
+        table.table td i {
+            font-size: 19px;
+        }
+
+        table.table td a.add i {
+            font-size: 24px;
+            margin-right: -1px;
+            position: relative;
+            top: 3px;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
 <div class="px-0 bg-light container-fluid">
@@ -404,82 +422,45 @@
             <li><span class="fas fa-clipboard-check"></span> <span class="ps-3 name">Quản lý loại sách</span></li>
         </ul>
         <div id="topnavbar">
-            <div class="topnav mb-3" style="height: 500px">
-                <div class="d-flex px-1"><a href="/" class="active">Sách</a> <a href="#news">Khách Hàng</a> <a
-                        href="#contact">Loại sách</a>
+            <div class="topnav mb-3">
+                <div class="d-flex px-1"><a href="" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
+                        href="/type">Loại sách</a>
                 </div>
-
-                <div style="margin-left: 10px">
-                    <div style="margin-left: 10px">
-                        <form action="/customers?action=update" method="post" id="myForm">
-                            <table>
-                                <tr>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="hidden" name="id" id="1" value="${customer.id}" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="padding-bottom: 10px">Tên khách hàng:</th>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="text" name="name" id="myInput" value="${customer.name}" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="padding-bottom: 10px">Ngày sinh:</th>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="date" name="date" id="2" value="${customer.dateOfBirth}" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="padding-bottom: 10px">Email:</th>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="text" name="email" id="3" value="${customer.email}" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="padding-bottom: 10px">Giới tính:</th>
-                                    <td style="padding-bottom: 10px">
-                                        <select name="gender" id="4">
-                                        <c:choose>
-                                            <c:when test="${customer.gender==0}">
-                                                    <option value="0">Nam</option>
-                                                    <option value="1">Nu</option>
-                                                    <option value="2">50/50</option>
-                                            </c:when>
-
-                                            <c:when test="${customer.gender==1}">
-                                                    <option value="1">Nu</option>
-                                                    <option value="0">Nam</option>
-                                                    <option value="2">50/50</option>
-                                            </c:when>
-
-                                            <c:when test="${customer.gender==2}">
-                                                    <option value="2">50/50</option>
-                                                    <option value="0">Nam</option>
-                                                    <option value="1">Nu</option>
-                                                </c:when>
-                                        </c:choose>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="hidden" name="nameAccount" id="5" value="" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="center">
-                                        <input type="submit" value="Save"/>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-                    </div>
+                <div class="d-flex align-items-center mb-3 px-md-3 px-2">
+                    <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
+                    <form class="example d-flex align-items-center" action="/customers?action=search" method="post">
+                        <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                        <button type="button" onclick="location.href = 'type?action=create'" style="width: 150px;border: 0;height: 35px;background: black;color: white">Thêm loại sách</button>
+                </div>
+                <div class="table-responsive px-2">
+                    <table class="table" id="tableBook">
+                        <thead class="table-dark">
+                        <tr class="text-center">
+                            <th style="text-align: center">Mã loại sách</th>
+                            <th style="text-align: center">Tên loại sách</th>
+                            <th style="text-align: center">Tác vụ</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        <c:forEach items="${typeBook}" var="type">
+                            <tr>
+                                <td>${type.categoryId}</td>
+                                <td>${type.categoryName}</td>
+                                <td>
+                                    <a class="edit" title="Edit" data-toggle="tooltip"
+                                       style="width: 30px;text-decoration: none"
+                                       href="/type?action=update&categoryId=${type.categoryId}"><i class="fa fa-edit">&#xE254;</i></a>
+                                    <a class="delete" title="Delete" data-toggle="tooltip"
+                                       style="width: 30px;text-decoration: none"
+                                       href="/type?action=delete&id=${type.categoryId}"><i
+                                            class="fa fa-trash">&#xE872;</i></a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -521,6 +502,10 @@
                                     <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
                                            type="text">
                                 </div>
+
+                                <!-- <div class="col-lg-4 col-md-4">
+                                            <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                                        </div>  -->
                             </div>
                             <div class="info"></div>
                         </form>
@@ -584,20 +569,35 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 <script src="/user/js/gmaps.min.js"></script>
 <script src="/user/js/main.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 <script>
-    const form = document.getElementById("myForm");
-
-    form.addEventListener("submit", function(event){
-        const input = document.getElementById("myInput").value;
-        const pattern = /^\s*$/;
-
-        if(pattern.test(input)){
-            event.preventDefault();
-            alert("Vui lòng nhập thông tin vào trường input");
-        }
+    $(document).ready(function () {
+        $('#tableBook').DataTable({
+            "language": {
+                "sProcessing": "Đang xử lý...",
+                "sLengthMenu": "Xem _MENU_ mục",
+                "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sSearch": "Tìm:",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext": "Tiếp",
+                    "sLast": "Cuối"
+                }
+            },
+            "searching": false,
+            "pagingType": "full_numbers",
+            'pageLength': 3
+        });
     });
 </script>
 </body>

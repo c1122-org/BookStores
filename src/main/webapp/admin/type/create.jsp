@@ -2,11 +2,10 @@
   Created by IntelliJ IDEA.
   User: USER
   Date: 18/03/2023
-  Time: 11:55 SA
+  Time: 11:21 SA
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,7 +16,6 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="/user/css/linearicons.css">
     <link rel="stylesheet" href="/user/css/owl.carousel.css">
@@ -405,81 +403,31 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3" style="height: 500px">
-                <div class="d-flex px-1"><a href="/" class="active">Sách</a> <a href="#news">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="#home" class="active">Sách</a> <a href="#news">Khách Hàng</a> <a
                         href="#contact">Loại sách</a>
                 </div>
-
                 <div style="margin-left: 10px">
-                    <div style="margin-left: 10px">
-                        <form action="/customers?action=update" method="post" id="myForm">
-                            <table>
-                                <tr>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="hidden" name="id" id="1" value="${customer.id}" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="padding-bottom: 10px">Tên khách hàng:</th>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="text" name="name" id="myInput" value="${customer.name}" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="padding-bottom: 10px">Ngày sinh:</th>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="date" name="date" id="2" value="${customer.dateOfBirth}" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="padding-bottom: 10px">Email:</th>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="text" name="email" id="3" value="${customer.email}" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="padding-bottom: 10px">Giới tính:</th>
-                                    <td style="padding-bottom: 10px">
-                                        <select name="gender" id="4">
-                                        <c:choose>
-                                            <c:when test="${customer.gender==0}">
-                                                    <option value="0">Nam</option>
-                                                    <option value="1">Nu</option>
-                                                    <option value="2">50/50</option>
-                                            </c:when>
-
-                                            <c:when test="${customer.gender==1}">
-                                                    <option value="1">Nu</option>
-                                                    <option value="0">Nam</option>
-                                                    <option value="2">50/50</option>
-                                            </c:when>
-
-                                            <c:when test="${customer.gender==2}">
-                                                    <option value="2">50/50</option>
-                                                    <option value="0">Nam</option>
-                                                    <option value="1">Nu</option>
-                                                </c:when>
-                                        </c:choose>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding-bottom: 10px">
-                                        <input type="hidden" name="nameAccount" id="5" value="" size="45"
-                                               style="margin-left: 20px"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="center">
-                                        <input type="submit" value="Save"/>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-                    </div>
+                    <form method="post" action="/type?action=create">
+                        <table>
+                            <tr>
+                                <th style="padding-bottom: 10px">Mã loại sách:</th>
+                                <td style="padding-bottom: 10px">
+                                    <input type="text" name="categoryId" id="1" value="" size="45" style="margin-left: 20px" pattern="BT-[0-9]+$" title="BT-??"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="padding-bottom: 10px">Tên loại sách:</th>
+                                <td style="padding-bottom: 10px">
+                                    <input type="text" name="categoryName" id="2" value="" size="45" style="margin-left: 20px"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="submit" value="Save"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
             </div>
         </div>
@@ -521,6 +469,10 @@
                                     <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
                                            type="text">
                                 </div>
+
+                                <!-- <div class="col-lg-4 col-md-4">
+                                            <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                                        </div>  -->
                             </div>
                             <div class="info"></div>
                         </form>
@@ -557,11 +509,9 @@
         </div>
         <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
             <p class="footer-text m-0">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                 Trung tâm CodeGym | C1122G1 <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a
                     href="https://colorlib.com" target="_blank">Team2</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>
     </div>
@@ -570,8 +520,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>
 <script src="/user/js/vendor/bootstrap.min.js"></script>
 <script src="/user/js/jquery.ajaxchimp.min.js"></script>
@@ -587,18 +536,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-<script>
-    const form = document.getElementById("myForm");
-
-    form.addEventListener("submit", function(event){
-        const input = document.getElementById("myInput").value;
-        const pattern = /^\s*$/;
-
-        if(pattern.test(input)){
-            event.preventDefault();
-            alert("Vui lòng nhập thông tin vào trường input");
-        }
-    });
-</script>
 </body>
 </html>

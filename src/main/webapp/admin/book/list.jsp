@@ -415,10 +415,10 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3">
-                <div class="d-flex px-1"><a href="#home" class="active">Sách</a> <a href="#news">Khách Hàng</a> <a
-                        href="#contact">Loại sách</a>
-                </div>
 
+                <div class="d-flex px-1"><a href="" class="/book">Sách</a> <a href="/customers">Khách Hàng</a> <a
+                        href="/type">Loại sách</a>
+                </div>
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
                     <%--button search--%>
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
@@ -663,6 +663,7 @@
         </div>
     </div>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>

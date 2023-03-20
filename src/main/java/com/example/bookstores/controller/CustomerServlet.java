@@ -31,17 +31,15 @@ public class CustomerServlet extends HttpServlet {
             case "sort":
                 sortByName(request,response);
                 break;
-//            case "delete":
-//                deleteByID(request,response);
-//                break;
-//            case "create":
-//                showCreateForm(request,response);
-//                break;
+            case "delete":
+                deleteByID(request,response);
+                break;
             default:
                 displayAll(request, response);
         }
 
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,12 +53,20 @@ public class CustomerServlet extends HttpServlet {
             case "update":
                 updateCustomer(request,response);
                 break;
+            case "search":
+                searchByName(request,response);
+                break;
             case "create":
                 createCustomer(request,response);
                 break;
             default:
                 displayAll(request, response);
         }
+    }
+    public void searchByName(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        String name=request.getParameter("search");
+        request.setAttribute("listCustomer",customerService.searchByName(name));
+        request.getRequestDispatcher("admin/customer/list.jsp").forward(request,response);
     }
 
     private void displayAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -95,8 +101,12 @@ public class CustomerServlet extends HttpServlet {
     }
     private void sortByName(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         List<Customer> list=customerService.sortByName();
-        System.out.println(list.get(0).getName());
         request.setAttribute("listCustomer",list);
         request.getRequestDispatcher("customer/list.jsp").forward(request,response);
+    }
+    private void deleteByID(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        int id= Integer.parseInt(request.getParameter("id"));
+        customerService.deleteByID(id);
+        response.sendRedirect("customers");
     }
 }

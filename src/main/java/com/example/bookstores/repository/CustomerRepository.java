@@ -8,6 +8,16 @@ import java.util.Collections;
 import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
+    public List<Customer> searchByName(String name){
+        List<Customer> customerList=displayAll();
+        List<Customer> customerList1=new ArrayList<>();
+        for (Customer customer:customerList){
+            if (customer.getName().toLowerCase().contains(name.toLowerCase())){
+                customerList1.add(customer);
+            }
+        }
+        return  customerList1;
+    }
     public List<Customer> displayAll() {
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = null;

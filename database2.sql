@@ -22,7 +22,7 @@ foreign key(acc_name) references `account`(acc_name)
 
 
 create table category(
-category_id int primary key auto_increment,
+category_id varchar(255) primary key,
 category_name varchar(255)
 );
 
@@ -38,9 +38,10 @@ publisher varchar(255),
 translator varchar(255),
 describes text,
 image text,
-category_id int,
+category_id varchar(255),
 foreign key(category_id) references category(category_id)
 );
+drop table books;
 
 
 create table order_book(
@@ -71,16 +72,16 @@ value('Nguyễn Hoàng Hải','hai@gmail.com','1993-02-02',0,'hoanghai'),
 ('Nguyễn Văn Khải','khai@gmail.com','1999-01-01',0,'vankhai'),
 ('Nguyễn Văn Minh','minh@gmail.com','1999-02-01',0,'vanminh');
 
-insert into category(category_name) values
-('Chính trị -Pháp luật'), -- 1--
-('Khoa học công nghệ - Kinh tế'), -- 2
-('Văn hóa xã hội - Lịch sử'), -- 3
-('Văn học nghệ thuật'), -- 4
-('Giáo trình'),         -- 5
-('Truyện, tiểu thuyết'),  -- 6 
-('Tâm lý, tâm linh, tôn giáo'),  -- 7
-('Thiếu nhi');                   -- 8
-                             -- tên,giá,tác giả, nhà phát hành, nxb,ng dich,mô tả,ảnh,phân loại
+insert into category(category_id,category_name) values
+('BT-01','Chính trị -Pháp luật'),
+('BT-02','Khoa học công nghệ - Kinh tế'),
+('BT-03','Văn hóa xã hội - Lịch sử'),
+('BT-04','Văn học nghệ thuật'),
+('BT-05','Giáo trình'),
+('BT-06','Truyện, tiểu thuyết'),
+('BT-07','Tâm lý, tâm linh, tôn giáo'),
+('BT-08','Thiếu nhi');
+
 insert into books(book_name,book_price,book_author,publishing_company,publisher,translator,describes,image,category_id) values
 -- 1
 ('100 Mưu Lược Trong Chính Trị, Quân Sự & Đời Sống (Tái Bản)',115200,'Quách Thành','VanLangBooks','Nhà Xuất Bản Hồng Đức',null,'Xã hội không ngừng phát triển, trên mọi phương diện đều có sự cạnh tranh gay gắt, vì thế việc vận dụng mưu lược là không thể thiếu. Trong các lĩnh vực chính trị, quân sự hay kinh tế, ngoại giao, ngoài tầm nhìn xa trông rộng, tài phân tích, phán đoán nhạy bén, người lãnh đạo còn phải biết cách nhìn người và dùng người trong mọi hoàn cảnh. MƯU LƯỢC TRONG CHÍNH TRỊ - QUÂN SỰ & ĐỜI SỐNG tập hợp nhiều kế sách cũng như thuật dùng người khôn khéo của các nhân vật nổi tiếng trong lịch sử giúp chúng ta nhìn lại quá khứ, học hỏi kinh nghiệm, từ đó vận dụng một cách sáng tạo trong cuộc sống hàng ngày.','https://salt.tikicdn.com/cache/750x750/ts/product/ef/ea/4e/eade954a52fd03c696168041bde8671b.jpg.webp',1),

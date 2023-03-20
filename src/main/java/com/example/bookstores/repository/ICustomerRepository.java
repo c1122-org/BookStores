@@ -14,4 +14,5 @@ public interface ICustomerRepository {
     void create(String name,String date,String email,int gender,String nameAccount);
     List<Customer> sortByName();
     void deleteByID(int id);
+    List<Customer> searchByName(String name);
 }
