@@ -28,4 +28,9 @@ public class TypeBookService implements ITypeBookService{
     public void update(TypeBook typeBook) {
         iTypeBookRepository.update(typeBook);
     }
+
+    @Override
+    public List<TypeBook> findByName(String name) {
+        return iTypeBookRepository.findByName(name);
+    }
 }

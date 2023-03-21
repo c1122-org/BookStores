@@ -384,11 +384,12 @@
             }
         }
 
-        .img-book{
+        .img-book {
             width: 16em;
             height: auto;
         }
-        .detail-book{
+
+        .detail-book {
             display: grid;
         }
     </style>
@@ -415,8 +416,8 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3">
-
-                <div class="d-flex px-1"><a href="/adminBook" class="/book">Sách</a> <a href="/admin/book/list.jsp">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách
+                    Hàng</a> <a
                         href="/type">Loại sách</a>
                 </div>
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
@@ -438,13 +439,13 @@
                     <table id="tableBook" class="table table-responsive">
                         <thead class="table-dark">
                         <tr class="text-center">
-                            <th style="width: 10%; text-align: center">Mã sách</th>
-                            <th style="width: 25%">Tên sách</th>
-                            <th style="width: 14%">Gía sách (VND)</th>
-                            <th>Tác giả</th>
+                            <th style="width: 10%;text-align: center">Mã sách</th>
+                            <th style="width: 260px;text-align: center">Tên sách</th>
+                            <th style="width: 15%;text-align: center">Gía sách (VND)</th>
+                            <th style="text-align: center">Tác giả</th>
 
-                            <th style="width: 20%">Loại sách </th>
-                            <th style="width: 15%">Chức năng</th>
+                            <th style="text-align: center">Loại sách</th>
+                            <th style="width: 116px;text-align: center">Tác vụ</th>
                         </tr>
                         </thead>
                         <tbody class="text-center">
@@ -457,28 +458,40 @@
                                 <td>${book.category.nameCategory}</td>
                                 <td>
                                         <%-- button chi tiết sách--%>
-                                    <button type="button" onclick="detail('${book.publishingCompany}','${book.publisher}','${book.translator}','${book.describes}','${book.image}')" class="btn btn-primary"
+                                    <button type="button"
+                                            onclick="detail('${book.publishingCompany}','${book.publisher}','${book.translator}','${book.describes}','${book.image}')"
+                                            class="btn btn-primary"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal1"
                                             data-bs-whatever="@mdo"
-
-                                            style="margin-bottom: 5px; background: white">
-                                        <i class="fa-thin fa-list"></i>
+                                            style="margin-bottom: 5px; background: white;border: 0">
+                                        <i class="fa fa-table" style="color: black"></i>
                                     </button>
                                         <%--button delete--%>
+                                        <%--                                            <a class="delete" title="Delete" data-toggle="tooltip" style="width: 30px;text-decoration: none"><i class="fa fa-trash">&#xE872;</i></a>--%>
+
+
                                     <button type="button" onclick="deleteInfo('${book.id}','${book.nameBook}')"
-                                            style="margin-bottom: 5px; line-height: 1.3px; background: white; border: 0"  class="btn btn-danger"
+                                            style="margin-bottom: 5px; line-height: 1.3px; background: white; border: 0"
+                                            class="btn btn-danger"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-trash-alt"></i>
+                                        <i
+                                                style="color: black"
+                                                class="fa fa-trash"></i>
+                                            <%--                                        <i class="fas fa-trash-alt" style="color: black"></i>--%>
                                     </button>
                                         <%-- edit --%>
                                         <%--                                    <a href="/adminBook?action=edit&id=${book.id}" class="btn btn-primary"><i--%>
                                         <%--                                            class="fas fa-edit" style="line-height: 1.3px"></i></a>--%>
-                                    <a class="edit" title="Edit" data-toggle="tooltip"
-                                       style="width: 30px;text-decoration: none"
-                                       href="/adminBook?action=edit&id=${book.id}"><i
-                                            class="fa fa-edit">&#xE254;</i></a>
-
-
+                                        <%--                                    <a class="edit" title="Edit" data-toggle="tooltip"--%>
+                                        <%--                                       style="width: 30px;text-decoration: none"--%>
+                                        <%--                                       href="/adminBook?action=edit&id=${book.id}"><i--%>
+                                        <%--                                            class="fa fa-edit">&#xE254;</i></a>--%>
+                                    <button style="background: white; border: 0"
+                                            class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip"
+                                            data-placement="top" title="Edit"
+                                            onclick="location.href='/adminBook?action=edit&id=${book.id}'"><i
+                                            style="color: black"
+                                            class="fa fa-edit"></i></button>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -489,7 +502,8 @@
                 </div>
 
                 <%--modal chi tiết sách--%>
-                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" style="width: 100%"
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+                     style="width: 100%"
                      aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -539,7 +553,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Xóa sách</h5>
-<%--                                                                <h3 style="margin-top: 20px">${mess}</h3>--%>
+                                <%--                                                                <h3 style="margin-top: 20px">${mess}</h3>--%>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
@@ -566,7 +580,7 @@
                         document.getElementById("deleteName").innerText = name;
                     }
 
-                    function detail(publishingCompany,publisher,translator,describes,image) {
+                    function detail(publishingCompany, publisher, translator, describes, image) {
                         document.getElementById("publishingCompanyDetail").innerText = publishingCompany;
                         document.getElementById("publisherDetail").innerText = publisher;
                         document.getElementById("translatorDetail").innerText = translator;

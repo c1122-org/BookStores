@@ -57,7 +57,7 @@
     <nav class="navbar navbar-expand-lg navbar-light main_box">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <a class="navbar-brand logo_h" href="/user/index.jsp"><img src="img/logo.jpg" alt=""
+        <a class="navbar-brand logo_h" href="${pageContext.request.contextPath}/user/index.jsp"><img src="img/logowl-prevo.jpg" alt=""
                                                               style="height: 90px;width: 200px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
@@ -69,7 +69,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav ml-auto">
-            <li class="nav-item active"><a class="nav-link" href="/user/index.jsp">Trang chủ</a></li>
+            <li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/user/index.jsp">Trang chủ</a></li>
             <li class="nav-item submenu dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                  aria-haspopup="true"

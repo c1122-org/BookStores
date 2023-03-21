@@ -443,10 +443,9 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3">
-                <div class="d-flex px-1"><a href="" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
                         href="/type">Loại sách</a>
                 </div>
-
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
                     <form class="example d-flex align-items-center" action="/customers?action=search" method="post">
@@ -520,6 +519,9 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+
                             </tr>
                         </c:forEach>
                         </tbody>

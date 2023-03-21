@@ -8,16 +8,34 @@ import java.util.Collections;
 import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
-    public List<Customer> searchByName(String name){
-        List<Customer> customerList=displayAll();
-        List<Customer> customerList1=new ArrayList<>();
-        for (Customer customer:customerList){
-            if (customer.getName().toLowerCase().contains(name.toLowerCase())){
+    /**
+     * searchByName(String name)
+     * Search for objects with the same name as the parameter passed in
+     *
+     * @param name is the name passed to search
+     * @return Returns a list containing objects with the same name as the parameter passed
+     * @author MinhNV
+     * @since 2023/03/17
+     */
+    public List<Customer> searchByName(String name) {
+        List<Customer> customerList = displayAll();
+        List<Customer> customerList1 = new ArrayList<>();
+        for (Customer customer : customerList) {
+            if (customer.getName().toLowerCase().contains(name.toLowerCase())) {
                 customerList1.add(customer);
             }
         }
-        return  customerList1;
+        return customerList1;
     }
+
+
+    /**
+     * displayAll() get all the objects in the customer table
+     *
+     * @return Returns a list containing all the objects in the customers table
+     * @author MinhNV
+     * @since 2023/03/17
+     */
     public List<Customer> displayAll() {
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = null;
@@ -53,6 +71,14 @@ public class CustomerRepository implements ICustomerRepository {
         return list;
     }
 
+    /**
+     * findByID(int id) search for object with id by passing parameter
+     *
+     * @param id is the code passed to search
+     * @return Returns an object whose id is passed as a parameter
+     * @author MinhNV
+     * @since 2023/03/17
+     */
     @Override
     public Customer findByID(int id) {
         List<Customer> customerList = displayAll();
@@ -64,6 +90,13 @@ public class CustomerRepository implements ICustomerRepository {
         return null;
     }
 
+    /**
+     * updateByID(Customer customer) Update customer information
+     *
+     * @param customer objects that need updating information
+     * @author MinhNV
+     * @since 2023/03/18
+     */
     @Override
     public void updateByID(Customer customer) {
         Connection connection = DBConnection.getConnection();
@@ -90,6 +123,19 @@ public class CustomerRepository implements ICustomerRepository {
         }
     }
 
+    /**
+     * public void create(String name, String date, String email, int gender, String nameAccount)
+     * create new object
+     *
+     * @param name name of object
+     * @param date date of birth of object
+     * @param email email of object
+     * @param gender gender of object
+     * @param nameAccount name account of object
+     *
+     * @author MinhNV
+     * @since 2023/03/18
+     */
     @Override
     public void create(String name, String date, String email, int gender, String nameAccount) {
         Connection connection = DBConnection.getConnection();
@@ -116,13 +162,28 @@ public class CustomerRepository implements ICustomerRepository {
         }
     }
 
-
+    /**
+     * public List<Customer> sortByName()
+     * sort objects by name
+     *
+     * @return Returns a list of objects sorted by name
+     * @author MinhNV
+     * @since 2023/03/18
+     */
     public List<Customer> sortByName() {
         List<Customer> list = displayAll();
         Collections.sort(list);
         return list;
     }
 
+    /**
+     * public void deleteByID(int id)
+     * delete object by id passed in
+     * @param id is the id of the object to be deleted
+     *
+     * @author MinhNV
+     * @since 2023/03/18
+     */
     @Override
     public void deleteByID(int id) {
         Connection connection = DBConnection.getConnection();

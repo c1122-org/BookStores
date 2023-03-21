@@ -1,23 +1,36 @@
 package com.example.bookstores.controller;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.example.bookstores.model.Book;
+import com.example.bookstores.model.TypeBook;
+import com.example.bookstores.service.BookService;
+import com.example.bookstores.service.IBookService;
+import com.example.bookstores.service.IIndexService;
+import com.example.bookstores.service.IndexService;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "helloServlet", urlPatterns = {"/index", ""})
+@WebServlet(name = "IndexServlet", urlPatterns = {"/index", ""})
 public class IndexServlet extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
+    private IBookService iBookService=new BookService();
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        try {
+            request.setAttribute("nameSearch",name);
+            List<Book> books =  iBookService.findAll(name);
+            request.setAttribute("bookList", iBookService.findAll(name));
+        } catch (java.sql.SQLException throwables) {
+            throw new RuntimeException(throwables);
+        }
+        request.getRequestDispatcher("user/index.jsp").forward(request, response);
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendRedirect("user/index.jsp");
-    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    public void destroy() {
     }
 }

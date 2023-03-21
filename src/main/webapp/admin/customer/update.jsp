@@ -405,10 +405,9 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3" style="height: 500px">
-                <div class="d-flex px-1"><a href="/" class="active">Sách</a> <a href="#news">Khách Hàng</a> <a
-                        href="#contact">Loại sách</a>
+                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
+                        href="/type">Loại sách</a>
                 </div>
-
                 <div style="margin-left: 10px">
                     <div style="margin-left: 10px">
                         <form action="/customers?action=update" method="post" id="myForm">
@@ -422,8 +421,13 @@
                                 <tr>
                                     <th style="padding-bottom: 10px">Tên khách hàng:</th>
                                     <td style="padding-bottom: 10px">
-                                        <input type="text" name="name" id="myInput" value="${customer.name}" size="45"
+                                        <input type="text" name="name" id="inputName" value="${customer.name}" size="45"
                                                style="margin-left: 20px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td id="error" style="padding-left: 20px;color: red; padding-bottom: 10px">
                                     </td>
                                 </tr>
                                 <tr>
@@ -436,13 +440,18 @@
                                 <tr>
                                     <th style="padding-bottom: 10px">Email:</th>
                                     <td style="padding-bottom: 10px">
-                                        <input type="text" name="email" id="3" value="${customer.email}" size="45"
+                                        <input type="text" name="email" id="inputEmail" value="${customer.email}" size="45"
                                                style="margin-left: 20px"/>
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th></th>
+                                    <td id="error1" style="padding-left: 20px;color: red; padding-bottom: 10px">${mess}
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th style="padding-bottom: 10px">Giới tính:</th>
-                                    <td style="padding-bottom: 10px">
+                                    <td style="padding-bottom: 10px; padding-left: 20px">
                                         <select name="gender" id="4">
                                         <c:choose>
                                             <c:when test="${customer.gender==0}">
@@ -591,12 +600,22 @@
     const form = document.getElementById("myForm");
 
     form.addEventListener("submit", function(event){
-        const input = document.getElementById("myInput").value;
+        const input = document.getElementById("inputName").value;
         const pattern = /^\s*$/;
 
         if(pattern.test(input)){
             event.preventDefault();
-            alert("Vui lòng nhập thông tin vào trường input");
+            document.getElementById('error').innerHTML = "*Vui lòng không để trống tên khách hàng";
+        }else{
+            document.getElementById('error').innerHTML = "";
+
+        }
+        const input1 = document.getElementById("inputEmail").value;
+        if(pattern.test(input1)){
+            event.preventDefault();
+            document.getElementById('error1').innerHTML = "*Vui lòng không để trống email";
+        }else{
+            document.getElementById('error1').innerHTML = "";
         }
     });
 </script>
