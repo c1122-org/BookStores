@@ -320,6 +320,45 @@
                 margin-bottom: 50px;
             }
         }
+        .form-select {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropup {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropup-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            bottom: 50px;
+            z-index: 1;
+        }
+
+        .dropup-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropup-content a:hover {background-color: #ccc}
+
+        .dropup:hover .dropup-content {
+            display: block;
+        }
+
+        .dropup:hover .dropbtn {
+            background-color: #2980B9;
+        }
+
     </style>
 </head>
 <body>
@@ -360,7 +399,7 @@
                             <tr>
                                 <th style="padding-bottom: 10px">Gía sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="price" id="price" value="${book.price}" size="45" style="margin-left: 20px"/>
+                                    <input type="number" name="price" id="price" value="${book.price}" size="45" style="margin-left: 20px"/>
                                 </td>
                             </tr>
                             <tr>
@@ -390,7 +429,7 @@
                             <tr>
                                 <th style="padding-bottom: 10px">Mô tả:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="describes" id="describes" value="${book.describes}" size="45" style="margin-left: 20px"/>
+                                    <textarea  name="describes" id="describes"  rows="3" cols="50" size="70" style="margin-left: 20px">${book.describes}</textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -400,15 +439,15 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th style="padding-bottom: 10px">Loại sách:</th>
-                                <td style="padding-bottom: 10px">
-                                    <select class="form-select" name="categoryID" style="margin-left: 20px">
+                                <th  style="padding-bottom: 10px">Loại sách:</th>
+                                <td class="dropup" style="padding-bottom: 10px">
+                                    <select class="form-select" name="categoryID" style="margin-left: 20px" >
                                         <c:forEach var="category" items="${categoryList}">
                                             <c:if test="${category.idCategory == book.category.idCategory}">
-                                                <option value="${category.idCategory}" selected>${category.nameCategory}</option>
+                                                <option class="dropup-content" value="${category.idCategory}" selected>${category.nameCategory}</option>
                                             </c:if>
                                             <c:if test="${category.idCategory != book.category.idCategory}">
-                                                <option value="${category.idCategory}">${category.nameCategory}</option>
+                                                <option class="dropup-content" value="${category.idCategory}">${category.nameCategory}</option>
                                             </c:if>
                                         </c:forEach>
                                     </select>

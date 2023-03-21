@@ -44,6 +44,7 @@ public class BookService implements IBookService {
      */
     @Override
     public void save(Book book) throws SQLException {
+
         iBookRepository.save(book);
     }
 
@@ -83,6 +84,13 @@ public class BookService implements IBookService {
     @Override
     public boolean deleteBook(int id) {
         return iBookRepository.deleteBook(id);
+    }
+
+    @Override
+    public void RemoveSpecialCharacter() {
+        String str=null;
+         str = str.replaceAll(" \" || ” || “ ","&quot;");
+
     }
 
     /**

@@ -419,13 +419,13 @@
                             <tr>
                                 <th style="padding-bottom: 10px">Tên sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="nameBook" id="nameBook"  placeholder="Nhập vào tên sách" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="nameBook" id="nameBook"  placeholder="Nhập vào tên sách" size="45" style="margin-left: 20px" required />
                                 </td>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Gía sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="price" id="price" placeholder="Nhập vào giá sách" size="45" style="margin-left: 20px"/>
+                                    <input type="number" name="price" id="price" placeholder="Nhập vào giá sách" size="45" style="margin-left: 20px; width: 95%" required/>
                                 </td>
                             </tr>
                             <tr>
@@ -466,7 +466,7 @@
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Loại sách:</th>
-                                <td id="categoryID" style="padding-bottom: 10px">
+                                <td id="categoryID" style="padding-bottom: 10px; height: 5%">
                                     <select class="form-select" name="categoryID">
                                         <c:forEach var="category" items="${categoryList}">
                                             <option  value="${category.idCategory}">${category.nameCategory}</option>

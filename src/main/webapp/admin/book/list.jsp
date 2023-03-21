@@ -416,7 +416,7 @@
         <div id="topnavbar">
             <div class="topnav mb-3">
 
-                <div class="d-flex px-1"><a href="" class="/book">Sách</a> <a href="/customers">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="/adminBook" class="/book">Sách</a> <a href="/admin/book/list.jsp">Khách Hàng</a> <a
                         href="/type">Loại sách</a>
                 </div>
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
@@ -438,13 +438,13 @@
                     <table id="tableBook" class="table table-responsive">
                         <thead class="table-dark">
                         <tr class="text-center">
-                            <th>Mã sách</th>
-                            <th style="width: 260px">Tên sách</th>
-                            <th>Gía sách (VND)</th>
+                            <th style="width: 10%; text-align: center">Mã sách</th>
+                            <th style="width: 25%">Tên sách</th>
+                            <th style="width: 14%">Gía sách (VND)</th>
                             <th>Tác giả</th>
 
-                            <th>Loại sách</th>
-                            <th style="width: 116px">Chức năng</th>
+                            <th style="width: 20%">Loại sách </th>
+                            <th style="width: 15%">Chức năng</th>
                         </tr>
                         </thead>
                         <tbody class="text-center">
@@ -460,15 +460,13 @@
                                     <button type="button" onclick="detail('${book.publishingCompany}','${book.publisher}','${book.translator}','${book.describes}','${book.image}')" class="btn btn-primary"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal1"
                                             data-bs-whatever="@mdo"
-                                            style="margin-bottom: 5px">
+
+                                            style="margin-bottom: 5px; background: white">
                                         <i class="fa-thin fa-list"></i>
                                     </button>
                                         <%--button delete--%>
-<%--                                            <a class="delete" title="Delete" data-toggle="tooltip" style="width: 30px;text-decoration: none"><i class="fa fa-trash">&#xE872;</i></a>--%>
-
-
                                     <button type="button" onclick="deleteInfo('${book.id}','${book.nameBook}')"
-                                            style="margin-bottom: 5px; line-height: 1.3px" class="btn btn-danger"
+                                            style="margin-bottom: 5px; line-height: 1.3px; background: white; border: 0"  class="btn btn-danger"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
@@ -479,6 +477,8 @@
                                        style="width: 30px;text-decoration: none"
                                        href="/adminBook?action=edit&id=${book.id}"><i
                                             class="fa fa-edit">&#xE254;</i></a>
+
+
                                 </td>
                             </tr>
                         </c:forEach>
