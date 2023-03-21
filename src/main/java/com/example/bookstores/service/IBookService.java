@@ -16,6 +16,6 @@ public interface IBookService {
     void updateBook(int id, Book book) throws SQLException;
 
     boolean deleteBook(int id);
-
+void RemoveSpecialCharacter();
     List<Category> categoryList() throws SQLException;
 }
