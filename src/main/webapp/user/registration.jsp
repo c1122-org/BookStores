@@ -16,14 +16,14 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/linearicons.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/nouislider.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/linearicons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/owl.carousel.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/themify-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/nice-select.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/nouislider.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/main.css">
 </head>
 <body>
 
@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="${pageContext.request.contextPath}/user/index.jsp"><img src="img/logo.jpg" alt=""
+                <a class="navbar-brand logo_h" href="/index"><img src="${pageContext.request.contextPath}/user/img/logo.jpg" alt=""
                                                                            style="height: 90px;width: 200px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
@@ -45,7 +45,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/user/index.jsp">Trang chủ</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="/index">Trang chủ</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
@@ -109,7 +109,7 @@
             <div class="col-first">
                 <h1>Login/Register</h1>
                 <nav class="d-flex align-items-center">
-                    <a href="${pageContext.request.contextPath}/user/index.jsp">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="/index">Home<span class="lnr lnr-arrow-right"></span></a>
                     <a href="${pageContext.request.contextPath}/user/login.jsp">Login/Register</a>
                 </nav>
             </div>
@@ -124,12 +124,12 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="login_box_img">
-                    <img class="img-fluid" src="img/login.jpg" alt="" style="height: 820px">
+                    <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/login.jpg" alt="" style="height: 820px">
                     <div class="hover">
                         <h4>Bạn đã vào trang website của chúng tôi?</h4>
                         <p>Có những tiến bộ đang được thực hiện trong khoa học và công nghệ hàng ngày, và một ví dụ điển
                             hình về điều này là</p>
-                        <a class="primary-btn" href="login.jsp">Đăng nhập vào tài khoản?</a>
+                        <a class="primary-btn" href="${pageContext.request.contextPath}/user/login.jsp">Đăng nhập vào tài khoản?</a>
                     </div>
                 </div>
             </div>
@@ -139,18 +139,15 @@
                     <form class="row login_form" action="/register" id="contactForm" novalidate="novalidate">
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="cus_name" name="name" placeholder="Họ và tên">
-                            <p id="error"></p>
-                            <span class="form-message"></span>
+                            <p id="error" style="color: red"></p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="cus_email" name="email" placeholder="Email">
-                            <p id="error1"></p>
-                            <span class="form-message"></span>
+                            <p id="error1" style="color: red"></p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="date" class="form-control" id="cus_date_of_birth" name="date">
-                            <p id="error2"></p>
-                            <span class="form-message"></span>
+                            <p id="error2" style="color: red"></p>
                         </div>
                         <div class="col-md-12 form-group">
                             <select name="gender" id="gender">
@@ -160,22 +157,20 @@
                             </select>
                         </div>
                         <div class="col-md-12 form-group">
+                            <p style="color:red">${message}</p>
                             <input type="text" class="form-control" id="nameAccount" name="nameAccount"
                                    placeholder="Tên đăng nhập">
-                            <p id="error3"></p>
-                            <span class="form-message"></span>
+                            <p id="error3" style="color: red"></p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="password" class="form-control" id="passAccount" name="passAccount"
                                    placeholder="Mật khẩu">
-                            <p id="error4"></p>
-                            <span class="form-message"></span>
+                            <p id="error4" style="color: red"></p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="password" class="form-control" id="pass1" name="repass"
                                    placeholder="Nhập lại mật khẩu">
-                            <p id="error5"></p>
-                            <span class="form-message"></span>
+                            <p id="error5" style="color: red"></p>
                         </div>
                         <div class="col-md-12 form-group">
                             <div class="creat_account">
@@ -234,14 +229,14 @@
                 <div class="single-footer-widget mail-chimp">
                     <h6 class="mb-20">Instragram</h6>
                     <ul class="instafeed d-flex flex-wrap">
-                        <li><img src="img/i1.jpg" alt=""></li>
-                        <li><img src="img/i2.jpg" alt=""></li>
-                        <li><img src="img/i3.jpg" alt=""></li>
-                        <li><img src="img/i4.jpg" alt=""></li>
-                        <li><img src="img/i5.jpg" alt=""></li>
-                        <li><img src="img/i6.jpg" alt=""></li>
-                        <li><img src="img/i7.jpg" alt=""></li>
-                        <li><img src="img/i8.jpg" alt=""></li>
+                        <li><img src="${pageContext.request.contextPath}/user/img/i1.jpg" alt=""></li>
+                        <li><img src="${pageContext.request.contextPath}/user/img/i2.jpg" alt=""></li>
+                        <li><img src="${pageContext.request.contextPath}/user/img/i3.jpg" alt=""></li>
+                        <li><img src="${pageContext.request.contextPath}/user/img/i4.jpg" alt=""></li>
+                        <li><img src="${pageContext.request.contextPath}/user/img/i5.jpg" alt=""></li>
+                        <li><img src="${pageContext.request.contextPath}/user/img/i6.jpg" alt=""></li>
+                        <li><img src="${pageContext.request.contextPath}/user/img/i7.jpg" alt=""></li>
+                        <li><img src="${pageContext.request.contextPath}/user/img/i8.jpg" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -267,18 +262,18 @@
         </div>
     </div>
 </footer>
-<script src="js/vendor/jquery-2.2.4.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/vendor/jquery-2.2.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
         integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
-<script src="js/nouislider.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/validator.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/vendor/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/jquery.ajaxchimp.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/jquery.nice-select.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/jquery.sticky.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/nouislider.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/jquery.magnific-popup.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/owl.carousel.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/validator.js"></script>
 <script>
     const form = document.getElementById("contactForm");
 
@@ -294,36 +289,48 @@
         if(pattern.test(input)){
             event.preventDefault();
             document.getElementById("error").innerHTML = "Vui lòng nhập họ và tên";
+        }else {
+            document.getElementById("error").innerHTML = "";
         }
         if(pattern.test(input1)){
             event.preventDefault();
             document.getElementById("error1").innerHTML = "Vui lòng nhập email";
         }
+        else {
+            document.getElementById("error1").innerHTML = "";
+        }
         if(pattern.test(input2)){
             event.preventDefault();
             document.getElementById("error2").innerHTML = "Vui lòng nhập ngày sinh";
+        }else {
+            document.getElementById("error2").innerHTML = "";
         }
         if(pattern.test(input3)){
             event.preventDefault();
             document.getElementById("error3").innerHTML = "Vui lòng nhập tên tài khoản";
+        }else {
+            document.getElementById("error3").innerHTML = "";
         }
         if(pattern.test(input4)){
             event.preventDefault();
             document.getElementById("error4").innerHTML = "Vui lòng nhập mật khẩu";
+        }else {
+            document.getElementById("error4").innerHTML = "";
         }
         if(pattern.test(input5)){
             event.preventDefault();
             document.getElementById("error5").innerHTML = "Vui lòng nhập đúng mật khẩu";
+        }else {
+            document.getElementById("error5").innerHTML = "";
         }
     });
 </script>
 <!--gmaps Js-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-<script src="js/gmaps.min.js"></script>
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/gmaps.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-<script src="./js/validator.js"></script>
 </body>
 </html>

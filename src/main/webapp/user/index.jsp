@@ -58,7 +58,7 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="${pageContext.request.contextPath}/user/index.jsp"><img src="${pageContext.request.contextPath}/user/img/logo.jpg" alt=""
+                <a class="navbar-brand logo_h" href="/index"><img src="${pageContext.request.contextPath}/user/img/logo.jpg" alt=""
                                                                       style="height: 90px;width: 200px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
@@ -70,7 +70,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/user/index.jsp">Trang chủ</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="/index">Trang chủ</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
@@ -919,7 +919,7 @@
             </div>
             <div class="col-lg-3  col-md-6 col-sm-6">
                 <div class="single-footer-widget mail-chimp">
-                    <h6 class="mb-20">Instragram</h6>
+                    <h6 class="mb-20">Instagram</h6>
                     <ul class="instafeed d-flex flex-wrap">
                         <li><img src="img/i1.jpg" alt=""></li>
                         <li><img src="img/i2.jpg" alt=""></li>
