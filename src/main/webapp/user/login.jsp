@@ -34,7 +34,7 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.jpg" alt=""
+                <a class="navbar-brand logo_h" href="/index"><img src="img/logo.jpg" alt=""
                                                                       style="height: 90px;width: 200px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"

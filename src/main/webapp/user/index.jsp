@@ -77,7 +77,7 @@
                                aria-expanded="false">Sản phẫm</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/type">Danh mục sách</a></li>
-                                <li class="nav-item"><a class="nav-link" href="single-product.html">Thông tin chi tiết
+                                <li class="nav-item"><a class="nav-link" href="/user/detail.jsp">Thông tin chi tiết
                                     sản phẫm</a></li>
                                 <li class="nav-item"><a class="nav-link" href="checkout.html">Thanh toán sản phẫm</a>
                                 </li>
@@ -99,7 +99,7 @@
                                aria-haspopup="true"
                                aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="user/login.jsp">Login</a></li>
+                                <li class="nav-item"><a class="nav-link" href=${pageContext.request.contextPath}/user/login.jsp>Login</a></li>
                                 <li class="nav-item"><a class="nav-link" href="tracking.html">Theo dõi</a></li>
                                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                             </ul>
@@ -317,7 +317,7 @@
             <div class="row">
                 <c:forEach items="${bookList}" var="book">
                     <c:choose>
-                        <c:when test="${book.price >= 250000}">
+                        <c:when test="${book.price >= 450000}">
                             <div class="col-lg-3 col-md-6">
                                 <div class="single-product">
                                     <img class="img-fluid" src="${book.image}" alt="" style="height: 280px">
@@ -938,10 +938,10 @@
                     <h6>Theo dõi chúng tôi</h6>
                     <p>Let us be social</p>
                     <div class="footer-social d-flex align-items-center">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100086760068327"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100086760068327"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100086760068327"><i class="fa fa-dribbble"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100086760068327"><i class="fa fa-behance"></i></a>
                     </div>
                 </div>
             </div>
