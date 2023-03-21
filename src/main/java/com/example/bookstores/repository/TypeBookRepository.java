@@ -6,7 +6,18 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TypeBookRepository implements ITypeBookRepository{
+public class TypeBookRepository implements ITypeBookRepository {
+    public List<TypeBook> findByName(String name) {
+        List<TypeBook> list = findAll();
+        List<TypeBook> list1 = new ArrayList<>();
+        for (TypeBook typeBook : list) {
+            if (typeBook.getCategoryName().toLowerCase().contains(name.toLowerCase())) {
+                list1.add(typeBook);
+            }
+        }
+        return list1;
+    }
+
     @Override
     public List<TypeBook> findAll() {
         Connection connection = DBConnection.getConnection();
@@ -14,19 +25,19 @@ public class TypeBookRepository implements ITypeBookRepository{
         ResultSet resultSet = null;
         List<TypeBook> typeBooks = new ArrayList<>();
         TypeBook typeBook = null;
-        if(connection!= null){
+        if (connection != null) {
             try {
                 statement = connection.prepareStatement("SELECT * FROM book_store.category");
                 resultSet = statement.executeQuery();
-                while (resultSet.next()){
+                while (resultSet.next()) {
                     String categoryId = resultSet.getString("category_id");
                     String categoryName = resultSet.getString("category_name");
-                    typeBook = new TypeBook(categoryId,categoryName);
+                    typeBook = new TypeBook(categoryId, categoryName);
                     typeBooks.add(typeBook);
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
-            }finally {
+            } finally {
                 try {
                     statement.close();
                     resultSet.close();
@@ -43,10 +54,10 @@ public class TypeBookRepository implements ITypeBookRepository{
     public void create(TypeBook typeBook) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = null;
-        try{
+        try {
             statement = connection.prepareStatement("INSERT INTO category(category_id, category_name) VALUES (?, ?)");
-            statement.setString(1,typeBook.getCategoryId());
-            statement.setString(2,typeBook.getCategoryName());
+            statement.setString(1, typeBook.getCategoryId());
+            statement.setString(2, typeBook.getCategoryName());
             statement.executeUpdate();
             DBConnection.close();
         } catch (SQLException e) {
@@ -80,8 +91,8 @@ public class TypeBookRepository implements ITypeBookRepository{
     @Override
     public TypeBook findByID(String id) {
         List<TypeBook> list = findAll();
-        for (TypeBook book: list) {
-            if (book.getCategoryId().equals(id)){
+        for (TypeBook book : list) {
+            if (book.getCategoryId().equals(id)) {
                 return book;
             }
         }
