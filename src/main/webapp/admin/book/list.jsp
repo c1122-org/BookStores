@@ -439,7 +439,7 @@
                     <table id="tableBook" class="table table-responsive">
                         <thead class="table-dark">
                         <tr class="text-center">
-                            <th style="width: 10%;text-align: center">Mã sách</th>
+                            <th style="width: 10%;text-align: center" >Mã sách</th>
                             <th style="width: 260px;text-align: center">Tên sách</th>
                             <th style="width: 15%;text-align: center">Gía sách (VND)</th>
                             <th style="text-align: center">Tác giả</th>
@@ -467,9 +467,6 @@
                                         <i class="fa fa-table" style="color: black"></i>
                                     </button>
                                         <%--button delete--%>
-                                        <%--                                            <a class="delete" title="Delete" data-toggle="tooltip" style="width: 30px;text-decoration: none"><i class="fa fa-trash">&#xE872;</i></a>--%>
-
-
                                     <button type="button" onclick="deleteInfo('${book.id}','${book.nameBook}')"
                                             style="margin-bottom: 5px; line-height: 1.3px; background: white; border: 0"
                                             class="btn btn-danger"
@@ -477,15 +474,9 @@
                                         <i
                                                 style="color: black"
                                                 class="fa fa-trash"></i>
-                                            <%--                                        <i class="fas fa-trash-alt" style="color: black"></i>--%>
+
                                     </button>
-                                        <%-- edit --%>
-                                        <%--                                    <a href="/adminBook?action=edit&id=${book.id}" class="btn btn-primary"><i--%>
-                                        <%--                                            class="fas fa-edit" style="line-height: 1.3px"></i></a>--%>
-                                        <%--                                    <a class="edit" title="Edit" data-toggle="tooltip"--%>
-                                        <%--                                       style="width: 30px;text-decoration: none"--%>
-                                        <%--                                       href="/adminBook?action=edit&id=${book.id}"><i--%>
-                                        <%--                                            class="fa fa-edit">&#xE254;</i></a>--%>
+                                        <%--button update --%>
                                     <button style="background: white; border: 0"
                                             class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip"
                                             data-placement="top" title="Edit"
@@ -538,11 +529,6 @@
                                         <td><p id="imageDetail" style="margin: 2em 7em;"></p></td>
                                 </table>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ
-                                </button>
-
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -553,7 +539,6 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Xóa sách</h5>
-                                <%--                                                                <h3 style="margin-top: 20px">${mess}</h3>--%>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
@@ -722,7 +707,8 @@
             },
             "searching": false,
             "pagingType": "full_numbers",
-            'pageLength': 3
+            'pageLength': 3,
+            order: [[0, 'desc']],
         });
     });
 </script>

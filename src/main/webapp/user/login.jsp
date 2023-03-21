@@ -35,6 +35,7 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <a class="navbar-brand logo_h" href="/index"><img src="${pageContext.request.contextPath}/user/img/logo.jpg" alt=""
+
                                                                       style="height: 90px;width: 200px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
@@ -53,8 +54,7 @@
                                aria-expanded="false">Sản phẫm</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="/type">Danh mục sách</a></li>
-                                <li class="nav-item"><a class="nav-link" href="single-product.html">Thông tin chi tiết
-                                    sản phẫm</a></li>
+                                <li class="nav-item"><a class="nav-link" href="single-product.html">Thông tin chi tiết</a></li>
                                 <li class="nav-item"><a class="nav-link" href="checkout.html">Thanh toán sản phẫm</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="cart.html">Giỏ hàng</a></li>
