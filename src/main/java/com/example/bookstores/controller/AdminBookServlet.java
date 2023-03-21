@@ -230,7 +230,7 @@ public class AdminBookServlet extends HttpServlet {
     private void showDetail(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("idDetail"));
         request.setAttribute("books",iBookService.findById(id));
-        request.getRequestDispatcher("/admin/book/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/user/detail.jsp").forward(request, response);
     }
     /**
      * Function: show edit books
