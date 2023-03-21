@@ -316,7 +316,7 @@
             <div class="row">
                 <c:forEach items="${bookList}" var="book">
                     <c:choose>
-                        <c:when test="${book.price >= 450000}">
+                        <c:when test="${book.price >= 0}">
                             <div class="col-lg-3 col-md-6">
                                 <div class="single-product">
                                     <img class="img-fluid" src="${book.image}" alt="" style="height: 280px">
