@@ -51,7 +51,7 @@ public class TypeBookServlet extends HttpServlet {
     private void displayAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<TypeBook> books = iTypeBookService.findAll();
         request.setAttribute("typeBook",books);
-        request.getRequestDispatcher("admin/type/list.jsp").forward(request,response);
+        request.getRequestDispatcher("user/demo.jsp").forward(request,response);
     }
 
     @Override
