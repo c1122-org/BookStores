@@ -8,6 +8,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/customer/list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin/customer" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/type/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin/type" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/type/list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin/type" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/user/detail.jsp" value="file://$PROJECT_DIR$/src/main/webapp/user" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/user/home.jsp" value="file://$PROJECT_DIR$/src/main/webapp/user" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/user/login.jsp" value="file://$PROJECT_DIR$/src/main/webapp/user" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/user/registration.jsp" value="file://$PROJECT_DIR$/src/main/webapp/user" />
