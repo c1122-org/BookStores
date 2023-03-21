@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- *Show list of books
+ * Show list of books
  * Create books
  * Search books
  * Update books
@@ -21,20 +21,19 @@ import java.util.List;
  */
 @WebServlet(name = "AdminBookServlet", value = "/adminBook")
 public class AdminBookServlet extends HttpServlet {
-    private IBookService iBookService=new BookService();
+    private IBookService iBookService = new BookService();
 
     /**
      * Function: doGet
      * Create: QuynhNH
      * Date create: 17/03/2023
-     * @param request   an {@link HttpServletRequest} object that
-     *                  contains the request the client has made
-     *                  of the servlet
      *
-     * @param response  an {@link HttpServletResponse} object that
-     *                  contains the response the servlet sends
-     *                  to the client
-     *
+     * @param request  an {@link HttpServletRequest} object that
+     *                 contains the request the client has made
+     *                 of the servlet
+     * @param response an {@link HttpServletResponse} object that
+     *                 contains the response the servlet sends
+     *                 to the client
      * @throws ServletException
      * @throws IOException
      */
@@ -63,7 +62,7 @@ public class AdminBookServlet extends HttpServlet {
                 break;
             case "detail":
                 try {
-                    showDetail(request,response);
+                    showDetail(request, response);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
@@ -77,14 +76,13 @@ public class AdminBookServlet extends HttpServlet {
      * Function: doPost
      * Create: QuynhNH
      * Date create: 17/03/2023
-     * @param request   an {@link HttpServletRequest} object that
-     *                  contains the request the client has made
-     *                  of the servlet
      *
-     * @param response  an {@link HttpServletResponse} object that
-     *                  contains the response the servlet sends
-     *                  to the client
-     *
+     * @param request  an {@link HttpServletRequest} object that
+     *                 contains the request the client has made
+     *                 of the servlet
+     * @param response an {@link HttpServletResponse} object that
+     *                 contains the response the servlet sends
+     *                 to the client
      * @throws ServletException
      * @throws IOException
      */
@@ -116,19 +114,32 @@ public class AdminBookServlet extends HttpServlet {
                 }
                 break;
             case "delete":
-                deleteBook(request,response);
+                deleteBook(request, response);
                 break;
-
+            case "searchByName":
+                try {
+                    searchByName(request, response);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
             default:
                 showBooksList(request, response);
                 break;
         }
     }
 
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String name = request.getParameter("nameBook");
+        request.setAttribute("bookList", iBookService.findAll(name));
+        request.getRequestDispatcher("/user/index.jsp").forward(request, response);
+    }
+
     /**
      * Function: Delete books doPost
      * Create: QuynhNH
      * Date create: 17/03/2023
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -148,15 +159,16 @@ public class AdminBookServlet extends HttpServlet {
         } catch (java.sql.SQLException throwables) {
             throw new RuntimeException(throwables);
         }
-        request.setAttribute("bookList",booksList);
+        request.setAttribute("bookList", booksList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/book/list.jsp");
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
     }
 
     /**
      * Function: Perform edit books doPost
      * Create: QuynhNH
      * Date create: 17/03/2023
+     *
      * @param request
      * @param response
      * @throws SQLException
@@ -166,16 +178,16 @@ public class AdminBookServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String nameBook = request.getParameter("nameBook");
         Double price = Double.parseDouble(request.getParameter("price"));
-        String author= request.getParameter("author");
-        String publishingCompany=request.getParameter("publishingCompany");
-        String publisher= request.getParameter("publisher");
-        String translator=request.getParameter("translator");
-        String describes=request.getParameter("describes");
-        String image=request.getParameter("image");
+        String author = request.getParameter("author");
+        String publishingCompany = request.getParameter("publishingCompany");
+        String publisher = request.getParameter("publisher");
+        String translator = request.getParameter("translator");
+        String describes = request.getParameter("describes");
+        String image = request.getParameter("image");
         String categoryID = request.getParameter("categoryID");
         Category category = new Category(categoryID);
-        Book book= new Book(nameBook,price,author,publishingCompany,publisher,translator,describes,image,category);
-        iBookService.updateBook(id,book);
+        Book book = new Book(nameBook, price, author, publishingCompany, publisher, translator, describes, image, category);
+        iBookService.updateBook(id, book);
         response.sendRedirect("/adminBook");
 
     }
@@ -184,6 +196,7 @@ public class AdminBookServlet extends HttpServlet {
      * Function: Perform create books doPost
      * Create: QuynhNH
      * Date create: 17/03/2023
+     *
      * @param request
      * @param response
      * @throws IOException
@@ -192,15 +205,15 @@ public class AdminBookServlet extends HttpServlet {
     private void performCreate(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
         String nameBook = request.getParameter("nameBook");
         Double price = Double.parseDouble(request.getParameter("price"));
-        String author= request.getParameter("author");
-        String publishingCompany=request.getParameter("publishingCompany");
-        String publisher= request.getParameter("publisher");
-        String translator=request.getParameter("translator");
-        String describes=request.getParameter("describes");
-        String image=request.getParameter("image");
+        String author = request.getParameter("author");
+        String publishingCompany = request.getParameter("publishingCompany");
+        String publisher = request.getParameter("publisher");
+        String translator = request.getParameter("translator");
+        String describes = request.getParameter("describes");
+        String image = request.getParameter("image");
         String categoryID = request.getParameter("categoryID");
         Category category = new Category(categoryID);
-        Book book = new Book(nameBook,price,author,publishingCompany,publisher,translator,describes,image,category);
+        Book book = new Book(nameBook, price, author, publishingCompany, publisher, translator, describes, image, category);
 
         iBookService.save(book);
         response.sendRedirect("/adminBook");
@@ -210,6 +223,7 @@ public class AdminBookServlet extends HttpServlet {
      * Function: Show books list
      * Create: QuynhNH
      * Date create: 17/03/2023
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -218,8 +232,8 @@ public class AdminBookServlet extends HttpServlet {
     private void showBooksList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         try {
-            request.setAttribute("nameSearch",name);
-            List<Book> books =  iBookService.findAll(name);
+            request.setAttribute("nameSearch", name);
+            List<Book> books = iBookService.findAll(name);
             request.setAttribute("bookList", iBookService.findAll(name));
         } catch (java.sql.SQLException throwables) {
             throw new RuntimeException(throwables);
@@ -229,13 +243,15 @@ public class AdminBookServlet extends HttpServlet {
 
     private void showDetail(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("idDetail"));
-        request.setAttribute("books",iBookService.findById(id));
+        request.setAttribute("books", iBookService.findById(id));
         request.getRequestDispatcher("/user/detail.jsp").forward(request, response);
     }
+
     /**
      * Function: show edit books
      * Create: QuynhNH
      * Date create: 17/03/2023
+     *
      * @param request
      * @param response
      * @throws SQLException
@@ -246,7 +262,7 @@ public class AdminBookServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Book book = iBookService.findById(id);
         request.setAttribute("book", book);
-        request.setAttribute("categoryList",iBookService.categoryList());
+        request.setAttribute("categoryList", iBookService.categoryList());
         request.getRequestDispatcher("/admin/book/update.jsp").forward(request, response);
     }
 
@@ -254,6 +270,7 @@ public class AdminBookServlet extends HttpServlet {
      * Function: show create books
      * Create: QuynhNH
      * Date create: 17/03/2023
+     *
      * @param request
      * @param response
      * @throws SQLException
@@ -261,7 +278,7 @@ public class AdminBookServlet extends HttpServlet {
      * @throws IOException
      */
     private void showCreate(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        request.setAttribute("categoryList",iBookService.categoryList());
+        request.setAttribute("categoryList", iBookService.categoryList());
         request.getRequestDispatcher("/admin/book/create.jsp").forward(request, response);
     }
 }
