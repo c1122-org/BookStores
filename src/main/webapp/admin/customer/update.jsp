@@ -422,7 +422,7 @@
                                 <tr>
                                     <th style="padding-bottom: 10px">Tên khách hàng:</th>
                                     <td style="padding-bottom: 10px">
-                                        <input type="text" name="name" id="myInput" value="${customer.name}" size="45"
+                                        <input type="text" name="name" id="inputName" value="${customer.name}" size="45"
                                                style="margin-left: 20px"/>
                                     </td>
                                 </tr>
@@ -601,7 +601,7 @@
     const form = document.getElementById("myForm");
 
     form.addEventListener("submit", function(event){
-        const input = document.getElementById("myInput").value;
+        const input = document.getElementById("inputName").value;
         const pattern = /^\s*$/;
 
         if(pattern.test(input)){

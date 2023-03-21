@@ -10,5 +10,6 @@ public interface ITypeBookService {
     void create(TypeBook typeBook);
     TypeBook findByID(String id);
     void update(TypeBook typeBook);
+    List<TypeBook> findByName(String name);
 
 }

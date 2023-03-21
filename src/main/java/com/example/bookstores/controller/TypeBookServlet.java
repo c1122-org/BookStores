@@ -37,6 +37,7 @@ public class TypeBookServlet extends HttpServlet {
         }
     }
 
+
     private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String categoryId = request.getParameter("categoryId");
         TypeBook typeBook = iTypeBookService.findByID(categoryId);
@@ -69,11 +70,18 @@ public class TypeBookServlet extends HttpServlet {
             case "update":
                 updateCustomer(request,response);
                 break;
+            case "search":
+                searchByName(request,response);
+                break;
             default:
                 displayAll(request,response);
         }
     }
-
+    private void searchByName(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        String name=request.getParameter("search");
+        request.setAttribute("typeBook",iTypeBookService.findByName(name));
+        request.getRequestDispatcher("admin/type/list.jsp").forward(request,response);
+    }
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String categoryId = request.getParameter("categoryId");
         String categoryName = request.getParameter("categoryName");
