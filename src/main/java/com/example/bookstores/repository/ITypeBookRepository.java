@@ -11,4 +11,5 @@ public interface ITypeBookRepository {
     void create(TypeBook typeBook);
     void update(TypeBook typeBook);
     TypeBook findByID(String id);
+    List<TypeBook> findByName(String name);
 }

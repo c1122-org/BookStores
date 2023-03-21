@@ -437,13 +437,13 @@
                     <table id="tableBook" class="table table-responsive">
                         <thead class="table-dark">
                         <tr class="text-center">
-                            <th>Mã sách</th>
+                            <th style="width: 10%">Mã sách</th>
                             <th style="width: 260px">Tên sách</th>
-                            <th>Gía sách (VND)</th>
+                            <th style="width: 15%">Gía sách (VND)</th>
                             <th>Tác giả</th>
 
                             <th>Loại sách</th>
-                            <th style="width: 116px">Chức năng</th>
+                            <th style="width: 116px">Tác vụ</th>
                         </tr>
                         </thead>
                         <tbody class="text-center">
@@ -459,25 +459,33 @@
                                     <button type="button" onclick="detail('${book.publishingCompany}','${book.publisher}','${book.translator}','${book.describes}','${book.image}')" class="btn btn-primary"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal1"
                                             data-bs-whatever="@mdo"
-                                            style="margin-bottom: 5px">
-                                        <i class="fa-thin fa-list"></i>
+                                            style="margin-bottom: 5px; background: white">
+                                        <i class="fa-thin fa-list" style="color: black"></i>
                                     </button>
                                         <%--button delete--%>
 <%--                                            <a class="delete" title="Delete" data-toggle="tooltip" style="width: 30px;text-decoration: none"><i class="fa fa-trash">&#xE872;</i></a>--%>
 
 
                                     <button type="button" onclick="deleteInfo('${book.id}','${book.nameBook}')"
-                                            style="margin-bottom: 5px; line-height: 1.3px" class="btn btn-danger"
-                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-trash-alt"></i>
+                                            style="margin-bottom: 5px; line-height: 1.3px; background: white; border: 0" class="btn btn-danger"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                        <i
+                                                style="color: black"
+                                                class="fa fa-trash"></i>
+<%--                                        <i class="fas fa-trash-alt" style="color: black"></i>--%>
                                     </button>
                                         <%-- edit --%>
                                         <%--                                    <a href="/adminBook?action=edit&id=${book.id}" class="btn btn-primary"><i--%>
                                         <%--                                            class="fas fa-edit" style="line-height: 1.3px"></i></a>--%>
-                                    <a class="edit" title="Edit" data-toggle="tooltip"
-                                       style="width: 30px;text-decoration: none"
-                                       href="/adminBook?action=edit&id=${book.id}"><i
-                                            class="fa fa-edit">&#xE254;</i></a>
+<%--                                    <a class="edit" title="Edit" data-toggle="tooltip"--%>
+<%--                                       style="width: 30px;text-decoration: none"--%>
+<%--                                       href="/adminBook?action=edit&id=${book.id}"><i--%>
+<%--                                            class="fa fa-edit">&#xE254;</i></a>--%>
+                                            <button style="background: white; border: 0"
+                                                    class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip"
+                                                    data-placement="top" title="Edit" onclick="location.href='/adminBook?action=edit&id=${book.id}'"><i
+                                                    style="color: black"
+                                                    class="fa fa-edit"></i></button>
                                 </td>
                             </tr>
                         </c:forEach>

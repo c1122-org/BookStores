@@ -428,7 +428,7 @@
                 </div>
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
-                    <form class="example d-flex align-items-center" action="/customers?action=search" method="post">
+                    <form class="example d-flex align-items-center" action="/type?action=search" method="post">
                         <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
@@ -451,10 +451,10 @@
                                 <td>
                                     <a class="edit" title="Edit" data-toggle="tooltip"
                                        style="width: 30px;text-decoration: none"
-                                       href="/type?action=update&categoryId=${type.categoryId}"><i class="fa fa-edit">&#xE254;</i></a>
+                                       href="/type?action=update&categoryId=${type.categoryId}"><i style="color: black" class="fa fa-edit">&#xE254;</i></a>
                                     <a class="delete" title="Delete" data-toggle="tooltip"
                                        style="width: 30px;text-decoration: none"
-                                       href="/type?action=delete&id=${type.categoryId}"><i
+                                       href="/type?action=delete&id=${type.categoryId}"><i style="color: black"
                                             class="fa fa-trash">&#xE872;</i></a>
                                 </td>
                             </tr>
