@@ -451,10 +451,10 @@
                                 <td>
                                     <a class="edit" title="Edit" data-toggle="tooltip"
                                        style="width: 30px;text-decoration: none"
-                                       href="/type?action=update&categoryId=${type.categoryId}"><i class="fa fa-edit">&#xE254;</i></a>
+                                       href="/type?action=update&categoryId=${type.categoryId}"><i style="color: black" class="fa fa-edit">&#xE254;</i></a>
                                     <a class="delete" title="Delete" data-toggle="tooltip"
                                        style="width: 30px;text-decoration: none"
-                                       href="/type?action=delete&id=${type.categoryId}"><i
+                                       href="/type?action=delete&id=${type.categoryId}"><i style="color: black"
                                             class="fa fa-trash">&#xE872;</i></a>
                                 </td>
                             </tr>
