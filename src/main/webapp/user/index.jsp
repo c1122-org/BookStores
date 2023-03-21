@@ -99,7 +99,7 @@
                                aria-haspopup="true"
                                aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user/login.jsp">Login</a></li>
+                                <li class="nav-item"><a class="nav-link" href="user/login.jsp">Login</a></li>
                                 <li class="nav-item"><a class="nav-link" href="tracking.html">Theo dõi</a></li>
                                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                             </ul>
