@@ -46,7 +46,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="/user/index.jsp">Trang chủ</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/user/index.jsp">Trang chủ</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
@@ -75,7 +75,7 @@
                                aria-haspopup="true"
                                aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="/user/login.jsp">Login</a></li>
+                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user/login.jsp">Login</a></li>
                                 <li class="nav-item"><a class="nav-link" href="tracking.html">Theo dõi</a></li>
                                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                             </ul>
@@ -111,8 +111,8 @@
             <div class="col-first">
                 <h1>Login/Register</h1>
                 <nav class="d-flex align-items-center">
-                    <a href="/user/index.jsp">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="/user/login.jsp">Login/Register</a>
+                    <a href="${pageContext.request.contextPath}/user/index.jsp">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="${pageContext.request.contextPath}/user/login.jsp">Login/Register</a>
                 </nav>
             </div>
         </div>
@@ -131,7 +131,7 @@
                         <h4>Mới vào trang website của chúng tôi?</h4>
                         <p>Có những tiến bộ đang được thực hiện trong khoa học và công nghệ hàng ngày, và một ví dụ điển
                             hình về điều này là</p>
-                        <a class="primary-btn" href="registration.jsp">Tạo một tài khoản?</a>
+                        <a class="primary-btn" href="${pageContext.request.contextPath}/user/registration.jsp">Tạo một tài khoản?</a>
                     </div>
                 </div>
             </div>
