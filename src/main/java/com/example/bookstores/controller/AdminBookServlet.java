@@ -172,7 +172,7 @@ public class AdminBookServlet extends HttpServlet {
         String translator=request.getParameter("translator");
         String describes=request.getParameter("describes");
         String image=request.getParameter("image");
-        int categoryID = Integer.parseInt(request.getParameter("categoryID"));
+        String categoryID = request.getParameter("categoryID");
         Category category = new Category(categoryID);
         Book book= new Book(nameBook,price,author,publishingCompany,publisher,translator,describes,image,category);
         iBookService.updateBook(id,book);
@@ -198,7 +198,7 @@ public class AdminBookServlet extends HttpServlet {
         String translator=request.getParameter("translator");
         String describes=request.getParameter("describes");
         String image=request.getParameter("image");
-        int categoryID = Integer.parseInt(request.getParameter("categoryID"));
+        String categoryID = request.getParameter("categoryID");
         Category category = new Category(categoryID);
         Book book = new Book(nameBook,price,author,publishingCompany,publisher,translator,describes,image,category);
 

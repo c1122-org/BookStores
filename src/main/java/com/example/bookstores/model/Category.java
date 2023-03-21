@@ -1,23 +1,23 @@
 package com.example.bookstores.model;
 
 public class Category {
-    private Integer idCategory;
+    private String idCategory;
     private String nameCategory;
 
-    public Category(Integer idCategory, String nameCategory) {
+    public Category(String idCategory) {
+        this.idCategory = idCategory;
+    }
+
+    public Category(String idCategory, String nameCategory) {
         this.idCategory = idCategory;
         this.nameCategory = nameCategory;
     }
 
-    public Category(Integer idCategory) {
-        this.idCategory = idCategory;
-    }
-
-    public Integer getIdCategory() {
+    public String getIdCategory() {
         return idCategory;
     }
 
-    public void setIdCategory(Integer idCategory) {
+    public void setIdCategory(String idCategory) {
         this.idCategory = idCategory;
     }
 

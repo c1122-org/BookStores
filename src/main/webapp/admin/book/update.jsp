@@ -321,11 +321,12 @@
             }
         }
         .form-select {
-            background-color: #3498DB;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
+            background-color: #ffffff;
+            color: #151212;
+            padding: 14px;
+            font-size: 14px;
             border: none;
+
         }
 
         .dropup {
@@ -336,8 +337,8 @@
         .dropup-content {
             display: none;
             position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
+            background-color: #151212;
+            min-width: 150px;
             bottom: 50px;
             z-index: 1;
         }
@@ -356,7 +357,7 @@
         }
 
         .dropup:hover .dropbtn {
-            background-color: #2980B9;
+            background-color: #ffffff;
         }
 
     </style>
@@ -400,7 +401,7 @@
                             <tr>
                                 <th style="padding-bottom: 10px">Gía sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="number" name="price" id="price" value="${book.price}" size="45" style="margin-left: 20px"/>
+                                    <input type="number" name="price" id="price" value="${book.price}" size="45" style="margin-left: 20px; width: 87%"/>
                                 </td>
                             </tr>
                             <tr>
