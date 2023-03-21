@@ -77,8 +77,7 @@
                                aria-expanded="false">Sản phẫm</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/type">Danh mục sách</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/user/detail.jsp">Thông tin chi tiết
-                                    sản phẫm</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/user/detail.jsp">Thông tin chi tiết</a></li>
                                 <li class="nav-item"><a class="nav-link" href="checkout.html">Thanh toán sản phẫm</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="cart.html">Giỏ hàng</a></li>
