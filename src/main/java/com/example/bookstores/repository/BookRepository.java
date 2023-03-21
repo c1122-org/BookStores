@@ -44,8 +44,8 @@ public class BookRepository implements IBookRepository {
         if (connection != null) {
             try {
                 preparedStatement = connection.prepareStatement("select books.book_id,books.book_name,books.book_price,books.book_author,books.publishing_company,books.publisher,books.translator,books.describes,books.image,books.category_id,category.category_id, category.category_name\n" +
-                        "from books \n" +
-                        "left join category on category.category_id = books.category_id where book_name like concat('%',?,'%')");
+                        "from books\n" +
+                        "left join category on category.category_id = books.category_id where book_name like concat('%',?,'%') order by books.book_id desc");
 
                 preparedStatement.setString(1, name);
                 resultSet = preparedStatement.executeQuery();
@@ -59,10 +59,11 @@ public class BookRepository implements IBookRepository {
                     String translator = resultSet.getString("translator");
                     String describes = resultSet.getString("describes");
                     String image = resultSet.getString("image");
-                    int idCategory = resultSet.getInt("category_id");
+                    String idCategory = resultSet.getString("category_id");
                     String nameCategory = resultSet.getString("category_name");
-                    Category category = new Category(idCategory, nameCategory);
+                    Category category = new Category(idCategory,nameCategory);
                     bookList2.add(new Book(id,nameBook, price, author, publishingCompany, publisher, translator, describes, image, category));
+
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -90,7 +91,7 @@ public class BookRepository implements IBookRepository {
         preparedStatement.setString(6, book.getTranslator());
         preparedStatement.setString(7, book.getDescribes());
         preparedStatement.setString(8, book.getImage());
-        preparedStatement.setInt(9, book.getCategory().getIdCategory());
+        preparedStatement.setString(9, book.getCategory().getIdCategory());
         preparedStatement.executeUpdate();
 
     }
@@ -117,9 +118,9 @@ public class BookRepository implements IBookRepository {
             String translator = resultSet.getString("translator");
             String describes = resultSet.getString("describes");
             String image = resultSet.getString("image");
-            int idCategory = resultSet.getInt("category_id");
+            String idCategory = resultSet.getString("category_id");
             String nameCategory = resultSet.getString("category_name");
-            Category category = new Category(idCategory, nameCategory);
+            Category category = new Category(idCategory,nameCategory);
             Book book = new Book(nameBook, price, author, publishingCompany, publisher, translator, describes, image, category);
             return book;
         }
@@ -149,7 +150,7 @@ public class BookRepository implements IBookRepository {
                 preparedStatement.setString(6, book.getTranslator());
                 preparedStatement.setString(7, book.getDescribes());
                 preparedStatement.setString(8, book.getImage());
-                preparedStatement.setInt(9, book.getCategory().getIdCategory());
+                preparedStatement.setString(9, book.getCategory().getIdCategory());
                 preparedStatement.setInt(10,id);
 
                 preparedStatement.executeUpdate();
@@ -196,9 +197,9 @@ public class BookRepository implements IBookRepository {
         PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement("select * from category");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            int idCategory = resultSet.getInt(1);
+            String idCategory = resultSet.getString(1);
             String nameCategory = resultSet.getString(2);
-            Category category = new Category(idCategory, nameCategory);
+            Category category = new Category(idCategory,nameCategory);
             categoryList.add(category);
         }
         return categoryList;
