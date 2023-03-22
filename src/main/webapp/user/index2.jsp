@@ -335,18 +335,19 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-<%--                <a href="" class="social-info">--%>
-<%--                  <span class="lnr lnr-move"></span>--%>
-<%--                  <p class="hover-text">Xem thêm</p>--%>
-<%--                </a>--%>
 
-<%--                -------------------------------------------------------------%>
+               <a href="" class="social-info">
+                  <span class="lnr lnr-move"></span>
+                <p class="hover-text">Xem thêm</p>
+               </a>
+
+
                 <a href="/bookDetails?&id=${book.id}" class="social-info" >
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
 
-<%--                --------------------------------------------------------------%>
               </div>
             </div>
           </div>
@@ -375,41 +376,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- single product -->
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
-            <div class="product-details">
-              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
-              <div class="price">
-                <h6>81,500 đ</h6>
-                <h6 class="l-through">101,500 đ</h6>
-              </div>
-              <div class="prd-bottom">
-
-                <a href="" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">Thêm vào giỏ hàng</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Danh sách yêu thích</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-sync"></span>
-                  <p class="hover-text">So sánh</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -439,9 +410,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -471,9 +444,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -503,9 +478,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -535,9 +512,45 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- single product -->
+        <div class="col-lg-3 col-md-6">
+          <div class="single-product">
+            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
+            <div class="product-details">
+              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
+              <div class="price">
+                <h6>81,500 đ</h6>
+                <h6 class="l-through">101,500 đ</h6>
+              </div>
+              <div class="prd-bottom">
+
+                <a href="" class="social-info">
+                  <span class="ti-bag"></span>
+                  <p class="hover-text">Thêm vào giỏ hàng</p>
+                </a>
+                <a href="" class="social-info">
+                  <span class="lnr lnr-heart"></span>
+                  <p class="hover-text">Danh sách yêu thích</p>
+                </a>
+                <a href="" class="social-info">
+                  <span class="lnr lnr-sync"></span>
+                  <p class="hover-text">So sánh</p>
+                </a>
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
+                  <span class="lnr lnr-move"></span>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>

@@ -367,7 +367,6 @@
                                                 <span class="lnr lnr-move"></span>
                                                 <button class="hover-text" type="submit">Xem thêm</button>
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>
