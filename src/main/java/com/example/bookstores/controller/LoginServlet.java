@@ -4,6 +4,7 @@ import com.example.bookstores.model.Account;
 import com.example.bookstores.model.Book;
 import com.example.bookstores.service.AccountServiceImpl;
 import com.example.bookstores.service.BookService;
+import com.example.bookstores.service.CustomerService;
 import com.example.bookstores.service.IBookService;
 
 import javax.servlet.ServletException;
@@ -19,6 +20,7 @@ import java.util.List;
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
     AccountServiceImpl accountService = new AccountServiceImpl();
+   CustomerService customerService=new CustomerService();
     private IBookService iBookService=new BookService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,7 +50,7 @@ public class LoginServlet extends HttpServlet {
             if (account.getRoleAccount() == 1){
                 response.sendRedirect("/customers");
             }else {
-                request.setAttribute("nameAccount", nameAccount);
+                session.setAttribute("nameAccount", nameAccount);
                 try {
                     request.setAttribute("bookList1",iBookService.findAll(null));
                 } catch (SQLException e) {

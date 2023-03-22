@@ -469,18 +469,21 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Delete</h5>
+                                                <h5 class="modal-title">Xoá loại sách</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Delete Confirmation ${type.categoryName}</p>
+                                                <label for="deleteId"></label><input type="text" hidden id="deleteId"
+                                                                                     name="deleteId" value="${type.categoryId}">
+                                                <p id="deleteName">Bạn có muốn xoá  ${type.categoryName}</p>
+
                                             </div>
                                             <div class="modal-footer">
-                                                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                <button class="btn btn-danger" data-dismiss="modal">Đóng</button>
                                                 <button class="btn btn-danger"
                                                         onclick="location.href= '/type?action=delete&categoryId=${type.categoryId}'">
-                                                    Delete
+                                                   Đồng ý
                                                 </button>
                                             </div>
                                         </div>
@@ -627,6 +630,10 @@
             "pagingType": "full_numbers",
             'pageLength': 3
         });
+        function deleteInfo(id, name) {
+            document.getElementById("deleteId").value = id;
+            document.getElementById("deleteName").innerText = name;
+        }
     });
 </script>
 </body>
