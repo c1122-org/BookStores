@@ -427,7 +427,12 @@
                                     </td>
                                 <tr>
                                     <th></th>
-                                    <td id="loi2" style="padding-left: 20px;color: red; padding-bottom: 10px">${mess}
+                                    <td style="padding-left: 20px;color: red; padding-bottom: 10px">${mess}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td id="loi2" style="padding-left: 20px;color: red; padding-bottom: 10px">
                                     </td>
                                 </tr>
                                 </tr>

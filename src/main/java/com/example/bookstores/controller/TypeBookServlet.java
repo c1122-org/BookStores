@@ -210,9 +210,23 @@ public class TypeBookServlet extends HttpServlet {
     private void createTypeBook(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String categoryId = request.getParameter("categoryId");
         String categoryName = request.getParameter("categoryName");
-        TypeBook typeBook = new TypeBook(categoryId,categoryName);
-        iTypeBookService.create(typeBook);
-        request.getSession().setAttribute("message", "Bạn đã thêm dữ liệu thành công!");
-        response.sendRedirect("/type");
+        boolean flag=false;
+        for (TypeBook typeBook:iTypeBookService.findAll()){
+            if (typeBook.getCategoryName().equals(categoryName)&&typeBook.getCategoryId()!=categoryId){
+                flag=true;
+                break;
+            }
+        }
+        if (flag){
+            request.setAttribute("customer",new TypeBook(categoryId,categoryName));
+            String mess="Bạn đã nhập trùng tên loại sách";
+            request.setAttribute("mess",mess);
+            request.getRequestDispatcher("admin/type/create.jsp").forward(request, response);
+        }else {
+            TypeBook typeBook = new TypeBook(categoryId,categoryName);
+            iTypeBookService.create(typeBook);
+            request.getSession().setAttribute("message", "Bạn đã thêm dữ liệu thành công!");
+            response.sendRedirect("/type");
+        }
     }
 }
