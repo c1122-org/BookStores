@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -58,7 +59,7 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.jpg" alt=""
+                <a class="navbar-brand logo_h" href="/index2"><img src="${pageContext.request.contextPath}/user/img/logo.jpg" alt=""
                                                                       style="height: 90px;width: 200px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
@@ -71,7 +72,7 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link"
-                                                       href="${pageContext.request.contextPath}/user/index.jsp">Trang
+                                                       href="/login">Trang
                             chủ</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
@@ -99,13 +100,9 @@
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
-                               aria-expanded="false">Pages</a>
+                               aria-expanded="false">${nameAccount}</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link"
-                                                        href="${pageContext.request.contextPath}/user/login.jsp">Login</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="tracking.html">Theo dõi</a></li>
-                                <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
@@ -161,7 +158,7 @@
                 <div class="s_product_text">
                     <input type="hidden" name="id" value="${book.id}"/>
                     <h2>${book.nameBook}</h2>
-                    <h3>${book.price} VND</h3>
+                    <h3><fmt:formatNumber value="${book.price}" pattern="#.#"/> VND</h3>
                     <ul class="list">
                         <li><a class="active" href="#"><span>Loại sách:</span>${book.category.nameCategory}
                         </a></li>
@@ -194,7 +191,7 @@
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                   aria-selected="true">Description</a>
+                   aria-selected="true">Miêu tả</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"

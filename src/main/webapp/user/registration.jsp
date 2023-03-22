@@ -174,14 +174,7 @@
                             <p id="error5" style="color: red"></p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Nhớ mật khẩu</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12 form-group">
                             <button type="submit" value="submit" class="primary-btn">Đăng ký</button>
-                            <a href="#">Quên mật khẩu?</a>
                         </div>
                     </form>
                 </div>
@@ -295,7 +288,7 @@
         }
         if(pattern.test(input1)){
             event.preventDefault();
-            document.getElementById("error1").innerHTML = "Vui lòng nhập email";
+            document.getElementById("error1").innerHTML = "Vui lòng nhập đúng định dạng email";
         }
         else {
             document.getElementById("error1").innerHTML = "";

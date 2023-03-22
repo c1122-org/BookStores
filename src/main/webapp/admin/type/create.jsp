@@ -407,7 +407,7 @@
                             <tr>
                                 <th style="padding-bottom: 10px">Mã loại sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="categoryId" id="inputType" value="" size="45" style="margin-left: 20px" pattern="BT-[0-9]+$" title="BT-??"/>
+                                    <input type="text" name="categoryId" id="inputType" value="" size="45" style="margin-left: 20px" pattern="BT-[0-9]+$" title="Vui lòng nhập đúng: BT-[0->9999999999999]"/>
                                 </td>
                             <tr>
                                 <th></th>
@@ -419,6 +419,11 @@
                                 <th style="padding-bottom: 10px">Tên loại sách:</th>
                                 <td style="padding-bottom: 10px">
                                     <input type="text" name="categoryName" id="inputName" value="" size="45" style="margin-left: 20px"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td id="loi2" style="padding-left: 20px;color: red; padding-bottom: 10px">${mess}
                                 </td>
                             </tr>
                             <tr>

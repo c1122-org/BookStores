@@ -84,11 +84,7 @@
             color: #f7910c;
             border-bottom: 3px solid red
         }
-
-        .topnav .active {
-            color: black;
-            border-bottom: 3px solid red
-        }
+        
 
         form.example input[type=text] {
             padding: 10px;
@@ -405,7 +401,8 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3" style="height: 500px">
-                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách
+                    Hàng</a> <a
                         href="/type" style="color: black;border-bottom: 3px solid red;">Loại sách</a>
                 </div>
                 <div style="margin-left: 10px">
@@ -415,25 +412,34 @@
                                 <tr>
                                     <th style="padding-bottom: 10px">Mã loại sách:</th>
                                     <td style="padding-bottom: 10px">
-                                        <input type="hidden" name="categoryId" id="0" value="${type.categoryId}" size="45"
+                                        <input type="hidden" name="categoryId" id="0" value="${type.categoryId}"
+                                               size="45"
                                                style="margin-left: 20px"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="padding-bottom: 10px">Tên loại sách: </th>
+                                    <th style="padding-bottom: 10px">Tên loại sách:</th>
                                     <td style="padding-bottom: 10px">
-                                        <input type="text" name="categoryName" id="inputName1" value="${type.categoryName}" size="45"
+                                        <input type="text" name="categoryName" id="inputName1"
+                                               value="${type.categoryName}" size="45"
                                                style="margin-left: 20px"/>
                                     </td>
                                 <tr>
                                     <th></th>
-                                    <td id="loi2" style="padding-left: 20px;color: red; padding-bottom: 10px">${mess}
+                                    <td style="padding-left: 20px;color: red; padding-bottom: 10px">${mess}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td id="loi2" style="padding-left: 20px;color: red; padding-bottom: 10px">
                                     </td>
                                 </tr>
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center">
-                                        <button type="submit" class="btn btn-outline-dark" value="Save" style="background: black;color: white; margin-top: 20px">Cập nhập</button>
+                                        <button type="submit" class="btn btn-outline-dark" value="Save"
+                                                style="background: black;color: white; margin-top: 20px">Cập nhập
+                                        </button>
                                     </td>
                                 </tr>
                             </table>
@@ -548,22 +554,22 @@
         crossorigin="anonymous"></script>
 <script>
     const form = document.getElementById("myForm");
-    form.addEventListener("submit", function(event){
+    form.addEventListener("submit", function (event) {
         const input = document.getElementById("inputType").value;
         const pattern = /^\s*$/;
 
-        if(pattern.test(input)){
+        if (pattern.test(input)) {
             event.preventDefault();
             document.getElementById('loi').innerHTML = "Vui lòng không để trống loại khách hàng";
-        }else{
+        } else {
             document.getElementById('loi').innerHTML = "";
 
         }
         const input1 = document.getElementById("inputName1").value;
-        if(pattern.test(input1)){
+        if (pattern.test(input1)) {
             event.preventDefault();
             document.getElementById('loi2').innerHTML = "Vui lòng không để trống tên loại khách hàng";
-        }else{
+        } else {
             document.getElementById('loi2').innerHTML = "";
         }
     });
