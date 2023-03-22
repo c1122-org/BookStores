@@ -487,7 +487,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center">
-                                        <button type="submit" class="btn btn-outline-dark" >Update</button>
+                                        <button type="submit" class="btn btn-outline-dark" value="Save" style="background: black;color: white; margin-top: 20px">Cập nhập</button>
                                     </td>
                                 </tr>
                             </table>

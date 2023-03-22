@@ -49,6 +49,26 @@
             font-family: Arial;
             margin-top: 50px;
         }
+        .btn{
+            width:150px;
+            height:45px;
+            border-radius:45px;
+            cursor:pointer;
+            border:none;
+            font-size: 12px;
+            text-transform:uppercase;
+            letter-spacing:2px;
+            font-weight:bold;
+            box-shadow:0px 8px 15px rgba(0,0,0,0.1);
+            transition:all 0.3s ease;
+        }
+
+        .btn:hover{
+            background:#2ceae5;
+            transform:translateY(-7px);
+            color:black;
+            box-shadow:0px 10px 25px rgba(46,223,229,0.445);
+        }
     </style>
 </head>
 <body>
@@ -363,10 +383,9 @@
                                                 <span class="lnr lnr-sync"></span>
                                                 <p class="hover-text">So sánh</p>
                                             </a>
-                                            <a>
-                                                <input type="hidden" value="${book.id}" name="id">
+                                            <a href="${pageContext.request.contextPath}/user/login.jsp" class="social-info">
                                                 <span class="lnr lnr-move"></span>
-                                                <button class="hover-text" type="submit" onclick="location.href = '${pageContext.request.contextPath}/user/login.jsp' ">Xem thêm</button>
+                                                <p class="hover-text">Xem thêm</p>
                                             </a>
                                         </div>
                                     </div>

@@ -376,12 +376,12 @@
         <div id="navbar2" class="d-flex justify-content-end pe-4"><span class="far fa-user-circle "></span></div>
     </div>
     <div class="d-md-flex">
-        <ul id="navbar-items" class="p-0">
+        <ul id="navbar-items" class="p-0" style="height: 600px">
             <li><span class="fas fa-th-list"></span> <span class="ps-3 name">Quản lý sách</span></li>
             <li><span class="fas fa-chart-line"></span> <span class="ps-3 name">Quản lý khách hàng</span></li>
             <li><span class="fas fa-clipboard-check"></span> <span class="ps-3 name">Quản lý loại sách</span></li>
         </ul>
-        <div id="topnavbar">
+        <div id="topnavbar" style="height: 600px">
             <div class="topnav mb-3" style="height: 70px">
                 <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
                         href="/type">Loại sách</a>
@@ -460,7 +460,7 @@
 
                             <tr>
                                 <td colspan="2" align="center">
-                                    <button type="submit" class="btn btn-outline-dark" value="Save">Update</button>
+                                    <button type="submit" class="btn btn-outline-dark" value="Save" style="background: black;color: white; margin-top: 20px">Cập nhập</button>
                                 </td>
                             </tr>
                         </table>

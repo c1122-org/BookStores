@@ -128,6 +128,9 @@ public class TypeBookServlet extends HttpServlet {
             case "search":
                 searchByName(request,response);
                 break;
+            case "delete":
+                deleteByID(request,response);
+                break;
             default:
                 displayAll(request,response);
         }
