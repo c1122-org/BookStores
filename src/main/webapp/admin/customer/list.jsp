@@ -398,7 +398,7 @@
                         <tbody class="text-center">
                         <c:forEach items="${listCustomer}" var="customer">
                             <tr>
-                                <td>${customer.id}</td>
+                                <td  >${customer.id}</td>
                                 <td>${customer.name}</td>
                                 <td>${customer.dateOfBirth}</td>
                                 <td>${customer.email}</td>
