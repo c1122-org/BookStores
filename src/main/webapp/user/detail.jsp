@@ -70,14 +70,17 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/user/index.jsp">Trang chủ</a></li>
+                        <li class="nav-item active"><a class="nav-link"
+                                                       href="${pageContext.request.contextPath}/user/index.jsp">Trang
+                            chủ</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
                                aria-expanded="false">Sản phẫm</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="/type">Danh mục sách</a></li>
-                                <li class="nav-item"><a class="nav-link" href="single-product.html">Thông tin chi tiết</a></li>
+                                <li class="nav-item"><a class="nav-link" href="single-product.html">Thông tin chi
+                                    tiết</a></li>
                                 <li class="nav-item"><a class="nav-link" href="checkout.html">Thanh toán sản phẫm</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="cart.html">Giỏ hàng</a></li>
@@ -98,7 +101,9 @@
                                aria-haspopup="true"
                                aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user/login.jsp">Login</a></li>
+                                <li class="nav-item"><a class="nav-link"
+                                                        href="${pageContext.request.contextPath}/user/login.jsp">Login</a>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" href="tracking.html">Theo dõi</a></li>
                                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                             </ul>
@@ -115,15 +120,6 @@
             </div>
         </nav>
     </div>
-    <div class="search_input" id="search_input_box">
-        <div class="container">
-            <form class="d-flex justify-content-between">
-                <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                <button type="submit" class="btn"></button>
-                <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-            </form>
-        </div>
-    </div>
 </header>
 <!-- End Header Area -->
 
@@ -134,7 +130,8 @@
             <div class="col-first">
                 <h1>Book Details</h1>
                 <nav class="d-flex align-items-center">
-                    <a href="${pageContext.request.contextPath}/user/index.jsp">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="${pageContext.request.contextPath}/user/index.jsp">Home<span
+                            class="lnr lnr-arrow-right"></span></a>
                     <a href="${pageContext.request.contextPath}/user/login.jsp">Book Details</a>
                 </nav>
             </div>
@@ -150,29 +147,30 @@
             <div class="col-lg-6">
                 <div class="s_Product_carousel">
                     <div class="single-prd-item">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/2.jpg" alt="">
+                        <img class="img-fluid" src="${book.image}" alt="" width="100%">
                     </div>
-                    <div class="single-prd-item">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/3.jpg" alt="">
-                    </div>
-                    <div class="single-prd-item">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/4Bo.jpg" alt="">
-                    </div>
+<%--                    <div class="single-prd-item">--%>
+<%--                        <img class="img-fluid" src="${book.image}" alt="">--%>
+<%--                    </div>--%>
+<%--                    <div class="single-prd-item">--%>
+<%--                        <img class="img-fluid" src="${book.image}" alt="">--%>
+<%--                    </div>--%>
                 </div>
             </div>
             <div class="col-lg-5 offset-lg-1">
                 <div class="s_product_text">
-                    <h3>Book</h3>
-                    <h2>100.000đ</h2>
+                    <input type="hidden" name="id" value="${book.id}"/>
+                    <h2>${book.nameBook}</h2>
+                    <h3>${book.price} VND</h3>
                     <ul class="list">
-                        <li><a class="active" href="#"><span>Loại sách</span> : .....</a></li>
+                        <li><a class="active" href="#"><span>Loại sách:</span>${book.category.nameCategory}
+                        </a></li>
                     </ul>
-                    <p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
-                        something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
-                        during the winter.</p>
+                    <p>${book.describes}</p>
                     <div class="product_count">
-                        <label for="qty">Số lượng:</label>
-                        <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+                        <label>Số lượng:</label>
+                        <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:"
+                               class="input-text qty">
                         <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
                                 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
                         <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
@@ -195,37 +193,54 @@
     <div class="container">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
+                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                   aria-selected="true">Description</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                   aria-controls="profile"
                    aria-selected="false">Thông tin sách</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                   aria-controls="contact"
                    aria-selected="false">Bình luận</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
+                <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab"
+                   aria-controls="review"
                    aria-selected="false">Đánh giá</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <p>Beryl Cook is one of Britain’s most talented and amusing artists .Beryl’s pictures feature women of all shapes
-                    and sizes enjoying themselves .Born between the two world wars, Beryl Cook eventually left Kendrick School in
-                    Reading at the age of 15, where she went to secretarial school and then into an insurance office. After moving to
-                    London and then Hampton, she eventually married her next door neighbour from Reading, John Cook. He was an
-                    officer in the Merchant Navy and after he left the sea in 1956, they bought a pub for a year before John took a
-                    job in Southern Rhodesia with a motor company. Beryl bought their young son a box of watercolours, and when
-                    showing him how to use it, she decided that she herself quite enjoyed painting. John subsequently bought her a
-                    child’s painting set for her birthday and it was with this that she produced her first significant work, a
-                    half-length portrait of a dark-skinned lady with a vacant expression and large drooping breasts. It was aptly
+                <p>Beryl Cook is one of Britain’s most talented and amusing artists .Beryl’s pictures feature women of
+                    all shapes
+                    and sizes enjoying themselves .Born between the two world wars, Beryl Cook eventually left Kendrick
+                    School in
+                    Reading at the age of 15, where she went to secretarial school and then into an insurance office.
+                    After moving to
+                    London and then Hampton, she eventually married her next door neighbour from Reading, John Cook. He
+                    was an
+                    officer in the Merchant Navy and after he left the sea in 1956, they bought a pub for a year before
+                    John took a
+                    job in Southern Rhodesia with a motor company. Beryl bought their young son a box of watercolours,
+                    and when
+                    showing him how to use it, she decided that she herself quite enjoyed painting. John subsequently
+                    bought her a
+                    child’s painting set for her birthday and it was with this that she produced her first significant
+                    work, a
+                    half-length portrait of a dark-skinned lady with a vacant expression and large drooping breasts. It
+                    was aptly
                     named ‘Hangover’ by Beryl’s husband and</p>
-                <p>It is often frustrating to attempt to plan meals that are designed for one. Despite this fact, we are seeing
-                    more and more recipe books and Internet websites that are dedicated to the act of cooking for one. Divorce and
-                    the death of spouses or grown children leaving for college are all reasons that someone accustomed to cooking for
-                    more than one would suddenly need to learn how to adjust all the cooking practices utilized before into a
+                <p>It is often frustrating to attempt to plan meals that are designed for one. Despite this fact, we are
+                    seeing
+                    more and more recipe books and Internet websites that are dedicated to the act of cooking for one.
+                    Divorce and
+                    the death of spouses or grown children leaving for college are all reasons that someone accustomed
+                    to cooking for
+                    more than one would suddenly need to learn how to adjust all the cooking practices utilized before
+                    into a
                     streamlined plan of cooking that is more efficient for one person creating less</p>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -315,8 +330,10 @@
                                         <a class="reply_btn" href="#">Reply</a>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et
+                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                    laboris nisi ut aliquip ex ea
                                     commodo</p>
                             </div>
                             <div class="review_item reply">
@@ -330,8 +347,10 @@
                                         <a class="reply_btn" href="#">Reply</a>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et
+                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                    laboris nisi ut aliquip ex ea
                                     commodo</p>
                             </div>
                             <div class="review_item">
@@ -345,8 +364,10 @@
                                         <a class="reply_btn" href="#">Reply</a>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et
+                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                    laboris nisi ut aliquip ex ea
                                     commodo</p>
                             </div>
                         </div>
@@ -354,25 +375,30 @@
                     <div class="col-lg-6">
                         <div class="review_box">
                             <h4>Post a comment</h4>
-                            <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                            <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                                  novalidate="novalidate">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Full name">
+                                        <input type="text" class="form-control" id="name" name="name"
+                                               placeholder="Your Full name">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+                                        <input type="email" class="form-control" id="email" name="email"
+                                               placeholder="Email Address">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="number" name="number" placeholder="Phone Number">
+                                        <input type="text" class="form-control" id="number" name="number"
+                                               placeholder="Phone Number">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" name="message" id="message" rows="1" placeholder="Message"></textarea>
+                                        <textarea class="form-control" name="message" id="message" rows="1"
+                                                  placeholder="Message"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-right">
@@ -398,15 +424,20 @@
                                 <div class="rating_list">
                                     <h3>Dựa trên 3 đánh giá</h3>
                                     <ul class="list">
-                                        <li><a href="#">5 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        <li><a href="#">5 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                                class="fa fa-star"></i><i
                                                 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                                        <li><a href="#">4 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        <li><a href="#">4 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                                class="fa fa-star"></i><i
                                                 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                                        <li><a href="#">3 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        <li><a href="#">3 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                                class="fa fa-star"></i><i
                                                 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                                        <li><a href="#">2 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        <li><a href="#">2 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                                class="fa fa-star"></i><i
                                                 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                                        <li><a href="#">1 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        <li><a href="#">1 Sao <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                                class="fa fa-star"></i><i
                                                 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
                                     </ul>
                                 </div>
@@ -427,8 +458,10 @@
                                         <i class="fa fa-star"></i>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et
+                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                    laboris nisi ut aliquip ex ea
                                     commodo</p>
                             </div>
                             <div class="review_item">
@@ -445,8 +478,10 @@
                                         <i class="fa fa-star"></i>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et
+                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                    laboris nisi ut aliquip ex ea
                                     commodo</p>
                             </div>
                             <div class="review_item">
@@ -463,8 +498,10 @@
                                         <i class="fa fa-star"></i>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et
+                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                    laboris nisi ut aliquip ex ea
                                     commodo</p>
                             </div>
                         </div>
@@ -481,25 +518,34 @@
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
                             </ul>
                             <p>Nổi bật</p>
-                            <form class="row contact_form" action="contact_process.php" method="post"  novalidate="novalidate">
+                            <form class="row contact_form" action="contact_process.php" method="post"
+                                  novalidate="novalidate">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="name" placeholder="Vui lòng nhập tên:" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Full name'">
+                                        <input type="text" class="form-control" name="name"
+                                               placeholder="Vui lòng nhập tên:" onfocus="this.placeholder = ''"
+                                               onblur="this.placeholder = 'Your Full name'">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="email" class="form-control"  name="email" placeholder="Vui lòng nhập email:" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
+                                        <input type="email" class="form-control" name="email"
+                                               placeholder="Vui lòng nhập email:" onfocus="this.placeholder = ''"
+                                               onblur="this.placeholder = 'Email Address'">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="number" placeholder="Vui lòng nhập số điện thoại" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'">
+                                        <input type="text" class="form-control" name="number"
+                                               placeholder="Vui lòng nhập số điện thoại" onfocus="this.placeholder = ''"
+                                               onblur="this.placeholder = 'Phone Number'">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" name="message" rows="1" placeholder="Đánh giá" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Review'"></textarea></textarea>
+                                        <textarea class="form-control" name="message" rows="1" placeholder="Đánh giá"
+                                                  onfocus="this.placeholder = ''"
+                                                  onblur="this.placeholder = 'Review'"></textarea></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-right">
@@ -531,7 +577,8 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -543,7 +590,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -555,7 +603,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -567,7 +616,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -579,7 +629,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -591,7 +642,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -603,7 +655,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -615,7 +668,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -627,7 +681,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -642,7 +697,8 @@
             <div class="col-lg-3">
                 <div class="ctg-right">
                     <a href="#" target="_blank">
-                        <img class="img-fluid d-block mx-auto" src="${pageContext.request.contextPath}/user/img/category/c5.jpg" alt="">
+                        <img class="img-fluid d-block mx-auto"
+                             src="${pageContext.request.contextPath}/user/img/category/c5.jpg" alt="">
                     </a>
                 </div>
             </div>
@@ -652,7 +708,7 @@
 <footer class="footer-area section_gap">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3  col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <h6>Về chúng tôi</h6>
                     <p>
@@ -662,7 +718,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-lg-4  col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <h6>Bản tin</h6>
                     <p>Luôn cập nhật thông tin mới nhất của chúng tôi</p>
@@ -687,15 +743,15 @@
                                 </div>
 
                                 <!-- <div class="col-lg-4 col-md-4">
-                                            <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                                        </div>  -->
+                                <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                                </div> -->
                             </div>
                             <div class="info"></div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3  col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget mail-chimp">
                     <h6 class="mb-20">Instragram</h6>
                     <ul class="instafeed d-flex flex-wrap">
@@ -736,7 +792,8 @@
 </footer>
 
 <script src="js/vendor/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/jquery.ajaxchimp.min.js"></script>

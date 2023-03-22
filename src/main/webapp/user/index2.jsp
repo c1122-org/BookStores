@@ -335,10 +335,18 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+<%--                <a href="" class="social-info">--%>
+<%--                  <span class="lnr lnr-move"></span>--%>
+<%--                  <p class="hover-text">Xem thêm</p>--%>
+<%--                </a>--%>
+
+<%--                -------------------------------------------------------------%>
+                <a href="/bookDetails?&id=${book.id}" class="social-info" >
                   <span class="lnr lnr-move"></span>
                   <p class="hover-text">Xem thêm</p>
                 </a>
+
+<%--                --------------------------------------------------------------%>
               </div>
             </div>
           </div>

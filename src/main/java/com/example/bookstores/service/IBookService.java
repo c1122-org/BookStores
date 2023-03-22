@@ -5,6 +5,7 @@ import com.example.bookstores.model.Category;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Stack;
 
 public interface IBookService {
     List<Book> findAll(String name) throws SQLException;
@@ -16,6 +17,8 @@ public interface IBookService {
     void updateBook(int id, Book book) throws SQLException;
 
     boolean deleteBook(int id);
-void RemoveSpecialCharacter();
+
+    void RemoveSpecialCharacter();
+
     List<Category> categoryList() throws SQLException;
 }
