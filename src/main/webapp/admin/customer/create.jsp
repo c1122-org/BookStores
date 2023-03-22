@@ -83,10 +83,6 @@
             border-bottom: 3px solid red
         }
 
-        .topnav .active {
-            color: black;
-            border-bottom: 3px solid red
-        }
 
         form.example input[type=text] {
             padding: 10px;
@@ -403,7 +399,7 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3" style="height: 500px">
-                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers" style="color: black;border-bottom: 3px solid red;">Khách Hàng</a> <a
                         href="/type">Loại sách</a>
                 </div>
                 <div style="margin-left: 10px">

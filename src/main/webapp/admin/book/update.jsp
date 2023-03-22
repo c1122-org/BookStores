@@ -332,6 +332,8 @@
         .dropup {
             position: relative;
             display: inline-block;
+            margin-left: 20px;
+
         }
 
         .dropup-content {
@@ -443,7 +445,7 @@
                             <tr>
                                 <th  style="padding-bottom: 10px">Loại sách:</th>
                                 <td class="dropup" style="padding-bottom: 10px">
-                                    <select class="form-select" name="categoryID" style="margin-left: 20px" >
+                                    <select name="categoryID" style="margin-left: 20px;">
                                         <c:forEach var="category" items="${categoryList}">
                                             <c:if test="${category.idCategory == book.category.idCategory}">
                                                 <option class="dropup-content" value="${category.idCategory}" selected>${category.nameCategory}</option>
