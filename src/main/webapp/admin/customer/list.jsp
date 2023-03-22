@@ -380,7 +380,7 @@
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
                     <form class="example d-flex align-items-center" action="/customers?action=search" method="post">
-                        <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;">
+                        <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;" value="${search1}">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>

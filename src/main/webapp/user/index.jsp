@@ -328,7 +328,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <div class="section-title">
-                        <h1>Sản phẫm mới nhất</h1>
+                        <h1>Sản phẩm</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et
                             dolore
@@ -339,7 +339,7 @@
             <div class="row">
                 <c:forEach items="${bookList}" var="book">
                     <c:choose>
-                        <c:when test="${book.price >= 0}">
+                        <c:when test="${book.price >= 600000}">
                             <div class="col-lg-3 col-md-6">
                                 <div class="single-product">
                                     <img class="img-fluid" src="${book.image}" alt="" style="height: 280px">
@@ -362,11 +362,11 @@
                                                 <span class="lnr lnr-sync"></span>
                                                 <p class="hover-text">So sánh</p>
                                             </a>
-                                            <form action="/bookDetails">
+                                            <a>
                                                 <input type="hidden" value="${book.id}" name="id">
                                                 <span class="lnr lnr-move"></span>
-                                                <button class="hover-text" type="submit">Xem thêm</button>
-                                            </form>
+                                                <button class="hover-text" type="submit" onclick="location.href = '${pageContext.request.contextPath}/user/login.jsp' ">Xem thêm</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

@@ -392,7 +392,7 @@
                             <tr>
                                 <th style="padding-bottom: 30px">Mã sách:</th>
                                 <td style="padding-bottom: 30px;padding-right: 60px;">
-                                    <input type="text" name="idBook" id="id" placeholder="Nhập vào mã sách" size="45" style="margin-left: 20px" required minlength="1" />
+                                    <input type="hidden" name="idBook" id="id" placeholder="Nhập vào mã sách" size="45" style="margin-left: 20px" required minlength="1" />
                                 </td>
                                 <th style="padding-bottom: 30px">Loại sách:</th>
                                 <td  class="dropup" id="categoryID" style="padding-bottom: 30px">
