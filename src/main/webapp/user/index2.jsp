@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: USER
@@ -81,8 +82,8 @@
     <nav class="navbar navbar-expand-lg navbar-light main_box">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <a class="navbar-brand logo_h" href="/index"><img src="${pageContext.request.contextPath}/user/img/logo.jpg" alt=""
-                                                              style="height: 90px;width: 200px;"></a>
+        <a class="navbar-brand logo_h" href="/login"><img src="${pageContext.request.contextPath}/user/img/logo.jpg" alt=""
+                                                                                                      style="height: 90px;width: 200px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +94,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav ml-auto">
-            <li class="nav-item active"><a class="nav-link" href="/index">Trang chủ</a></li>
+            <li class="nav-item active"><a class="nav-link" href="/login">Trang chủ</a></li>
             <li class="nav-item submenu dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                  aria-haspopup="true"
@@ -326,7 +327,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
           <div class="section-title">
-            <h1>Sản phẫm mới nhất</h1>
+            <h1>Sản phẫm</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
               labore et
               dolore
@@ -345,8 +346,8 @@
                   <div class="product-details">
                     <h6 style="height: 60px">${book.nameBook}</h6>
                     <div class="price">
-                      <h6>${book.price}</h6>
-                      <h6 class="l-through">${book.price}</h6>
+                      <h6><fmt:formatNumber value="${book.price}" pattern="#.#"/> VND</h6>
+                      <h6 class="l-through"><fmt:formatNumber value="${book.price}" pattern="#.#"/> VND</h6>
                     </div>
                     <div class="prd-bottom">
                       <a href="" class="social-info">
@@ -369,6 +370,13 @@
                     </div>
                   </div>
                 </div>
+              </div>
+            </c:when>
+          </c:choose>
+        </c:forEach>
+        <!-- single product -->
+
+
       </div>
     </div>
   </div>

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: USER
@@ -346,8 +347,8 @@
                                     <div class="product-details">
                                         <h6 style="height: 60px">${book.nameBook}</h6>
                                         <div class="price">
-                                            <h6>${book.price}</h6>
-                                            <h6 class="l-through">${book.price}</h6>
+                                            <h6><fmt:formatNumber value="${book.price}" pattern="#.#"/> VND</h6>
+                                            <h6 class="l-through"><fmt:formatNumber value="${book.price}" pattern="#.#"/> VND</h6>
                                         </div>
                                         <div class="prd-bottom">
                                             <a href="" class="social-info">

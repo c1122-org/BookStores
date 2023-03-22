@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
             if (account.getRoleAccount() == 1){
                 response.sendRedirect("/customers");
             }else {
-                request.setAttribute("nameAccount", nameAccount);
+                session.setAttribute("nameAccount", nameAccount);
                 try {
                     request.setAttribute("bookList1",iBookService.findAll(null));
                 } catch (SQLException e) {

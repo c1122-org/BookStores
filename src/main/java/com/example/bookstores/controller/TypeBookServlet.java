@@ -181,7 +181,7 @@ public class TypeBookServlet extends HttpServlet {
         if (flag){
             request.setAttribute("customer",new TypeBook(categoryId,categoryName));
             String mess="Bạn đã nhập trùng tên loại sách";
-            request.setAttribute("message",mess);
+            request.setAttribute("mess",mess);
             request.getRequestDispatcher("admin/type/update.jsp").forward(request, response);
         }else {
             iTypeBookService.update(new TypeBook(categoryId,categoryName));

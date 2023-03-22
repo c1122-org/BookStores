@@ -166,6 +166,7 @@
                             <input type="password" class="form-control" id="passAccount" name="passAccount"
                                    placeholder="Mật khẩu">
                             <p id="error4" style="color: red"></p>
+                            <p style="color: red">${message1}</p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="password" class="form-control" id="pass1" name="repass"
@@ -286,6 +287,11 @@
         const input5 = document.getElementById("pass1").value;
         const pattern = /^\s*$/;
 
+        if (input4 !== input5){
+            document.getElementById("error6").innerHTML = "Mật khẩu không khớp";
+        }else {
+            document.getElementById("error6").innerHTML = "";
+        }
         if(pattern.test(input)){
             event.preventDefault();
             document.getElementById("error").innerHTML = "Vui lòng nhập họ và tên";
