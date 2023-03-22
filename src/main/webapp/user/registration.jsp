@@ -169,7 +169,7 @@
                             <p style="color: red">${message1}</p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="password" class="form-control" id="pass1" name="repass"
+                            <input type="hidden" class="form-control" id="pass1" name="repass"
                                    placeholder="Nhập lại mật khẩu">
                             <p id="error5" style="color: red"></p>
                         </div>
@@ -287,11 +287,6 @@
         const input5 = document.getElementById("pass1").value;
         const pattern = /^\s*$/;
 
-        if (input4 !== input5){
-            document.getElementById("error6").innerHTML = "Mật khẩu không khớp";
-        }else {
-            document.getElementById("error6").innerHTML = "";
-        }
         if(pattern.test(input)){
             event.preventDefault();
             document.getElementById("error").innerHTML = "Vui lòng nhập họ và tên";
@@ -322,12 +317,6 @@
             document.getElementById("error4").innerHTML = "Vui lòng nhập mật khẩu";
         }else {
             document.getElementById("error4").innerHTML = "";
-        }
-        if(pattern.test(input5)){
-            event.preventDefault();
-            document.getElementById("error5").innerHTML = "Vui lòng nhập đúng mật khẩu";
-        }else {
-            document.getElementById("error5").innerHTML = "";
         }
     });
 </script>
