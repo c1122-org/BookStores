@@ -367,7 +367,6 @@
                                                 <span class="lnr lnr-move"></span>
                                                 <button class="hover-text" type="submit" onclick="location.href = '${pageContext.request.contextPath}/user/login.jsp' ">Xem thêm</button>
                                             </a>
-
                                         </div>
                                     </div>
                                 </div>

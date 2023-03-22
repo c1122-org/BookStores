@@ -32,7 +32,21 @@ public class LoginServlet extends HttpServlet {
         }
         request.getRequestDispatcher("user/index2.jsp").forward(request, response);
     }
-
+    /**
+     * Function: doPost
+     * Create: AnhQN
+     * Date create: 20/03/2023
+     * @param request   an {@link HttpServletRequest} object that
+     *                  contains the request the client has made
+     *                  of the servlet
+     *
+     * @param response  an {@link HttpServletResponse} object that
+     *                  contains the response the servlet sends
+     *                  to the client
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nameAccount = request.getParameter("nameAccount");

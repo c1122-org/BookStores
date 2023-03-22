@@ -2,12 +2,25 @@ package com.example.bookstores.repository;
 
 import com.example.bookstores.model.Account;
 
+import javax.servlet.ServletException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AccountRepositoryImpl implements IAccountRepository{
+    /**
+     * Function: checkLogin
+     * Create: AnhQN
+     * Date create: 20/03/2023
+     * @param nameAccount Account name of object
+     *
+     * @param passAccount Account password of object
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     public Account checkLogin(String nameAccount, String passAccount) {
         Connection connection = DBConnection.getConnection();
@@ -36,6 +49,15 @@ public class AccountRepositoryImpl implements IAccountRepository{
         }
         return null;
     }
+    /**
+     * Function: existedAccount
+     * Create: AnhQN
+     * Date create: 20/03/2023
+     * @param nameAccount Account name of object
+     *
+     * @throws SQLException
+     * @throws RuntimeException
+     */
 
     @Override
     public boolean existedAccount(String nameAccount) {
@@ -64,7 +86,15 @@ public class AccountRepositoryImpl implements IAccountRepository{
         }
         return false;
     }
-
+    /**
+     * Function: register
+     * Create: AnhQN
+     * Date create: 20/03/2023
+     * @param account  Account of object
+     *
+     * @throws SQLException
+     * @throws IOException
+     */
     @Override
     public void register(Account account) {
         Connection connection = DBConnection.getConnection();
@@ -88,7 +118,19 @@ public class AccountRepositoryImpl implements IAccountRepository{
             }
         }
     }
-
+    /**
+     * Function: findAccount
+     * Create: AnhQN
+     * Date create: 20/03/2023
+     * @param nameAccount Account name of object
+     *
+     * @param passAccount Account password of object
+     *
+     * @param roleAccount Account role of object
+     *
+     * @throws SQLException
+     * @throws RuntimeException
+     */
     @Override
     public Account findAccount(String nameAccount, String passAccount, int roleAccount) {
         Account account = null;

@@ -369,13 +369,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </c:when>
-          </c:choose>
-        </c:forEach>
-        <!-- single product -->
-
-
       </div>
     </div>
   </div>
