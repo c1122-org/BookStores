@@ -14,4 +14,5 @@ public interface ICustomerService {
     List<Customer> sortByName();
     void deleteByID(int id);
     List<Customer> searchByName(String name);
+    boolean checkEmail(String email);
 }

@@ -41,7 +41,10 @@ public class RegisterServlet extends HttpServlet {
         String date = request.getParameter("date");
         int gender = Integer.parseInt(request.getParameter("gender"));
         Account account = accountService.checkLogin(nameAccount,passAccount);
-        if ((account != null) || accountService.existedAccount(nameAccount)){
+        if (!customerService.checkEmail(email)){
+            request.setAttribute("mess","email bị trùng lặp");
+            request.getRequestDispatcher("/user/registration.jsp").forward(request,response);
+        } else if ((account != null) || accountService.existedAccount(nameAccount)){
             String message = "Tên người dùng đã tồn tại!! ";
             request.setAttribute("message",message);
             request.getRequestDispatcher("/user/registration.jsp").forward(request,response);

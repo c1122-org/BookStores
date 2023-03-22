@@ -143,7 +143,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="cus_email" name="email" placeholder="Email">
-                            <p id="error1" style="color: red"></p>
+                            <p id="error1" style="color: red">${mess}</p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="date" class="form-control" id="cus_date_of_birth" name="date">

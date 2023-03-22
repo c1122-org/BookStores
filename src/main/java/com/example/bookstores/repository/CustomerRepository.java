@@ -161,6 +161,15 @@ public class CustomerRepository implements ICustomerRepository {
             }
         }
     }
+    public boolean checkEmail(String email){
+        List<Customer> list= displayAll();
+        for (Customer customer:list){
+            if (email.equals(customer.getEmail())){
+                return false;
+            }
+        }
+        return true;
+    }
 
     /**
      * public List<Customer> sortByName()
