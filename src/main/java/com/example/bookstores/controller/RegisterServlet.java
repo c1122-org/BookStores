@@ -1,6 +1,7 @@
 package com.example.bookstores.controller;
 
 import com.example.bookstores.model.Account;
+import com.example.bookstores.model.Customer;
 import com.example.bookstores.service.AccountServiceImpl;
 import com.example.bookstores.service.CustomerService;
 
@@ -25,10 +26,10 @@ public class RegisterServlet extends HttpServlet {
         int gender = Integer.parseInt(request.getParameter("gender"));
         Account account = accountService.checkLogin(nameAccount,passAccount);
         if ((account != null) || accountService.existedAccount(nameAccount)){
-            String message = "username existed!! ";
+            String message = "Tên người dùng đã tồn tại!! ";
             request.setAttribute("message",message);
-            response.sendRedirect("/user/registration.jsp");
-        }else {
+            request.getRequestDispatcher("/user/registration.jsp").forward(request,response);
+        } else {
             Account account1 = new Account(nameAccount,passAccount,0);
             accountService.register(account1);
             customerService.create(name,email,date,gender,nameAccount);
