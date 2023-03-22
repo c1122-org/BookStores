@@ -335,9 +335,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -367,9 +369,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -399,9 +403,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -431,9 +437,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -463,9 +471,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -495,9 +505,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
@@ -527,9 +539,11 @@
                   <span class="lnr lnr-sync"></span>
                   <p class="hover-text">So sánh</p>
                 </a>
-                <a href="" class="social-info">
+                <form action="/bookDetails">
+                  <input type="hidden" value="${book.id}" name="id">
                   <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
+                  <button class="hover-text" type="submit">Xem thêm</button>
+                </form>
                 </a>
               </div>
             </div>
