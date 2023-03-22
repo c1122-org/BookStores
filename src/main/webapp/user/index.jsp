@@ -698,8 +698,7 @@
             <div class="col-lg-6 no-padding exclusive-right">
                 <div class="active-exclusive-product-slider">
                     <div class="single-exclusive-slider">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
-                             style="width: 230px;margin-left: 26px;height: 272px;">
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="width: 230px;margin: 0 auto;height: 272px;">
                         <div class="product-details">
                             <div class="price">
                                 <h6>85.000 đ</h6>
@@ -714,8 +713,7 @@
                     </div>
                     <!-- single exclusive carousel -->
                     <div class="single-exclusive-slider">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/3.jpg" alt=""
-                             style="width: 230px;margin-left: 26px;height: 272px;">
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/3.jpg" alt="" style="width: 230px;margin: 0 auto;height: 272px;">
                         <div class="product-details">
                             <div class="price">
                                 <h6>85.000 đ</h6>

@@ -76,10 +76,6 @@
             color: #f7910c;
             border-bottom: 3px solid red
         }
-        .topnav .active {
-            color: black;
-            border-bottom: 3px solid red
-        }
         form.example input[type=text] {
             padding: 10px;
             font-size: 17px;
@@ -354,6 +350,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
+<c:if test="${not empty sessionScope.message}">
+    <div class="alert alert-success">
+            ${sessionScope.message}
+    </div>
+    <c:remove var="sessionScope.message" />
+</c:if>
 <div class="px-0 bg-light container-fluid">
     <div class="d-flex">
         <div class="d-flex align-items-center " id="navbar">
@@ -372,7 +374,7 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3">
-                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers" style="color: black;border-bottom: 3px solid red;">Khách Hàng</a> <a
                         href="/type">Loại sách</a>
                 </div>
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">

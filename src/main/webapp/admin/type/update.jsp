@@ -406,7 +406,7 @@
         <div id="topnavbar">
             <div class="topnav mb-3" style="height: 500px">
                 <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
-                        href="/type">Loại sách</a>
+                        href="/type" style="color: black;border-bottom: 3px solid red;">Loại sách</a>
                 </div>
                 <div style="margin-left: 10px">
                     <div style="margin-left: 10px">
@@ -425,6 +425,11 @@
                                         <input type="text" name="categoryName" id="1" value="${type.categoryName}" size="45"
                                                style="margin-left: 20px"/>
                                     </td>
+                                <tr>
+                                    <th></th>
+                                    <td id="error1" style="padding-left: 20px;color: red; padding-bottom: 10px">${message}
+                                    </td>
+                                </tr>
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center">

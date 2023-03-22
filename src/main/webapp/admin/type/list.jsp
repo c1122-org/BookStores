@@ -86,11 +86,7 @@
             border-bottom: 3px solid red
         }
 
-        .topnav .active {
-            color: black;
-            border-bottom: 3px solid red
-        }
-
+        x
         form.example input[type=text] {
             padding: 10px;
             font-size: 17px;
@@ -405,6 +401,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
+<c:if test="${not empty sessionScope.message}">
+    <div class="alert alert-success">
+            ${sessionScope.message}
+    </div>
+    <c:remove var="sessionScope.message" />
+</c:if>
 <div class="px-0 bg-light container-fluid">
     <div class="d-flex">
         <div class="d-flex align-items-center " id="navbar">
@@ -423,8 +425,9 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3">
-                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
-                        href="/type">Loại sách</a>
+                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách
+                    Hàng</a> <a
+                        href="/type" style="color: black;border-bottom: 3px solid red;">Loại sách</a>
                 </div>
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
@@ -432,7 +435,9 @@
                         <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                        <button type="button" onclick="location.href = 'type?action=create'" style="width: 150px;border: 0;height: 35px;background: black;color: white">Thêm loại sách</button>
+                    <button type="button" onclick="location.href = 'type?action=create'"
+                            style="width: 150px;border: 0;height: 35px;background: black;color: white">Thêm loại sách
+                    </button>
                 </div>
                 <div class="table-responsive px-2">
                     <table class="table" id="tableBook">
@@ -449,14 +454,38 @@
                                 <td>${type.categoryId}</td>
                                 <td>${type.categoryName}</td>
                                 <td>
-                                    <a class="edit" title="Edit" data-toggle="tooltip"
-                                       style="width: 30px;text-decoration: none"
-                                       href="/type?action=update&categoryId=${type.categoryId}"><i style="color: black" class="fa fa-edit">&#xE254;</i></a>
-                                    <a class="delete" title="Delete" data-toggle="tooltip"
-                                       style="width: 30px;text-decoration: none"
-                                       href="/type?action=delete&id=${type.categoryId}"><i style="color: black"
-                                            class="fa fa-trash">&#xE872;</i></a>
+                                    <button style="background: white; border: 0"
+                                            class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip"
+                                            data-placement="top" title="Edit" onclick="location.href='/type?action=update&categoryId=${type.categoryId}'"><i
+                                            style="color: black"
+                                            class="fa fa-edit"></i></button>
+                                    <button style="background: white; border: 0" class="btn btn-danger btn-sm rounded-0"
+                                            type="button"
+                                            data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                            style="color: black"
+                                            class="fa fa-trash" data-toggle="modal" data-target="#myModal"></i></button>
                                 </td>
+                                <div class="modal" id="myModal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Delete</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Delete Confirmation ${type.categoryName}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                <button class="btn btn-danger"
+                                                        onclick="location.href= '/type?action=delete&categoryId=${type.categoryId}'">
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </tr>
                         </c:forEach>
                         </tbody>

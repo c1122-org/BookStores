@@ -398,6 +398,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
 </head>
 <body>
+<c:if test="${not empty sessionScope.message}">
+    <div class="alert alert-success">
+            ${sessionScope.message}
+    </div>
+    <c:remove var="sessionScope.message" />
+</c:if>
 <div class="px-0 bg-light container-fluid">
     <div class="d-flex">
         <div class="d-flex align-items-center " id="navbar">
