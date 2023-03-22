@@ -463,9 +463,9 @@
                                             type="button"
                                             data-toggle="tooltip" data-placement="top" title="Delete"><i
                                             style="color: black"
-                                            class="fa fa-trash" data-toggle="modal" data-target="#myModal"></i></button>
+                                            class="fa fa-trash" data-toggle="modal" data-target="#myModal${type.categoryId}"></i></button>
                                 </td>
-                                <div class="modal" id="myModal">
+                                <div class="modal" id="myModal${type.categoryId}">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -476,7 +476,7 @@
                                             <div class="modal-body">
                                                 <label for="deleteId"></label><input type="text" hidden id="deleteId"
                                                                                      name="deleteId" value="${type.categoryId}">
-                                                <p id="deleteName">Bạn có muốn xoá  ${type.categoryName}</p>
+                                                <p id="deleteName">Bạn có muốn xoá <span style="color: red">${type.categoryName}</span></p>
 
                                             </div>
                                             <div class="modal-footer">

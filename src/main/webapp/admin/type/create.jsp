@@ -428,7 +428,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2" align="center">
-                                    <input type="submit" value="Save"/>
+                                    <button type="submit" class="btn btn-outline-dark" value="Save" style="background: black;color: white; margin-top: 20px">Thêm</button>
                                 </td>
                             </tr>
                         </table>
