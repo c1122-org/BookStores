@@ -12,4 +12,5 @@ public interface ITypeBookRepository {
     void update(TypeBook typeBook);
     TypeBook findByID(String id);
     List<TypeBook> findByName(String name);
+    void deleteByID(String categoryId);
 }

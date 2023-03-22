@@ -14,7 +14,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>Update Book</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -332,6 +332,8 @@
         .dropup {
             position: relative;
             display: inline-block;
+            margin-left: 20px;
+
         }
 
         .dropup-content {
@@ -443,7 +445,7 @@
                             <tr>
                                 <th  style="padding-bottom: 10px">Loại sách:</th>
                                 <td class="dropup" style="padding-bottom: 10px">
-                                    <select class="form-select" name="categoryID" style="margin-left: 20px" >
+                                    <select name="categoryID" style="margin-left: 20px;">
                                         <c:forEach var="category" items="${categoryList}">
                                             <c:if test="${category.idCategory == book.category.idCategory}">
                                                 <option class="dropup-content" value="${category.idCategory}" selected>${category.nameCategory}</option>
@@ -458,7 +460,7 @@
 
                             <tr>
                                 <td colspan="2" align="center">
-                                    <input type="submit" value="Save"/>
+                                    <button type="submit" class="btn btn-outline-dark" value="Save">Update</button>
                                 </td>
                             </tr>
                         </table>

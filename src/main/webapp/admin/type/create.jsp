@@ -13,7 +13,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>Create Type Book</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -80,11 +80,6 @@
 
         .topnav a:hover {
             color: #f7910c;
-            border-bottom: 3px solid red
-        }
-
-        .topnav .active {
-            color: black;
             border-bottom: 3px solid red
         }
 
@@ -404,21 +399,31 @@
         <div id="topnavbar">
             <div class="topnav mb-3" style="height: 500px">
                 <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
-                        href="/type">Loại sách</a>
+                        href="/type" style="color: black;border-bottom: 3px solid red;">Loại sách</a>
                 </div>
                 <div style="margin-left: 10px">
-                    <form method="post" action="/type?action=create">
+                    <form method="post" action="/type?action=create" id="myForm">
                         <table>
                             <tr>
                                 <th style="padding-bottom: 10px">Mã loại sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="categoryId" id="1" value="" size="45" style="margin-left: 20px" pattern="BT-[0-9]+$" title="BT-??"/>
+                                    <input type="text" name="categoryId" id="inputType" value="" size="45" style="margin-left: 20px" pattern="BT-[0-9]+$" title="BT-??"/>
                                 </td>
+                            <tr>
+                                <th></th>
+                                <td id="loi" style="padding-left: 20px;color: red; padding-bottom: 10px">
+                                </td>
+                            </tr>
                             </tr>
                             <tr>
                                 <th style="padding-bottom: 10px">Tên loại sách:</th>
                                 <td style="padding-bottom: 10px">
-                                    <input type="text" name="categoryName" id="2" value="" size="45" style="margin-left: 20px"/>
+                                    <input type="text" name="categoryName" id="inputName" value="" size="45" style="margin-left: 20px"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td id="loi1" style="padding-left: 20px;color: red; padding-bottom: 10px">
                                 </td>
                             </tr>
                             <tr>
@@ -536,5 +541,28 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+<script>
+    const form = document.getElementById("myForm");
+
+    form.addEventListener("submit", function(event){
+        const input = document.getElementById("inputType").value;
+        const pattern = /^\s*$/;
+
+        if(pattern.test(input)){
+            event.preventDefault();
+            document.getElementById('loi').innerHTML = "Vui lòng không để trống loại khách hàng";
+        }else{
+            document.getElementById('loi').innerHTML = "";
+
+        }
+        const input1 = document.getElementById("inputName").value;
+        if(pattern.test(input1)){
+            event.preventDefault();
+            document.getElementById('loi1').innerHTML = "*Vui lòng không để trống tên loại khách hàng";
+        }else{
+            document.getElementById('loi1').innerHTML = "";
+        }
+    });
+</script>
 </body>
 </html>

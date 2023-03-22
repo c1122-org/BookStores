@@ -58,8 +58,9 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="/index"><img src="${pageContext.request.contextPath}/user/img/logo.jpg" alt=""
-                                                                      style="height: 90px;width: 200px;"></a>
+                <a class="navbar-brand logo_h" href="${pageContext.request.contextPath}/user/index.jsp"><img
+                        src="${pageContext.request.contextPath}/user/img/logo.jpg" alt=""
+                        style="height: 90px;width: 200px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,14 +71,18 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="/index">Trang chủ</a></li>
+                        <li class="nav-item active"><a class="nav-link"
+                                                       href="${pageContext.request.contextPath}/user/index.jsp">Trang
+                            chủ</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
                                aria-expanded="false">Sản phẫm</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/type">Danh mục sách</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/user/detail.jsp">Thông tin chi tiết</a></li>
+                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/type">Danh
+                                    mục sách</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/user/detail.jsp">Thông tin chi tiết</a>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" href="checkout.html">Thanh toán sản phẫm</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="cart.html">Giỏ hàng</a></li>
@@ -98,7 +103,9 @@
                                aria-haspopup="true"
                                aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href=${pageContext.request.contextPath}/user/login.jsp>Login</a></li>
+                                <li class="nav-item"><a class="nav-link"
+                                                        href=${pageContext.request.contextPath}/user/login.jsp>Login</a>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" href="tracking.html">Theo dõi</a></li>
                                 <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                             </ul>
@@ -117,8 +124,8 @@
     </div>
     <div class="search_input" id="search_input_box">
         <div class="container">
-            <form class="d-flex justify-content-between">
-                <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+            <form class="d-flex justify-content-between" action="/adminBook?action=searchByName" method="post">
+                <input type="text" class="form-control" id="search_input" placeholder="Search Here" name="nameBook">
                 <button type="submit" class="btn"></button>
                 <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
             </form>
@@ -149,7 +156,8 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="banner-img">
-                                <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/banner/2.png" alt="" style="height: 600px">
+                                <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/banner/2.png"
+                                     alt="" style="height: 600px">
                             </div>
                         </div>
                     </div>
@@ -169,7 +177,8 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="banner-img">
-                                <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/banner/2.png" alt="">
+                                <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/banner/2.png"
+                                     alt="">
                             </div>
                         </div>
                     </div>
@@ -238,8 +247,11 @@
                     <div class="col-lg-8 col-md-8">
                         <div class="single-deal">
                             <div class="overlay"></div>
-                            <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/category/1.jpg" alt="" style="height: 190px">
-                            <a href="${pageContext.request.contextPath}/user/img/category/c1.jpg" class="img-pop-up" target="_blank">
+                            <img class="img-fluid w-100"
+                                 src="${pageContext.request.contextPath}/user/img/category/1.jpg" alt=""
+                                 style="height: 190px">
+                            <a href="${pageContext.request.contextPath}/user/img/category/c1.jpg" class="img-pop-up"
+                               target="_blank">
                                 <div class="deal-details">
                                     <h6 class="deal-title">Tết sách 23/04</h6>
                                 </div>
@@ -249,8 +261,11 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="single-deal">
                             <div class="overlay"></div>
-                            <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/category/2.jpg" alt="" style="height: 190px">
-                            <a href="${pageContext.request.contextPath}/user/img/category/c2.jpg" class="img-pop-up" target="_blank">
+                            <img class="img-fluid w-100"
+                                 src="${pageContext.request.contextPath}/user/img/category/2.jpg" alt=""
+                                 style="height: 190px">
+                            <a href="${pageContext.request.contextPath}/user/img/category/c2.jpg" class="img-pop-up"
+                               target="_blank">
                                 <div class="deal-details">
                                     <h6 class="deal-title">Đừng chọn an nhàn khi còn trẻ</h6>
                                 </div>
@@ -260,8 +275,11 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="single-deal">
                             <div class="overlay"></div>
-                            <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/category/3.jpg" alt="" style="height: 190px">
-                            <a href="${pageContext.request.contextPath}/user/img/category/c3.jpg" class="img-pop-up" target="_blank">
+                            <img class="img-fluid w-100"
+                                 src="${pageContext.request.contextPath}/user/img/category/3.jpg" alt=""
+                                 style="height: 190px">
+                            <a href="${pageContext.request.contextPath}/user/img/category/c3.jpg" class="img-pop-up"
+                               target="_blank">
                                 <div class="deal-details">
                                     <h6 class="deal-title">Book sách hay</h6>
                                 </div>
@@ -271,8 +289,11 @@
                     <div class="col-lg-8 col-md-8">
                         <div class="single-deal">
                             <div class="overlay"></div>
-                            <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/category/4.jpg" alt="" style="height: 190px">
-                            <a href="${pageContext.request.contextPath}/user/img/category/c4.jpg" class="img-pop-up" target="_blank">
+                            <img class="img-fluid w-100"
+                                 src="${pageContext.request.contextPath}/user/img/category/4.jpg" alt=""
+                                 style="height: 190px">
+                            <a href="${pageContext.request.contextPath}/user/img/category/c4.jpg" class="img-pop-up"
+                               target="_blank">
                                 <div class="deal-details">
                                     <h6 class="deal-title">Book sách hay</h6>
                                 </div>
@@ -284,8 +305,10 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single-deal">
                     <div class="overlay"></div>
-                    <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/category/c5.jpg" alt="">
-                    <a href="${pageContext.request.contextPath}/user/img/category/c5.jpg" class="img-pop-up" target="_blank">
+                    <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/category/c5.jpg"
+                         alt="">
+                    <a href="${pageContext.request.contextPath}/user/img/category/c5.jpg" class="img-pop-up"
+                       target="_blank">
                         <div class="deal-details">
                             <h6 class="deal-title">BlackFriday</h6>
                         </div>
@@ -316,7 +339,7 @@
             <div class="row">
                 <c:forEach items="${bookList}" var="book">
                     <c:choose>
-                        <c:when test="${book.price >= 450000}">
+                        <c:when test="${book.price >= 0}">
                             <div class="col-lg-3 col-md-6">
                                 <div class="single-product">
                                     <img class="img-fluid" src="${book.image}" alt="" style="height: 280px">
@@ -674,7 +697,7 @@
             <div class="col-lg-6 no-padding exclusive-right">
                 <div class="active-exclusive-product-slider">
                     <div class="single-exclusive-slider">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="width: 230px;margin-left: 26px;height: 272px;">
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="width: 230px;margin: 0 auto;height: 272px;">
                         <div class="product-details">
                             <div class="price">
                                 <h6>85.000 đ</h6>
@@ -689,7 +712,7 @@
                     </div>
                     <!-- single exclusive carousel -->
                     <div class="single-exclusive-slider">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/3.jpg" alt="" style="width: 230px;margin-left: 26px;height: 272px;">
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/3.jpg" alt="" style="width: 230px;margin: 0 auto;height: 272px;">
                         <div class="product-details">
                             <div class="price">
                                 <h6>85.000 đ</h6>
@@ -751,7 +774,8 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -763,7 +787,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -775,7 +800,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -787,7 +813,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -799,7 +826,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -811,7 +839,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -823,7 +852,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -835,7 +865,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -847,7 +878,8 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                         <div class="single-related-product d-flex">
-                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="height: 70px; width: 70px;"></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
+                                             style="height: 70px; width: 70px;"></a>
                             <div class="desc">
                                 <a href="#" class="title">Sách 1</a>
                                 <div class="price">
@@ -862,7 +894,8 @@
             <div class="col-lg-3">
                 <div class="ctg-right">
                     <a href="#" target="_blank">
-                        <img class="img-fluid d-block mx-auto" src="${pageContext.request.contextPath}/user/img/category/c5.jpg" alt="">
+                        <img class="img-fluid d-block mx-auto"
+                             src="${pageContext.request.contextPath}/user/img/category/c5.jpg" alt="">
                     </a>
                 </div>
             </div>

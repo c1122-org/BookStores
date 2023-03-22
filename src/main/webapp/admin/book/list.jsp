@@ -14,7 +14,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ListCustomer</title>
+    <title>List Books</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -398,6 +398,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
 </head>
 <body>
+<c:if test="${not empty sessionScope.message}">
+    <div class="alert alert-success">
+            ${sessionScope.message}
+    </div>
+    <c:remove var="sessionScope.message" />
+</c:if>
 <div class="px-0 bg-light container-fluid">
     <div class="d-flex">
         <div class="d-flex align-items-center " id="navbar">

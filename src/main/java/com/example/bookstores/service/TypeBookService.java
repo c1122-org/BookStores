@@ -33,4 +33,9 @@ public class TypeBookService implements ITypeBookService{
     public List<TypeBook> findByName(String name) {
         return iTypeBookRepository.findByName(name);
     }
+
+    @Override
+    public void deleteByID(String categoryId) {
+        iTypeBookRepository.deleteByID(categoryId);
+    }
 }

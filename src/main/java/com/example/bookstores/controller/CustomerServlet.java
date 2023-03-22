@@ -148,6 +148,7 @@ public class CustomerServlet extends HttpServlet {
             request.getRequestDispatcher("admin/customer/update.jsp").forward(request, response);
         }else {
             customerService.updateByID(new Customer(id,name,date,email,gender,nameAccount));
+            request.getSession().setAttribute("message", "Bạn đã cập nhập dữ liệu thành công!");
             response.sendRedirect("/customers");
         }
 

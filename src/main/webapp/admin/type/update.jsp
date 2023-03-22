@@ -14,7 +14,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>Update Type Book</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -406,7 +406,7 @@
         <div id="topnavbar">
             <div class="topnav mb-3" style="height: 500px">
                 <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers">Khách Hàng</a> <a
-                        href="/type">Loại sách</a>
+                        href="/type" style="color: black;border-bottom: 3px solid red;">Loại sách</a>
                 </div>
                 <div style="margin-left: 10px">
                     <div style="margin-left: 10px">
@@ -425,10 +425,15 @@
                                         <input type="text" name="categoryName" id="1" value="${type.categoryName}" size="45"
                                                style="margin-left: 20px"/>
                                     </td>
+                                <tr>
+                                    <th></th>
+                                    <td id="error1" style="padding-left: 20px;color: red; padding-bottom: 10px">${message}
+                                    </td>
+                                </tr>
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center">
-                                        <input type="submit" value="Save"/>
+                                        <button type="button" class="btn btn-outline-dark">Update</button>
                                     </td>
                                 </tr>
                             </table>
