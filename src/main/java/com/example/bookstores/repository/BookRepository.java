@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * search(name)
@@ -37,6 +38,7 @@ public class BookRepository implements IBookRepository {
      */
     @Override
     public List<Book> findAll(String name) throws SQLException {
+        Stack<Book> books=new Stack<>();
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -62,12 +64,15 @@ public class BookRepository implements IBookRepository {
                     String idCategory = resultSet.getString("category_id");
                     String nameCategory = resultSet.getString("category_name");
                     Category category = new Category(idCategory,nameCategory);
-                    bookList2.add(new Book(id,nameBook, price, author, publishingCompany, publisher, translator, describes, image, category));
+                    books.add(new Book(id,nameBook, price, author, publishingCompany, publisher, translator, describes, image, category));
 
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+        while (!books.empty()){
+            bookList2.add(books.pop());
         }
         return bookList2;
     }

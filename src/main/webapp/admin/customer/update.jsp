@@ -14,7 +14,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>Update Customer</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -368,6 +368,13 @@
             font-size: 18px;
             margin-right: 15px;
         }
+        .owl-controls{
+            background-image: url('/user/img/banner/prev.png');
+        }
+        .nice-select {
+            line-height: 30px !important;
+            height: 30px;
+        }
 
         @media (max-width: 767px) {
             .single-box {
@@ -389,7 +396,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items"
                     aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"><span
                     class="fas fa-bars"></span></button>
-            <a class="text-decoration-none fs14 ps-2" href="#">Quản lý BookStore<span class="fs13 pe-2"></span></a>
+            <a class="text-decoration-none fs14 ps-2" href="/customers">Quản lý BookStore<span class="fs13 pe-2"></span></a>
         </div>
         <div id="navbar2" class="d-flex justify-content-end pe-4"><span class="far fa-user-circle "></span></div>
     </div>
@@ -400,7 +407,7 @@
             <li><span class="fas fa-clipboard-check"></span> <span class="ps-3 name">Quản lý loại sách</span></li>
         </ul>
         <div id="topnavbar">
-            <div class="topnav mb-3" style="height: 500px">
+            <div class="topnav mb-3" style="height: 100px">
                 <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers" style="color: black;border-bottom: 3px solid red;">Khách Hàng</a> <a
                         href="/type">Loại sách</a>
                 </div>
@@ -448,8 +455,8 @@
                                 </tr>
                                 <tr>
                                     <th style="padding-bottom: 10px">Giới tính:</th>
-                                    <td style="padding-bottom: 10px; padding-left: 20px">
-                                        <select name="gender" id="4">
+                                    <th style="padding-bottom: 10px; padding-left: 20px">
+                                        <select name="gender" id="4" style="display: block;margin: 0 auto; height: 27px; line-height: 30px !important;">
                                         <c:choose>
                                             <c:when test="${customer.gender==0}">
                                                     <option value="0">Nam</option>
@@ -470,7 +477,7 @@
                                                 </c:when>
                                         </c:choose>
                                         </select>
-                                    </td>
+                                    </th>
                                 </tr>
                                 <tr>
                                     <td style="padding-bottom: 10px">
@@ -480,7 +487,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center">
-                                        <input type="submit" value="Save"/>
+                                        <button type="submit" class="btn btn-outline-dark" >Update</button>
                                     </td>
                                 </tr>
                             </table>

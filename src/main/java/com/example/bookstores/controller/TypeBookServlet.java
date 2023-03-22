@@ -151,6 +151,7 @@ public class TypeBookServlet extends HttpServlet {
     private void searchByName(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String name= request.getParameter("search");
         request.setAttribute("typeBook", iTypeBookService.findByName(name));
+        request.setAttribute("search1",name);
         request.getRequestDispatcher("admin/type/list.jsp").forward(request,response);
     }
 

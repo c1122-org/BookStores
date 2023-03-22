@@ -14,7 +14,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ListCustomer</title>
+    <title>List Type Book</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -432,7 +432,7 @@
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
                     <form class="example d-flex align-items-center" action="/type?action=search" method="post">
-                        <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;">
+                        <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;height: 35px" value="${search1}">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                     <button type="button" onclick="location.href = 'type?action=create'"

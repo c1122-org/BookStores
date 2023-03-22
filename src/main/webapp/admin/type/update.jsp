@@ -14,7 +14,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>Update Type Book</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -410,7 +410,7 @@
                 </div>
                 <div style="margin-left: 10px">
                     <div style="margin-left: 10px">
-                        <form action="/type?action=update" method="post">
+                        <form action="/type?action=update" method="post" id="myForm">
                             <table>
                                 <tr>
                                     <th style="padding-bottom: 10px">Mã loại sách:</th>
@@ -422,18 +422,18 @@
                                 <tr>
                                     <th style="padding-bottom: 10px">Tên loại sách: </th>
                                     <td style="padding-bottom: 10px">
-                                        <input type="text" name="categoryName" id="1" value="${type.categoryName}" size="45"
+                                        <input type="text" name="categoryName" id="inputName1" value="${type.categoryName}" size="45"
                                                style="margin-left: 20px"/>
                                     </td>
                                 <tr>
                                     <th></th>
-                                    <td id="error1" style="padding-left: 20px;color: red; padding-bottom: 10px">${message}
+                                    <td id="loi2" style="padding-left: 20px;color: red; padding-bottom: 10px">${message}
                                     </td>
                                 </tr>
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center">
-                                        <input type="submit" value="Save"/>
+                                        <button type="submit" class="btn btn-outline-dark">Update</button>
                                     </td>
                                 </tr>
                             </table>
@@ -546,5 +546,27 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+<script>
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit", function(event){
+        const input = document.getElementById("inputType").value;
+        const pattern = /^\s*$/;
+
+        if(pattern.test(input)){
+            event.preventDefault();
+            document.getElementById('loi').innerHTML = "Vui lòng không để trống loại khách hàng";
+        }else{
+            document.getElementById('loi').innerHTML = "";
+
+        }
+        const input1 = document.getElementById("inputName1").value;
+        if(pattern.test(input1)){
+            event.preventDefault();
+            document.getElementById('loi2').innerHTML = "Vui lòng không để trống tên loại khách hàng";
+        }else{
+            document.getElementById('loi2').innerHTML = "";
+        }
+    });
+</script>
 </body>
 </html>

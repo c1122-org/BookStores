@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: USER
@@ -41,12 +42,35 @@
   <style>
     * {
       font-family: Arial;
+      padding:0;
+      margin:0;
     }
-
     h1 {
       font-family: Arial;
       margin-top: 50px;
     }
+
+    .btn{
+      width:150px;
+      height:45px;
+      border-radius:45px;
+      cursor:pointer;
+      border:none;
+      font-size: 12px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-weight:bold;
+      box-shadow:0px 8px 15px rgba(0,0,0,0.1);
+      transition:all 0.3s ease;
+    }
+
+    .btn:hover{
+      background:#2ceae5;
+      transform:translateY(-7px);
+      color:black;
+      box-shadow:0px 10px 25px rgba(46,223,229,0.445);
+    }
+
   </style>
 </head>
 <body>
@@ -312,261 +336,46 @@
       </div>
       <div class="row">
         <!-- single product -->
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
-            <div class="product-details">
-              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
-              <div class="price">
-                <h6>81,500 đ</h6>
-                <h6 class="l-through">101,500 đ</h6>
-              </div>
-              <div class="prd-bottom">
+        <c:forEach items="${bookList1}" var="book">
+          <c:choose>
+            <c:when test="${book.price >= 600000}">
+              <div class="col-lg-3 col-md-6">
+                <div class="single-product">
+                  <img class="img-fluid" src="${book.image}" alt="" style="height: 280px">
+                  <div class="product-details">
+                    <h6 style="height: 60px">${book.nameBook}</h6>
+                    <div class="price">
+                      <h6>${book.price}</h6>
+                      <h6 class="l-through">${book.price}</h6>
+                    </div>
+                    <div class="prd-bottom">
+                      <a href="" class="social-info">
+                        <span class="ti-bag"></span>
+                        <p class="hover-text">Thêm vào giỏ hàng</p>
+                      </a>
+                      <a href="" class="social-info">
+                        <span class="lnr lnr-heart"></span>
+                        <p class="hover-text">Danh sách yêu thích</p>
+                      </a>
+                      <a href="" class="social-info">
+                        <span class="lnr lnr-sync"></span>
+                        <p class="hover-text">So sánh</p>
+                      </a>
+                      <form action="/bookDetails">
+                        <input type="hidden" value="${book.id}" name="id">
+                        <button class="btn" type="submit" style="border: 0;width: 100%;background: white; margin-top: 20px">Xem thêm</button>
+                      </form>
 
-                <a href="" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">Thêm vào giỏ hàng</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Danh sách yêu thích</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-sync"></span>
-                  <p class="hover-text">So sánh</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
-                </a>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </c:when>
+          </c:choose>
+        </c:forEach>
         <!-- single product -->
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
-            <div class="product-details">
-              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
-              <div class="price">
-                <h6>81,500 đ</h6>
-                <h6 class="l-through">101,500 đ</h6>
-              </div>
-              <div class="prd-bottom">
 
-                <a href="" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">Thêm vào giỏ hàng</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Danh sách yêu thích</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-sync"></span>
-                  <p class="hover-text">So sánh</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- single product -->
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
-            <div class="product-details">
-              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
-              <div class="price">
-                <h6>81,500 đ</h6>
-                <h6 class="l-through">101,500 đ</h6>
-              </div>
-              <div class="prd-bottom">
 
-                <a href="" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">Thêm vào giỏ hàng</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Danh sách yêu thích</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-sync"></span>
-                  <p class="hover-text">So sánh</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- single product -->
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
-            <div class="product-details">
-              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
-              <div class="price">
-                <h6>81,500 đ</h6>
-                <h6 class="l-through">101,500 đ</h6>
-              </div>
-              <div class="prd-bottom">
-
-                <a href="" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">Thêm vào giỏ hàng</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Danh sách yêu thích</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-sync"></span>
-                  <p class="hover-text">So sánh</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- single product -->
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
-            <div class="product-details">
-              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
-              <div class="price">
-                <h6>81,500 đ</h6>
-                <h6 class="l-through">101,500 đ</h6>
-              </div>
-              <div class="prd-bottom">
-
-                <a href="" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">Thêm vào giỏ hàng</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Danh sách yêu thích</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-sync"></span>
-                  <p class="hover-text">So sánh</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- single product -->
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
-            <div class="product-details">
-              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
-              <div class="price">
-                <h6>81,500 đ</h6>
-                <h6 class="l-through">101,500 đ</h6>
-              </div>
-              <div class="prd-bottom">
-
-                <a href="" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">Thêm vào giỏ hàng</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Danh sách yêu thích</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-sync"></span>
-                  <p class="hover-text">So sánh</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- single product -->
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
-            <div class="product-details">
-              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
-              <div class="price">
-                <h6>81,500 đ</h6>
-                <h6 class="l-through">101,500 đ</h6>
-              </div>
-              <div class="prd-bottom">
-
-                <a href="" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">Thêm vào giỏ hàng</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Danh sách yêu thích</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-sync"></span>
-                  <p class="hover-text">So sánh</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- single product -->
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/product/1.jpg" alt="" style="height: 280px">
-            <div class="product-details">
-              <h6>Đừng Để Tâm Trạng Trở Thành Thái Độ</h6>
-              <div class="price">
-                <h6>81,500 đ</h6>
-                <h6 class="l-through">101,500 đ</h6>
-              </div>
-              <div class="prd-bottom">
-
-                <a href="" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">Thêm vào giỏ hàng</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Danh sách yêu thích</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-sync"></span>
-                  <p class="hover-text">So sánh</p>
-                </a>
-                <a href="" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">Xem thêm</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -892,7 +701,7 @@
         <div class="active-exclusive-product-slider">
           <!-- single exclusive carousel -->
           <div class="single-exclusive-slider">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/1.jpg" alt="" style="width: 230px;margin-left: 26px;height: 272px;">
+            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/1.jpg" alt="" style="width: 230px;margin: 0 auto;height: 272px;">
             <div class="product-details">
               <div class="price">
                 <h6>85.000 đ</h6>
@@ -907,7 +716,7 @@
           </div>
           <!-- single exclusive carousel -->
           <div class="single-exclusive-slider">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/1.jpg" alt="" style="width: 230px;margin-left: 26px;height: 272px;">
+            <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/1.jpg" alt="" style="width: 230px;margin: 0 auto;height: 272px;">
             <div class="product-details">
               <div class="price">
                 <h6>85.000 đ</h6>
