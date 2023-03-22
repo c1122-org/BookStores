@@ -62,7 +62,8 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("account",account);
             if (account.getRoleAccount() == 1){
-                response.sendRedirect("/customers");
+                session.setAttribute("nameAccount", nameAccount);
+                request.getRequestDispatcher("/customers").forward(request,response);
             }else {
                 session.setAttribute("nameAccount", nameAccount);
                 try {
