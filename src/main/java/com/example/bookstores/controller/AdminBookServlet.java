@@ -186,8 +186,9 @@ public class AdminBookServlet extends HttpServlet {
         String image = request.getParameter("image");
         String categoryID = request.getParameter("categoryID");
         Category category = new Category(categoryID);
-        Book book = new Book(nameBook, price, author, publishingCompany, publisher, translator, describes, image, category);
-        iBookService.updateBook(id, book);
+        Book book= new Book(nameBook,price,author,publishingCompany,publisher,translator,describes,image,category);
+        iBookService.updateBook(id,book);
+        request.getSession().setAttribute("message", "Bạn đã cập nhập dữ liệu thành công!");
         response.sendRedirect("/adminBook");
 
     }
@@ -216,6 +217,7 @@ public class AdminBookServlet extends HttpServlet {
         Book book = new Book(nameBook, price, author, publishingCompany, publisher, translator, describes, image, category);
 
         iBookService.save(book);
+        request.getSession().setAttribute("message", "Bạn đã thêm dữ liệu thành công!");
         response.sendRedirect("/adminBook");
     }
 

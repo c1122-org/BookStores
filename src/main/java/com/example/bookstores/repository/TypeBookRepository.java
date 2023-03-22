@@ -19,6 +19,28 @@ public class TypeBookRepository implements ITypeBookRepository {
     }
 
     @Override
+    public void deleteByID(String categoryId) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement("delete from category where category_id=?");
+                statement.setString(1, categoryId);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                DBConnection.close();
+            }
+        }
+    }
+
+    @Override
     public List<TypeBook> findAll() {
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = null;

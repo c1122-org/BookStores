@@ -328,7 +328,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <div class="section-title">
-                        <h1>Sản phẫm mới nhất</h1>
+                        <h1>Sản phẩm</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et
                             dolore
@@ -339,7 +339,7 @@
             <div class="row">
                 <c:forEach items="${bookList}" var="book">
                     <c:choose>
-                        <c:when test="${book.price >= 0}">
+                        <c:when test="${book.price >= 600000}">
                             <div class="col-lg-3 col-md-6">
                                 <div class="single-product">
                                     <img class="img-fluid" src="${book.image}" alt="" style="height: 280px">
@@ -362,11 +362,11 @@
                                                 <span class="lnr lnr-sync"></span>
                                                 <p class="hover-text">So sánh</p>
                                             </a>
-                                            <form action="/bookDetails">
+                                            <a>
                                                 <input type="hidden" value="${book.id}" name="id">
                                                 <span class="lnr lnr-move"></span>
-                                                <button class="hover-text" type="submit">Xem thêm</button>
-                                            </form>
+                                                <button class="hover-text" type="submit" onclick="location.href = '${pageContext.request.contextPath}/user/login.jsp' ">Xem thêm</button>
+                                            </a>
 
                                         </div>
                                     </div>
@@ -698,8 +698,7 @@
             <div class="col-lg-6 no-padding exclusive-right">
                 <div class="active-exclusive-product-slider">
                     <div class="single-exclusive-slider">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/2.jpg" alt=""
-                             style="width: 230px;margin-left: 26px;height: 272px;">
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/2.jpg" alt="" style="width: 230px;margin: 0 auto;height: 272px;">
                         <div class="product-details">
                             <div class="price">
                                 <h6>85.000 đ</h6>
@@ -714,8 +713,7 @@
                     </div>
                     <!-- single exclusive carousel -->
                     <div class="single-exclusive-slider">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/3.jpg" alt=""
-                             style="width: 230px;margin-left: 26px;height: 272px;">
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/3.jpg" alt="" style="width: 230px;margin: 0 auto;height: 272px;">
                         <div class="product-details">
                             <div class="price">
                                 <h6>85.000 đ</h6>
@@ -956,7 +954,7 @@
             </div>
             <div class="col-lg-3  col-md-6 col-sm-6">
                 <div class="single-footer-widget mail-chimp">
-                    <h6 class="mb-20">Instragram</h6>
+                    <h6 class="mb-20">Instagram</h6>
                     <ul class="instafeed d-flex flex-wrap">
                         <li><img src="img/i1.jpg" alt=""></li>
                         <li><img src="img/i2.jpg" alt=""></li>

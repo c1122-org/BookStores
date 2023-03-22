@@ -78,6 +78,7 @@ public class CustomerServlet extends HttpServlet {
     public void searchByName(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String name=request.getParameter("search");
         request.setAttribute("listCustomer",customerService.searchByName(name));
+        request.setAttribute("search1",name);
         request.getRequestDispatcher("admin/customer/list.jsp").forward(request,response);
     }
 
@@ -143,11 +144,12 @@ public class CustomerServlet extends HttpServlet {
         }
         if (flag){
             request.setAttribute("customer",new Customer(id,name,date,email,gender,nameAccount));
-            String mess="Duplicate e-mail";
+            String mess="Bạn đã nhập trùng email";
             request.setAttribute("mess",mess);
             request.getRequestDispatcher("admin/customer/update.jsp").forward(request, response);
         }else {
             customerService.updateByID(new Customer(id,name,date,email,gender,nameAccount));
+            request.getSession().setAttribute("message", "Bạn đã cập nhập dữ liệu thành công!");
             response.sendRedirect("/customers");
         }
 
