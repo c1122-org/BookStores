@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: USER
@@ -326,7 +327,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
           <div class="section-title">
-            <h1>Sản phẫm mới nhất</h1>
+            <h1>Sản phẫm</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
               labore et
               dolore
@@ -345,8 +346,8 @@
                   <div class="product-details">
                     <h6 style="height: 60px">${book.nameBook}</h6>
                     <div class="price">
-                      <h6>${book.price}</h6>
-                      <h6 class="l-through">${book.price}</h6>
+                      <h6><fmt:formatNumber value="${book.price}" pattern="#.#"/> VND</h6>
+                      <h6 class="l-through"><fmt:formatNumber value="${book.price}" pattern="#.#"/> VND</h6>
                     </div>
                     <div class="prd-bottom">
                       <a href="" class="social-info">
@@ -369,6 +370,13 @@
                     </div>
                   </div>
                 </div>
+              </div>
+            </c:when>
+          </c:choose>
+        </c:forEach>
+        <!-- single product -->
+
+
       </div>
     </div>
   </div>

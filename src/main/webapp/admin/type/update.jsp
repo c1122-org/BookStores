@@ -427,7 +427,7 @@
                                     </td>
                                 <tr>
                                     <th></th>
-                                    <td id="loi2" style="padding-left: 20px;color: red; padding-bottom: 10px">${message}
+                                    <td id="loi2" style="padding-left: 20px;color: red; padding-bottom: 10px">${mess}
                                     </td>
                                 </tr>
                                 </tr>

@@ -35,6 +35,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nameAccount = request.getParameter("nameAccount");
         String passAccount = request.getParameter("passAccount");
+        String pass1 = request.getParameter("pass1");
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String date = request.getParameter("date");
@@ -47,7 +48,12 @@ public class RegisterServlet extends HttpServlet {
             String message = "Tên người dùng đã tồn tại!! ";
             request.setAttribute("message",message);
             request.getRequestDispatcher("/user/registration.jsp").forward(request,response);
-        } else {
+        }
+        else if (pass1 != passAccount){
+            String message1 = "Mật khẩu không khớp!!";
+            request.setAttribute("message1",message1);
+            request.getRequestDispatcher("/user/registration.jsp").forward(request,response);
+        }else {
             Account account1 = new Account(nameAccount,passAccount,0);
             accountService.register(account1);
             customerService.create(name,email,date,gender,nameAccount);
