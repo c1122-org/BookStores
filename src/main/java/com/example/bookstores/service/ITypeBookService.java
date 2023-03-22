@@ -11,5 +11,6 @@ public interface ITypeBookService {
     TypeBook findByID(String id);
     void update(TypeBook typeBook);
     List<TypeBook> findByName(String name);
+    void deleteByID(String categoryId);
 
 }
