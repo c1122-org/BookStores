@@ -415,7 +415,14 @@
                     class="fas fa-bars"></span></button>
             <a class="text-decoration-none fs14 ps-2" href="#">Quản lý BookStore<span class="fs13 pe-2"></span></a>
         </div>
-        <div id="navbar2" class="d-flex justify-content-end pe-4"><span class="far fa-user-circle "></span></div>
+        <div id="navbar2" class="d-flex justify-content-end pe-4"><span> <li class="nav-item submenu dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">${nameAccount}</a>
+              <ul class="dropdown-menu">
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+              </ul>
+            </li></span></div>
     </div>
     <div class="d-md-flex">
         <ul id="navbar-items" class="p-0">

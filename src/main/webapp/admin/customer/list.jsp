@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -36,23 +37,28 @@
             list-style: none;
             font-family: 'Montserrat', sans-serif
         }
+
         body {
             padding: 10px
         }
+
         .topnav {
             background-color: #ffff;
             overflow: hidden
         }
+
         .far.fa-user-circle {
             font-size: 29px;
             color: #726f6f;
             padding-top: 10px
         }
+
         .input-10 {
             width: 40px;
             color: #4c4c96;
             font-weight: 600
         }
+
         .fas.fa-search {
             display: flex;
             flex-direction: column;
@@ -61,6 +67,7 @@
             background-color: lightsalmon;
             height: 100%
         }
+
         .topnav a {
             float: left;
             display: block;
@@ -72,10 +79,12 @@
             text-decoration: none;
             border-bottom: 3px solid transparent
         }
+
         .topnav a:hover {
             color: #f7910c;
             border-bottom: 3px solid red
         }
+
         form.example input[type=text] {
             padding: 10px;
             font-size: 17px;
@@ -85,9 +94,11 @@
             height: 36px;
             background: #fff
         }
+
         form.example input[type=text]:focus {
             outline: none
         }
+
         form.example button {
             float: left;
             width: 10%;
@@ -102,70 +113,87 @@
             border-left: none;
             cursor: pointer
         }
+
         .navbar-toggler:focus {
             box-shadow: none;
             outline: none;
             border: none
         }
+
         ::placeholder {
             font-size: 10px
         }
+
         form.example button:hover {
             background: #0b7dda
         }
+
         form.example::after {
             content: "";
             clear: both;
             display: table
         }
+
         .container .table-responsive {
             margin: 20px auto;
             overflow-x: auto
         }
+
         .container .table-responsive::-webkit-scrollbar {
             height: 5px
         }
+
         .container .table-responsive::-webkit-scrollbar-thumb {
             border-radius: 5px;
             background-image: linear-gradient(to right, #5D7ECD, #0C91E6)
         }
+
         .table thead tr th {
             font-size: 11px;
             color: white;
             padding: 10px 10px
         }
+
         .table tbody tr td {
             font-size: 13.5px;
             padding: 10px 10px
         }
+
         #navbar {
             width: 20%;
             background-color: black !important;
             height: 50px;
             border: none
         }
+
         .bg-blight {
             color: #7f7fee;
             font-weight: 600
         }
+
         .bg-bdark {
             color: #4c4c96;
             font-weight: 600
         }
+
         #navbar a {
             color: white
         }
+
         .fas.fa-bars {
             color: white
         }
+
         #navbar2 {
             width: 80%
         }
+
         #navbar-items {
             width: 20%;
             height: 500px;
             background-color: white;
         }
+
         ul#navbar-items li {
             color: black;
             padding: 15px 25px;
@@ -175,155 +203,193 @@
             display: flex;
             align-items: center
         }
+
         ul li .fas {
             font-size: 16px
         }
+
         ul#navbar-items li:hover {
             background-color: #fd7e14;
             color: white
         }
+
         ul li:hover .fas {
             color: #f7910c
         }
+
         #topnavbar {
             width: 80%
         }
+
         .fs13 {
             font-size: 13px
         }
+
         .fs14 {
             font-size: 18px;
             color: white
         }
+
         .fas.fa-times {
             color: red
         }
+
         .fas.fa-check {
             color: greenyellow
         }
+
         .example {
             width: 50%
         }
+
         @media (max-width: 780px) {
             #navbar {
                 width: 20%
             }
+
             #topnavbar {
                 width: 80%
             }
+
             .text-decoration-none.fs14 {
                 font-size: 10px
             }
+
             .text-decoration-none .fs13 {
                 font-size: 9px
             }
         }
+
         @media (max-width: 430px) {
             #navbar-items, #topnavbar {
                 width: 100%;
                 height: 100%
             }
+
             #navbar-items {
                 padding: 20px;
                 margin-bottom: 30px
             }
+
             .topnav a {
                 font-size: 12px;
                 padding: 12px
             }
+
             #navbar {
                 width: 100%;
                 background-color: blue
             }
+
             .example {
                 width: 100%
             }
+
             .text-decoration-none.fs14 {
                 font-size: 14px
             }
+
             .text-decoration-none .fs13 {
                 font-size: 13px
             }
         }
+
         @media (max-width: 376px) {
             #navbar-items {
                 padding: 20px;
                 margin-bottom: 30px
             }
+
             .topnav a {
                 font-size: 12px;
                 padding: 7px
             }
         }
+
         @media (max-width: 320px) {
             .topnav a {
                 font-size: 10px;
                 padding: 4px
             }
         }
+
         footer {
             background: #101010;
             padding: 86px 0;
         }
+
         .single-content {
             text-align: center;
             padding: 115px 0;
         }
+
         .single-box p {
             color: #fff;
             line-height: 1.9;
         }
+
         .single-box h3 {
             font-size: 16px;
             font-weight: 700;
             color: #fff;
         }
+
         .single-box .card-area i {
             color: #ffffff;
             font-size: 20px;
             margin-right: 10px;
         }
+
         .single-box ul {
             list-style: none;
             padding: 0;
         }
+
         .single-box ul li a {
             text-decoration: none;
             color: #fff;
             line-height: 2.5;
             font-weight: 100;
         }
+
         .single-box h2 {
             color: #fff;
             font-size: 20px;
             font-weight: 700;
         }
+
         #basic-addon2 {
             background: #fe1e4f;
             color: #fff;
         }
+
         .socials i {
             font-size: 18px;
             margin-right: 15px;
         }
+
         @media (max-width: 767px) {
             .single-box {
                 margin-bottom: 50px;
             }
         }
+
         @media (min-width: 768px) and (max-width: 991px) {
             .single-box {
                 margin-bottom: 50px;
             }
         }
+
         table.table th i {
             font-size: 13px;
             margin: 0 5px;
             cursor: pointer;
         }
+
         table.table th:last-child {
             width: 100px;
         }
+
         table.table td a {
             cursor: pointer;
             display: inline-block;
@@ -331,15 +397,19 @@
             min-width: 24px;
             text-decoration: none;
         }
+
         table.table td a.edit {
             color: #FFC107;
         }
+
         table.table td a.delete {
             color: #E34724;
         }
+
         table.table td i {
             font-size: 19px;
         }
+
         table.table td a.add i {
             font-size: 24px;
             margin-right: -1px;
@@ -354,7 +424,7 @@
     <div class="alert alert-success">
             ${sessionScope.message}
     </div>
-    <c:remove var="sessionScope.message" />
+    <c:remove var="sessionScope.message"/>
 </c:if>
 <div class="px-0 bg-light container-fluid">
     <div class="d-flex">
@@ -362,9 +432,17 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items"
                     aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"><span
                     class="fas fa-bars"></span></button>
-            <a class="text-decoration-none fs14 ps-2" href="/user/index.jsp">Quản lý BookStore<span class="fs13 pe-2"></span></a>
+            <a class="text-decoration-none fs14 ps-2" href="/user/index.jsp">Quản lý BookStore<span
+                    class="fs13 pe-2"></span></a>
         </div>
-        <div id="navbar2" class="d-flex justify-content-end pe-4"><span class="far fa-user-circle "></span></div>
+        <div id="navbar2" class="d-flex justify-content-end pe-4"><span> <li class="nav-item submenu dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">${nameAccount}</a>
+              <ul class="dropdown-menu">
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+              </ul>
+            </li></span></div>
     </div>
     <div class="d-md-flex">
         <ul id="navbar-items" class="p-0">
@@ -374,13 +452,16 @@
         </ul>
         <div id="topnavbar">
             <div class="topnav mb-3">
-                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers" style="color: black;border-bottom: 3px solid red;">Khách Hàng</a> <a
+                <div class="d-flex px-1"><a href="/adminBook" class="active">Sách</a> <a href="/customers"
+                                                                                         style="color: black;border-bottom: 3px solid red;">Khách
+                    Hàng</a> <a
                         href="/type">Loại sách</a>
                 </div>
                 <div class="d-flex align-items-center mb-3 px-md-3 px-2">
                     <span class="text-uppercase fs13 fw-bolder pe-3">Tìm<span class="ps-1">Kiếm</span></span>
                     <form class="example d-flex align-items-center" action="/customers?action=search" method="post">
-                        <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;" value="${search1}">
+                        <input type="text" placeholder="Tìm kiếm theo tên" name="search" style="width: 40%;"
+                               value="${search1}">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
@@ -400,7 +481,7 @@
                         <tbody class="text-center">
                         <c:forEach items="${listCustomer}" var="customer">
                             <tr>
-                                <td  >${customer.id}</td>
+                                <td>${customer.id}</td>
                                 <td>${customer.name}</td>
                                 <td>${customer.dateOfBirth}</td>
                                 <td>${customer.email}</td>
@@ -415,44 +496,48 @@
                                 <td>
                                     <button style="background: white; border: 0"
                                             class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip"
-                                            data-placement="top" title="Edit" onclick="location.href='/customers?action=update&id=${customer.id}'"><i
+                                            data-placement="top" title="Edit"
+                                            onclick="location.href='/customers?action=update&id=${customer.id}'"><i
                                             style="color: black"
                                             class="fa fa-edit"></i></button>
 
 
                                     <button style="background: white; border: 0" class="btn btn-danger btn-sm rounded-0"
                                             type="button" onclick="deleteInfo('${customer.id}','${customer.name}')"
-                                            data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                            data-toggle="modalDelete" data-placement="top" title="Delete"><i
                                             style="color: black"
-                                            class="fa fa-trash" data-toggle="modal" data-target="#myModal"></i></button>
+                                            class="fa fa-trash" data-toggle="modal" data-target="#modalDelete"></i>
+                                    </button>
                                 </td>
 
-                                    <%--modal delete--%>
-
-                                <div class="modal" id="myModal">
+                                <div class="modal fade" id="modalDelete" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Xoá danh sách khách hàng</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Xóa sách</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body">
-                                                <label for="deleteId"></label><input type="text" hidden id="deleteId"
-                                                                                     name="deleteId" value="${customer.id}">
-                                                <p id="deleteName">Bạn có muốn xoá ${customer.name}</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-danger" data-dismiss="modal">Đóng</button>
-                                                <button class="btn btn-danger"
-                                                        onclick="location.href= '/customers?action=delete&id=${customer.id}'">
-                                                    Đồng ý
-                                                </button>
-                                            </div>
+                                            <form action="/customers?action=delete" method="post">
+                                                <div class="modal-body">
+                                                    <input type="hidden" id="deleteId"
+                                                           name="id">
+                                                    Bạn có muốn xóa sách <span id="deleteName"
+                                                                               style="color: brown; font-weight: bold">${customer.name}</span>
+                                                    ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Hủy bỏ
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary">Đồng ý</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-
 
 
                             </tr>
@@ -592,6 +677,7 @@
             'pageLength': 3
         });
     });
+
     function deleteInfo(id, name) {
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteName").innerText = name;

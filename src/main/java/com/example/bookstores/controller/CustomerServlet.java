@@ -31,9 +31,6 @@ public class CustomerServlet extends HttpServlet {
             case "sort":
                 sortByName(request,response);
                 break;
-            case "delete":
-                deleteByID(request,response);
-                break;
             default:
                 displayAll(request, response);
         }
@@ -58,6 +55,9 @@ public class CustomerServlet extends HttpServlet {
                 break;
             case "create":
                 createCustomer(request,response);
+                break;
+            case "delete":
+                deleteByID(request,response);
                 break;
             default:
                 displayAll(request, response);
@@ -200,9 +200,10 @@ public class CustomerServlet extends HttpServlet {
      * @param response
      * @throws IOException
      */
-    private void deleteByID(HttpServletRequest request,HttpServletResponse response) throws IOException {
+    public void deleteByID(HttpServletRequest request,HttpServletResponse response) throws IOException {
         int id= Integer.parseInt(request.getParameter("id"));
+        System.out.println("aaaaa");
         customerService.deleteByID(id);
-        response.sendRedirect("customers");
+        response.sendRedirect("/customers");
     }
 }
