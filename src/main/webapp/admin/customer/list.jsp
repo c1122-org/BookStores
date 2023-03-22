@@ -400,7 +400,7 @@
                         <tbody class="text-center">
                         <c:forEach items="${listCustomer}" var="customer">
                             <tr>
-                                <td>${customer.id}</td>
+                                <td  >${customer.id}</td>
                                 <td>${customer.name}</td>
                                 <td>${customer.dateOfBirth}</td>
                                 <td>${customer.email}</td>
@@ -421,7 +421,7 @@
 
 
                                     <button style="background: white; border: 0" class="btn btn-danger btn-sm rounded-0"
-                                            type="button"
+                                            type="button" onclick="deleteInfo('${customer.id}','${customer.name}')"
                                             data-toggle="tooltip" data-placement="top" title="Delete"><i
                                             style="color: black"
                                             class="fa fa-trash" data-toggle="modal" data-target="#myModal"></i></button>
@@ -433,18 +433,20 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Delete</h5>
+                                                <h5 class="modal-title">Xoá danh sách khách hàng</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Delete Confirmation ${customer.name}</p>
+                                                <label for="deleteId"></label><input type="text" hidden id="deleteId"
+                                                                                     name="deleteId" value="${customer.id}">
+                                                <p id="deleteName">Bạn có muốn xoá ${customer.name}</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                <button class="btn btn-danger" data-dismiss="modal">Đóng</button>
                                                 <button class="btn btn-danger"
                                                         onclick="location.href= '/customers?action=delete&id=${customer.id}'">
-                                                    Delete
+                                                    Đồng ý
                                                 </button>
                                             </div>
                                         </div>
@@ -590,6 +592,10 @@
             'pageLength': 3
         });
     });
+    function deleteInfo(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
 </script>
 </body>
 </html>

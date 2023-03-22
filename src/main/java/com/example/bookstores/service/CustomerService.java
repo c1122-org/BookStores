@@ -44,4 +44,9 @@ public class CustomerService implements ICustomerService {
         return customerRepository.searchByName(name);
     }
 
+    @Override
+    public boolean checkEmail(String email) {
+        return customerRepository.checkEmail(email);
+    }
+
 }
