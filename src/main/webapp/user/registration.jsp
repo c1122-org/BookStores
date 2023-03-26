@@ -169,19 +169,12 @@
                             <p style="color: red">${message1}</p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="password" class="form-control" id="pass1" name="repass"
+                            <input type="hidden" class="form-control" id="pass1" name="repass"
                                    placeholder="Nhập lại mật khẩu">
                             <p id="error5" style="color: red"></p>
                         </div>
                         <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Nhớ mật khẩu</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12 form-group">
                             <button type="submit" value="submit" class="primary-btn">Đăng ký</button>
-                            <a href="#">Quên mật khẩu?</a>
                         </div>
                     </form>
                 </div>
@@ -287,11 +280,6 @@
         const input5 = document.getElementById("pass1").value;
         const pattern = /^\s*$/;
 
-        if (input4 !== input5){
-            document.getElementById("error6").innerHTML = "Mật khẩu không khớp";
-        }else {
-            document.getElementById("error6").innerHTML = "";
-        }
         if(pattern.test(input)){
             event.preventDefault();
             document.getElementById("error").innerHTML = "Vui lòng nhập họ và tên";
@@ -300,7 +288,7 @@
         }
         if(pattern.test(input1)){
             event.preventDefault();
-            document.getElementById("error1").innerHTML = "Vui lòng nhập email";
+            document.getElementById("error1").innerHTML = "Vui lòng nhập đúng định dạng email";
         }
         else {
             document.getElementById("error1").innerHTML = "";
@@ -322,12 +310,6 @@
             document.getElementById("error4").innerHTML = "Vui lòng nhập mật khẩu";
         }else {
             document.getElementById("error4").innerHTML = "";
-        }
-        if(pattern.test(input5)){
-            event.preventDefault();
-            document.getElementById("error5").innerHTML = "Vui lòng nhập đúng mật khẩu";
-        }else {
-            document.getElementById("error5").innerHTML = "";
         }
     });
 </script>
